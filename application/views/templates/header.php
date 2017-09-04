@@ -13,5 +13,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div class="header">
     <img src="<?=base_url()?>img/header.png">
-    yush
 </div>
