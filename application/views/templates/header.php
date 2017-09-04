@@ -7,11 +7,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Home Page - Big Rivers</title>
 </head>
 <!-- Css/Fonts -->
-<link rel="icon" href="<?php echo base_url();?>images/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="<?php echo base_url();?>css/style.css" type="text/css" />
+<link rel="icon" href="<?=base_url()?>img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="<?=base_url()?>css/style.css" type="text/css" />
 
 <body>
 <div class="header">
-    <img src="<?php echo base_url();?>images/header.png">
+    <img src="<?=base_url()?>img/header.png">
     yush
 </div>
