@@ -1,14 +1,14 @@
-<form>
-    <div class="form-group">
-        <label for="email">Email address:</label>
-        <input type="email" class="form-control" id="email">
+<div>
+    <div id="fullBg" />
+
+    <div class="login_container">
+        <form class="form-signin">
+            <h1 class="form-signin-heading">Please Login</h1>
+            <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+            <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+        </form>
+        <p class="text-center sign-up"><strong>Sign up</strong> for a new account</p>
     </div>
-    <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd">
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox"> Remember me</label>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
+</div>
