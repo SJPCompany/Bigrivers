@@ -41,7 +41,7 @@ body {
     }
 }
 .beads-left {
-    margin-top: 7%;
+    margin-top: 4%;
 }
 .header {
     background-image: url("../img/header.png");
@@ -113,7 +113,7 @@ div.container{
     height: 100%;
     width: 100%;
     position: absolute;
-    top: 1%;
+    top: 85%;
     background-size: cover;
 }
 
@@ -171,10 +171,4 @@ z
     border-radius: 3px;
     border: none;
 }
-
-p.sign-up {
-    color: #fff;
-    font-size: 12px;
-}
-
 /**/
