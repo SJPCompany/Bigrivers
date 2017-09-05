@@ -70,12 +70,21 @@ div.container{
     height: 100%;
     width: 1200px;
     text-align: center;
-    margin-right: auto;!important;
-    margin-left: auto;!important;
+    margin-right: auto !important;
+    margin-left: auto !important;
 }
 
 .h1 {
     font-size: 36px;
+}
+
+.socialmedialinks{
+    list-style-type: none;
+    display: inline;
+}
+.social{
+    list-style-type: none;
+    display: inline;
 }
 
 /**/
