@@ -71,9 +71,21 @@ body {
 .header-beer {
     height: 120px;
     width: 120px;
-    margin-top: 1%; !important;
+    margin-top: 1% !important;
 }
 .header-peanuts {
     height: 180px;
     width: 180px;
+}
+@media (min-width: 780px) {
+    .navbar {
+        background-image: url("../img/ductape.png");
+        background-color: transparent !important;
+        border-color: transparent !important;
+        max-height: 140px !important;
+        background-size: 100% 100%;
+    }
+}
+.beads-left {
+    margin-top: 7%;
 }
