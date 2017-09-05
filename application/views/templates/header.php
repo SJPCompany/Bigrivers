@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div class="header">
     <div class="header-items">
-        <!-- <img class="header-beer" src="<?=base_url()?>img/beer.png"> -->
-        <!-- <img class="header-peanuts" src="<?=base_url()?>img/peanuts.png"> -->
+        <img class="header-beer" src="<?=base_url()?>img/beer.png">
+        <img class="header-peanuts" src="<?=base_url()?>img/peanuts.png">
     </div>
 </div>
 <div class="header-coaster img-circle">
@@ -25,4 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <a href="index/home">
         <img class="header-logo" src="<?=base_url()?>img/logo.gif">
     </a>
+</div>
+<div class="navbar navbar-inverse">
+        <img class="beads-left" src="<?=base_url()?>img/kraaltjes.png"
 </div>
