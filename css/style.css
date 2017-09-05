@@ -59,6 +59,27 @@ body {
      height: 100%;
      width: 0;
  }
+
+/* Contact pagina */
+div.container{
+    background-image: url("../img/bg.png");
+    display: inline-block;
+    margin-bottom: 40px;
+    padding: 20px;
+    padding-left: 80px;
+    height: 100%;
+    width: 1200px;
+    text-align: center;
+    margin-right: auto;!important;
+    margin-left: auto;!important;
+}
+
+.h1 {
+    font-size: 36px;
+}
+
+/**/
+
 @media screen and (max-width:780px) {
     .header-items {
         display: none;
@@ -71,9 +92,21 @@ body {
 .header-beer {
     height: 120px;
     width: 120px;
-    margin-top: 1%; !important;
+    margin-top: 1% !important;
 }
 .header-peanuts {
     height: 180px;
     width: 180px;
+}
+@media (min-width: 780px) {
+    .navbar {
+        background-image: url("../img/ductape.png");
+        background-color: transparent !important;
+        border-color: transparent !important;
+        max-height: 140px !important;
+        background-size: 100% 100%;
+    }
+}
+.beads-left {
+    margin-top: 7%;
 }

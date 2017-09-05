@@ -26,3 +26,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <img class="header-logo" src="<?=base_url()?>img/logo.gif">
     </a>
 </div>
+<div class="navbar navbar-inverse">
+        <img class="beads-left" src="<?=base_url()?>img/kraaltjes.png"
+</div>
