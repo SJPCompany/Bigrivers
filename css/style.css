@@ -110,11 +110,10 @@ div.container{
 }
 /* Login Interface*/
 #fullBg {
-    z-index: -1;
     height: 100%;
     width: 100%;
     position: absolute;
-    top: 85%;
+    top: 1%;
     background-size: cover;
 }
 

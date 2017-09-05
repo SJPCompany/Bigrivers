@@ -1,7 +1,4 @@
-<div>
-    <div id="fullBg" />
-
-    <div class="login_container">
+ <div class="login_container">
         <form class="form-signin">
             <h1 class="form-signin-heading">Please Login</h1>
             <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
@@ -11,4 +8,3 @@
         </form>
         <p class="text-center sign-up"><strong>Sign up</strong> for a new account</p>
     </div>
-</div>
