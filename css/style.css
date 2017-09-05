@@ -59,3 +59,21 @@ body {
      height: 100%;
      width: 0;
  }
+@media screen and (max-width:780px) {
+    .header-items {
+        display: none;
+    }
+}
+.header-items {
+    margin-left: 43.2%;
+    margin-top: -4%;
+}
+.header-beer {
+    height: 120px;
+    width: 120px;
+    margin-top: 1%; !important;
+}
+.header-peanuts {
+    height: 180px;
+    width: 180px;
+}

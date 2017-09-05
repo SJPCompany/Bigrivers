@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div class="header">
     <div class="header-items">
-        <!-- <img class="header-beer" src="<?=base_url()?>img/beer.png"> -->
-        <!-- <img class="header-peanuts" src="<?=base_url()?>img/peanuts.png"> -->
+        <img class="header-beer" src="<?=base_url()?>img/beer.png">
+        <img class="header-peanuts" src="<?=base_url()?>img/peanuts.png">
     </div>
 </div>
 <div class="header-coaster img-circle">
