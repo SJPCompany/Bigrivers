@@ -8,3 +8,80 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+If(cup.coffee=EMPTY)
+{programmer->;brain=OFF};
+
+
+             / / /
+         ____\_\_\____
+        /    / / /    \
+        \_____________/ ___
+        |             |/   \
+        |             |    /
+        |   Coffee    |   /
+        |             |  /
+        |             |_/
+        \_____________/
+
+-->
