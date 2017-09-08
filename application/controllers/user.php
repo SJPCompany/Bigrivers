@@ -10,6 +10,9 @@ class user extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function doLogin() {
+    }
+
     public function backend() {
         $this->load->view('templates/header');
         $this->load->view('user/backend_page');
