@@ -2,7 +2,7 @@
     <div id="fullBg" />
 
     <div class="login_container">
-        <form autocomplete="off" class="form-signin">
+        <form autocomplete="off" class="form-signin" method="post" action="<?php echo base_url("user/backend") ?>">
             <h1 class="form-signin-heading">Please Login</h1>
             <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
             <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
