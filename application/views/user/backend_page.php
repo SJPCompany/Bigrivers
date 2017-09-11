@@ -5,7 +5,7 @@
         <form class="form-signin">
             <?php foreach ($_POST as $info) {?>
             <p> <?php echo $info; ?></p>
-            <?php }?>
+            <?php } var_dump($_POST);?>
         </form>
     </div>
 </div>

@@ -42,7 +42,10 @@ body {
     }
 }
 .beads-left {
-    margin-top: 4%;
+    position: absolute;
+    float: left;
+    margin-top: -50px;
+    z-index: -1;
 }
 .header {
     background-image: url("../img/header.png");
