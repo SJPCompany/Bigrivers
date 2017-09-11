@@ -26,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <img class="header-logo" src="<?=base_url()?>img/logo.gif">
     </a>
 </div>
+
 <div class="navbar">
         <img class="beads-left" src="<?=base_url()?>img/kraaltjes.png"
 </div>
@@ -33,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <ul class="nav navbar-nav">
 
         <li id="menuitem-id-1">
-            <a class="menuitem-link" href="#" target="_self">Home</a>
+            <a class="menuitem-link" href="<?php echo base_url("home/index")?>" target="_self">Home</a>
         </li>
         <li id="menuitem-id-2">
             <a class="menuitem-link" href="#" target="_self">Nieuws</a>
@@ -65,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <a class="menuitem-link" href="#" target="_self">Over ons</a>
         </li>
         <li id="menuitem-id-8">
-            <a class="menuitem-link" href="#" target="_self">Contact</a>
+            <a class="menuitem-link" href="<?php echo base_url("contact/view")?>" target="_self">Contact</a>
         </li>
         <li id="menuitem-id-9">
             <a class="menuitem-link" href="<?php echo base_url("user/index") ?>" target="_self">Login</a>

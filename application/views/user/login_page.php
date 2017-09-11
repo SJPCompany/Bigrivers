@@ -1,13 +1,11 @@
-<div>
-    <div id="fullBg" />
+<div class="wrapper">
+    <div class="container">
+        <h1>Welcome</h1>
 
-    <div class="login_container">
-        <form autocomplete="off" class="form-signin" method="post" action="<?php echo base_url("user/backend") ?>">
-            <h1 class="form-signin-heading">Please Login</h1>
-            <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-            <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
-
-            <button class="btn btn-lg btn-danger btn-block" type="submit">Log in</button>
+        <form class="form" autocomplete="off" method="post" action="<?php echo base_url("user/backend") ?>">
+            <input type="text" placeholder="Username" placeholder="Email Address" required="" autofocus="" >
+            <input type="password" name="password" placeholder="Password" required="">
+            <button type="submit" id="login-button">Login</button>
         </form>
     </div>
 </div>
