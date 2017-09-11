@@ -22,13 +22,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <h3 class="header-date">14/15/16 juli!</h3>
     </div>
     <div class="pseudo-align"></div>
-    <a href="index/home">
+    <a href="<?php echo base_url("home/index")?>">
         <img class="header-logo" src="<?=base_url()?>img/logo.gif">
     </a>
 </div>
 
 <div class="navbar">
-        <img class="beads-left" src="<?=base_url()?>img/kraaltjes.png"
+    <img class="beads-left" src="<?=base_url()?>img/kraaltjes.png"/>
 </div>
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
