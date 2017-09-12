@@ -25,8 +25,31 @@ class user extends CI_Controller {
             $error = "Wrong username or password";
             $this->session->set_userdata('error', $error);
             return redirect('errors/index');
-        } else {
-            $this->backend();
+        } else // Get the role from the user
+            {
+            foreach ($checker as $info) {
+                $role = $info->role;
+            }
+            // check wich role the user has
+            switch ($role) {
+                case 'programmeur':
+                $_SESSION['programmeur'] = true;
+                unset($_SESSION['beheerder'], $_SESSION['gebruiker']);
+                break;
+                case 'beheerder':
+                $_SESSION['beheerder'] = true;
+                unset($_SESSION['programmeur'], $_SESSION['gebruiker']);
+                break;
+                default:
+                $_SESSION['gebruiker'] = true;
+                unset($_SESSION['programmeur'], $_SESSION['beheerder']);
+            }
+            // Check if the user is allowd for the backend
+            if (isset($_SESSION['programmeur']) || isset($_SESSION['beheerder'])) {
+                $this->backend();
+            } else {
+                $this->index();
+            }
         }
     }
 

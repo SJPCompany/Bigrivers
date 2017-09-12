@@ -8,12 +8,12 @@ class user_model extends CI_Model {
     }
 
     public function get_Userinfo($username, $password) {
+        $this->db->select('*');
         $this->db->from('user');
-        $this->db->where('username', $username);
-        $this->db->where('password', $password);
+        $this->db->where(array('username'=>$username, 'password'=>$password));
         $query = $this->db->get();
         if($query->num_rows() > 0) {
-            return true;
+            return $userinfo = $query->result();
         } else {
             return false;
         }

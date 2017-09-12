@@ -20,7 +20,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
+    <?php if(isset($_SESSION['programmeur'])) { ?>
+    <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/dist/css/skins/skin-red.min.css">
+    <?php } else { ?>
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/dist/css/skins/skin-blue.min.css">
+    <?php } ?>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,4 +57,8 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<?php if(isset($_SESSION['programmeur'])) { ?>
+    <body class="hold-transition skin-red sidebar-mini">
+<?php } else { ?>
+    <body class="hold-transition skin-blue sidebar-mini">
+<?php } ?>
