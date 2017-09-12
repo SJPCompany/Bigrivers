@@ -31,8 +31,8 @@ class user extends CI_Controller {
     }
 
     public function backend() {
-        $this->load->view('templates/header');
-        $this->load->view('user/backend_page');
-        $this->load->view('templates/footer');
+        $this->load->view('templates/backend_header');
+        $this->load->view('backend/backend_page');
+        $this->load->view('templates/backend_footer');
     }
 }
