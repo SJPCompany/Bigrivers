@@ -21,7 +21,7 @@ class user extends CI_Controller {
         $password = $_POST['password'];
         $checker = $this->user_model->get_Userinfo($username, $password);
         if($checker == FALSE) {
-            $_SESSION['error'];
+            $_SESSION['error'] = [];
             $error = "Wrong username or password";
             $this->session->set_userdata('error', $error);
             return redirect('errors/index');

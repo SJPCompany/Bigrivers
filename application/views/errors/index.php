@@ -4,7 +4,7 @@
     <title>Errors</title>
 </head>
 <body>
-
+<div class="container">
 <h1>Something went wrong look below for more info</h1>
 <?php if(isset($_SESSION['error'])) {
     if ($_SESSION['error'] > 1) {
@@ -16,9 +16,9 @@
         ?> <p> <?php echo $_SESSION['error']; ?> </p> <?php
     }
 } else {
-        echo 'No errors orcured';
+    ?> <p> <?php echo 'No problems'; ?> </p> <?php
     }
 ?>
-
+</div>
 </body>
 </html>
