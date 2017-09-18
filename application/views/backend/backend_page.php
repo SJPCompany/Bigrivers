@@ -4,7 +4,7 @@
         <section class="content-header">
             <h1>
                 Bigrivers
-                <small>Backend website</small>
+                <small>Backend page</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -28,10 +28,10 @@
     <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-            Anything you want
+            All rights reserved.
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2017 <a href="#">SJP Company</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
     </footer>
 
     <!-- Control Sidebar -->

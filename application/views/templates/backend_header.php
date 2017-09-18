@@ -17,6 +17,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend//dist/css/AdminLTE.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="<?=base_url()?>img/favicon.ico" type="image/x-icon">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
@@ -265,11 +267,11 @@ desired effect
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">Levels</li>
+                <li class="header">Menu</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="<?= base_url("user/backend"); ?>"><i class="fa fa-link"></i> <span>Home</span></a></li>
-                <li><a href="<?= base_url("user/viewUsers"); ?>"><i class="fa fa-link"></i> <span>View users</span></a></li>
-                <li><a href="#"><i class="fa fa-link"></i> <span>View events</span></a></li>
+                <li class="active"><a href="<?= base_url("user/backend"); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
+                <li><a href="<?= base_url("user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>View users</span></a></li>
+                <li><a href="#"><i class="fa fa-address-book"></i> <span>View events</span></a></li>
                 <!-- An dropdown menu for adminlte
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>

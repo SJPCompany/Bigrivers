@@ -62,14 +62,14 @@
     <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
-    <footer class="main-footer">
-        <!-- To the right -->
-        <div class="pull-right hidden-xs">
-            Anything you want
-        </div>
-        <!-- Default to the left -->
-        <strong>Copyright &copy; 2017 <a href="#">SJP Company</a>.</strong> All rights reserved.
-    </footer>
+     <footer class="main-footer">
+         <!-- To the right -->
+         <div class="pull-right hidden-xs">
+             All rights reserved.
+         </div>
+         <!-- Default to the left -->
+         <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
+     </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
