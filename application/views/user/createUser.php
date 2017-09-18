@@ -1,11 +1,10 @@
- <!-- Content Wrapper. Contains page content -->
+    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Bigrivers
-                <small>Backend website</small>
-            </h1>
+                View Users
+            </h1> <br>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
                 <li class="active">Here</li>
@@ -13,12 +12,22 @@
         </section>
 
         <!-- Main content -->
-        <section class="content container-fluid">
-
-            <!--------------------------
-              | Your Page Content Here |
-              -------------------------->
-
+        <section>
+            <form action="#" method="post">
+                <label>Username:</label><br>
+                <input type="text" name="username" placeholder="John124"><br>
+                <label>Password:</label><br>
+                <input type="text" name="password" placeholder="******"><br>
+                <label>Email:</label><br>
+                <input type="text" name="email" placeholder="example@hotmail.com"><br>
+                <label>Choose Role:</label> <br>
+                <select name="role">
+                    <option value="programmeur">programmeur</option>
+                    <option value="beheerder">beheerder</option>
+                    <option value="gebruiker">gebruiker</option>
+                </select> <br><br>
+                <input type="submit" name="submit" value="submit">
+            </form>
         </section>
         <!-- /.content -->
     </div>

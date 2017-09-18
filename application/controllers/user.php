@@ -58,4 +58,24 @@ class user extends CI_Controller {
         $this->load->view('backend/backend_page');
         $this->load->view('templates/backend_footer');
     }
+
+    public function viewUsers() {
+        $data['users'] = $this->user_model->getAllUsers();
+        if ($data == FALSE) {
+            $_SESSION['error'] = [];
+            $error = "No users has been found?";
+            $this->session->set_userdata('error', $error);
+            return redirect('errors/index');
+        } else {
+            $this->load->view('templates/backend_header');
+            $this->load->view('user/viewUsers', $data);
+            $this->load->view('templates/backend_footer');
+        }
+    }
+
+    public function createUser() {
+        $this->load->view('templates/backend_header');
+        $this->load->view('user/createUser');
+        $this->load->view('templates/backend_footer');
+    }
 }

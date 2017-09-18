@@ -3,8 +3,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Bigrivers
-                <small>Backend website</small>
+                View Users
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -13,12 +12,50 @@
         </section>
 
         <!-- Main content -->
+        <?php if(isset($_SESSION['programmeur'])) { ?>
+            <style>
+                th {
+                    background-color: #dd4b39;
+                    color: white;
+                }
+            </style>
+       <?php } else { ?>
+            <style>
+                th {
+                    background-color: #3c8dbc;
+                    color: #f2f2f2;
+                }
+            </style>
+        <?php } ?>
         <section class="content container-fluid">
-
-            <!--------------------------
-              | Your Page Content Here |
-              -------------------------->
-
+        <table>
+            <thead>
+            <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Create</th>
+            <th>Edit</th>
+            <th>Block/Unblock</th>
+            <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($users as $user) { ?>
+                <tr>
+                <td><?= $user->username ?></td>
+                <td><?= $user->email ?></td>
+                <td><?= $user->role ?></td>
+                <td><?= $user->status ?></td>
+                <td><a href="<?= base_url("user/createUser"); ?>">Create</a></td>
+                <td><a href="#">Edit</a></td>
+                <td><a href="#">Block/Unblock</a></td>
+                <td><a href="#">Delete</a></td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
         </section>
         <!-- /.content -->
     </div>
