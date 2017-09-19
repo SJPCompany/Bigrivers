@@ -11,27 +11,59 @@
             </ol>
         </section>
 
+
         <!-- Main content -->
         <section>
+            <?php if(isset($_SESSION['error'])) {
+                if ($_SESSION['error'] > 1) {
+                    foreach ($_SESSION['error'] as $item) {
+                        ?> <p class="errortext"><b> <?php echo $item; ?> </b></p> <?php
+                        echo '<br /><br />';
+                    }
+                } else {
+                    ?> <p class="errortext"><b> <?php echo $_SESSION['error']; ?> </b></p> <?php
+                }
+            } else {
+            }
+            unset($_SESSION['error']);
+            ?>
+            <div class="divform">
+                <header>
+                    <h1 class="headerform">Create User</h1>
+                </header>
+                <?php if (isset($_SESSION['programmeur'])) {?>
+                <style>
+                    .headerform {
+                        background-color: #dd4b39;
+                        color: white;
+                    }
+                </style> <?php } else { ?>
+                <style>
+                    .headerform {
+                        background-color: #3c8dbc;
+                        color: #f2f2f2;
+                    }
+                </style> <?php } ?>
             <form action="<?= base_url("user/checkUserData"); ?>" method="post">
-                <label>Username:</label><br>
+                <label>Username:</label>
                 <input type="text" name="username" placeholder="John124"><br>
-                <label>Password:</label><br>
+                <label>Password:</label>
                 <input type="text" name="password" placeholder="******"><br>
-                <label>Email:</label><br>
+                <label>Email:</label>
                 <input type="text" name="email" placeholder="example@hotmail.com"><br>
-                <label>Choose Role:</label> <br>
+                <label>Choose Role:</label>
                 <select name="role">
                     <option value="programmeur">programmeur</option>
                     <option value="beheerder">beheerder</option>
                     <option value="gebruiker">gebruiker</option>
                 </select> <br><br>
-                <input type="submit" name="submit" value="submit">
+                <label></label><input type="submit" name="submit" value="submit">
             </form>
+            </div>
         </section>
         <!-- /.content -->
-    </div>
     <!-- /.content-wrapper -->
+    </div>
 
     <!-- Main Footer -->
     <footer class="main-footer">
