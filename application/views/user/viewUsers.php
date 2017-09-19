@@ -35,7 +35,6 @@
             <th>Email</th>
             <th>Role</th>
             <th>Status</th>
-            <th>Create</th>
             <th>Edit</th>
             <th>Block/Unblock</th>
             <th>Delete</th>
@@ -48,7 +47,6 @@
                 <td><?= $user->email ?></td>
                 <td><?= $user->role ?></td>
                 <td><?= $user->status ?></td>
-                <td><a href="<?= base_url("user/createUser"); ?>">Create</a></td>
                 <td><a href="#">Edit</a></td>
                 <td><a href="#">Block/Unblock</a></td>
                 <td><a href="#">Delete</a></td>
@@ -56,6 +54,7 @@
             <?php } ?>
             </tbody>
         </table>
+            <a class='tablelink' href="<?= base_url("user/createUser"); ?>">Create</a>
         </section>
         <!-- /.content -->
     </div>

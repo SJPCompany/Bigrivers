@@ -31,4 +31,21 @@ class user_model extends CI_Model {
             return false;
         }
     }
+
+    public function createUser($username, $password, $email, $role) {
+        /* how to make a insert query
+        $data = array('title' => 'My title',
+        'name' => 'My Name',
+        'date' => 'My date');
+        $this->db->insert('mytable', $data);
+        */
+
+        $data = array('username' => $username, 'password' => $password, 'email' => $email, 'role' => $role);
+        $this->db->insert('user', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

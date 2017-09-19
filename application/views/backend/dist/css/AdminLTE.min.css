@@ -20,3 +20,20 @@ table {
 th, td {
     padding: 15px;
 }
+
+.tablelink {
+    display: inline-block; /*Behaves like a div, but can be placed inline*/
+    width: 100%; /*Full width of parent*/
+    height: 100%; /*Full height of parent*/
+    text-align: center; /*Centers content*/
+}
+
+.Role {
+    color: #fff;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+.roletext {
+    line-height: 48px;
+}

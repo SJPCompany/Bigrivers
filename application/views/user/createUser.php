@@ -13,7 +13,7 @@
 
         <!-- Main content -->
         <section>
-            <form action="#" method="post">
+            <form action="<?= base_url("user/checkUserData"); ?>" method="post">
                 <label>Username:</label><br>
                 <input type="text" name="username" placeholder="John124"><br>
                 <label>Password:</label><br>

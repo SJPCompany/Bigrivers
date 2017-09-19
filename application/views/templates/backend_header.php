@@ -81,6 +81,11 @@ desired effect
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
+            <?php if (isset($_SESSION['programmeur'])) {?>
+                <span class="Role"><b class="roletext">Developer</b></span>
+            <?php } else { ?>
+                <span class="Role"><b class="roletext">Admin</b></span>
+            <?php } ?>
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">

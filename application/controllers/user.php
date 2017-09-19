@@ -24,7 +24,7 @@ class user extends CI_Controller {
             $_SESSION['error'] = [];
             $error = "Wrong username or password";
             $this->session->set_userdata('error', $error);
-            return redirect('errors/index');
+            return $this->index();
         } else // Get the role from the user
             {
             foreach ($checker as $info) {
@@ -48,7 +48,7 @@ class user extends CI_Controller {
             if (isset($_SESSION['programmeur']) || isset($_SESSION['beheerder'])) {
                 $this->backend();
             } else {
-                $this->index();
+                return redirect('home/index');
             }
         }
     }
@@ -77,5 +77,29 @@ class user extends CI_Controller {
         $this->load->view('templates/backend_header');
         $this->load->view('user/createUser');
         $this->load->view('templates/backend_footer');
+    }
+
+    public function checkUserData() {
+        if ($_POST['username'] == '' || $_POST['password'] == '' || $_POST['email'] == '' ||
+        $_POST['role'] == '') {
+            $_SESSION['error'] = [];
+            $error = "User data is left empty";
+            $this->session->set_userdata('error', $error);
+            return redirect('errors/index');
+        } else {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $email = $_POST['email'];
+            $role= $_POST['role'];
+            $insert = $this->user_model->createUser($username, $password, $email, $role);
+            if ($insert == FALSE) {
+                $_SESSION['error'] = [];
+                $error = "insert query went wrong";
+                $this->session->set_userdata('error', $error);
+                return redirect('errors/index');
+            } else {
+                return redirect('user/viewUsers');
+            }
+        }
     }
 }
