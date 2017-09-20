@@ -47,7 +47,7 @@
                 <td><?= $user->email ?></td>
                 <td><?= $user->role ?></td>
                 <td><?= $user->status ?></td>
-                <td><a href="#">Edit</a></td>
+                <td><a href="<?= base_url('user/editUser/'. $user->id) ?>">Edit</a></td>
                 <td><a href="#">Block/Unblock</a></td>
                 <td><a href="#">Delete</a></td>
                 </tr>
