@@ -22,7 +22,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
-    <?php if(isset($_SESSION['programmeur'])) { ?>
+    <?php if($_SESSION['userinfo']->role == 'programmeur') { ?>
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/dist/css/skins/skin-red.min.css">
     <?php } else { ?>
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/dist/css/skins/skin-blue.min.css">
@@ -59,7 +59,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<?php if(isset($_SESSION['programmeur'])) { ?>
+<?php if($_SESSION['userinfo']->role == 'programmeur') { ?>
     <body class="hold-transition skin-red sidebar-mini">
 <?php } else { ?>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -83,7 +83,7 @@ desired effect
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-            <?php if (isset($_SESSION['programmeur'])) {?>
+            <?php if ($_SESSION['userinfo']->role == 'programmeur') {?>
                 <span class="Role"><b class="roletext">Developer</b></span>
             <?php } else { ?>
                 <span class="Role"><b class="roletext">Admin</b></span>

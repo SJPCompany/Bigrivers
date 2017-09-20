@@ -31,7 +31,7 @@
                 <header>
                     <h1 class="headerform">Create User</h1>
                 </header>
-                <?php if (isset($_SESSION['programmeur'])) {?>
+                <?php if ($_SESSION['userinfo']->role == 'programmeur') {?>
                 <style>
                     .headerform {
                         background-color: #dd4b39;

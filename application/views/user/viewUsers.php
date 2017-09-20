@@ -12,7 +12,7 @@
         </section>
 
         <!-- Main content -->
-        <?php if(isset($_SESSION['programmeur'])) { ?>
+        <?php if($_SESSION['userinfo']->role == 'programmeur') { ?>
             <style>
                 th {
                     background-color: #dd4b39;
