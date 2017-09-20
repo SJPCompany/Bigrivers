@@ -3,12 +3,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                View Users
+                All users
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
-            </ol>
+            <br>
+            <a href="<?= base_url("user/createUser"); ?>" style="font-size: 140%;">
+                Create user
+            </a>
         </section>
 
         <!-- Main content -->
@@ -54,7 +54,6 @@
             <?php } ?>
             </tbody>
         </table>
-            <a class='tablelink' href="<?= base_url("user/createUser"); ?>">Create</a>
         </section>
         <!-- /.content -->
     </div>
