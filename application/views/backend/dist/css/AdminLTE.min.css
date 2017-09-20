@@ -31,6 +31,9 @@ th, td {
     line-height: 48px;
 }
 
+.create_form {
+    padding-left: 40%;
+    padding-top: 7%;
 .divform {
     position:fixed;
     top: 50%;
