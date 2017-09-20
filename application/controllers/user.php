@@ -85,7 +85,7 @@ class user extends CI_Controller {
             $_SESSION['error'] = [];
             $error = "User data is left empty";
             $this->session->set_userdata('error', $error);
-            return redirect('errors/index');
+            $this->createUser();
         } else {
             $username = $_POST['username'];
             $password = $_POST['password'];

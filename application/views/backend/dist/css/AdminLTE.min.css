@@ -21,13 +21,6 @@ th, td {
     padding: 15px;
 }
 
-.tablelink {
-    display: inline-block; /*Behaves like a div, but can be placed inline*/
-    width: 100%; /*Full width of parent*/
-    height: 100%; /*Full height of parent*/
-    text-align: center; /*Centers content*/
-}
-
 .Role {
     color: #fff;
     padding-left: 15px;
@@ -41,4 +34,32 @@ th, td {
 .create_form {
     padding-left: 40%;
     padding-top: 7%;
+.divform {
+    position:fixed;
+    top: 50%;
+    left: 58%;
+    width:30em;
+    height:18em;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+}
+
+.errortext {
+    text-align: center;
+    color: red;
+}
+
+.headerform {
+    margin:0;
+    padding:0;
+}
+
+label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+    margin-right: 3em;
+    margin-top: 1em;
 }
