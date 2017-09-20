@@ -26,26 +26,13 @@ class user extends CI_Controller {
             $this->session->set_userdata('error', $error);
             return $this->index();
         } else // Get the role from the user
-            {
+        {
             foreach ($checker as $info) {
-                $role = $info->role;
+                $role = $info;
             }
-            // check wich role the user has
-            switch ($role) {
-                case 'programmeur':
-                $_SESSION['programmeur'] = true;
-                unset($_SESSION['beheerder'], $_SESSION['gebruiker']);
-                break;
-                case 'beheerder':
-                $_SESSION['beheerder'] = true;
-                unset($_SESSION['programmeur'], $_SESSION['gebruiker']);
-                break;
-                default:
-                $_SESSION['gebruiker'] = true;
-                unset($_SESSION['programmeur'], $_SESSION['beheerder']);
-            }
+            $this->session->set_userdata('userinfo', $role);
             // Check if the user is allowd for the backend
-            if (isset($_SESSION['programmeur']) || isset($_SESSION['beheerder'])) {
+            if ($_SESSION['userinfo']->role == 'programmeur' || $_SESSION['userinfo']->role == 'beheerder') {
                 $this->backend();
             } else {
                 return redirect('home/index');
@@ -85,7 +72,7 @@ class user extends CI_Controller {
             $_SESSION['error'] = [];
             $error = "User data is left empty";
             $this->session->set_userdata('error', $error);
-            return redirect('errors/index');
+            $this->createUser();
         } else {
             $username = $_POST['username'];
             $password = $_POST['password'];

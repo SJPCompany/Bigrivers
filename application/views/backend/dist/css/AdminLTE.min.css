@@ -30,3 +30,36 @@ th, td {
 .roletext {
     line-height: 48px;
 }
+
+.create_form {
+    padding-left: 40%;
+    padding-top: 7%;
+.divform {
+    position:fixed;
+    top: 50%;
+    left: 58%;
+    width:30em;
+    height:18em;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+}
+
+.errortext {
+    text-align: center;
+    color: red;
+}
+
+.headerform {
+    margin:0;
+    padding:0;
+}
+
+label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+    margin-right: 3em;
+    margin-top: 1em;
+}

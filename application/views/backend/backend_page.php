@@ -6,15 +6,42 @@
                 Bigrivers
                 <small>Backend page</small>
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
-            </ol>
         </section>
 
         <!-- Main content -->
         <section class="content container-fluid">
 
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-clock-o"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Current time</span>
+                        <span class="info-box-number">
+                            <?php
+                            date_default_timezone_set('Europe/Amsterdam');
+                            echo date("h:i");
+                            ?></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Users</span>
+                        <span class="info-box-number">
+                            <?php
+                            ?>
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
             <!--------------------------
               | Your Page Content Here |
               -------------------------->
