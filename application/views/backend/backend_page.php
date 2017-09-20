@@ -35,7 +35,6 @@
                         <span class="info-box-text">Users</span>
                         <span class="info-box-number">
                             <?php
-                                echo UserCount();
                             ?>
                         </span>
                     </div>
