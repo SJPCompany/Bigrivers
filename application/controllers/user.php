@@ -1,9 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class user extends CI_Controller {
+class user extends CI_Controller
+{
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
         $this->load->library('session');
         $this->load->model('../models/user_model');
@@ -16,23 +18,28 @@ class user extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    public function backend() {
+    public function backend()
+    {
+        $this->load->library('upload');
         $this->load->view('templates/backend_header');
         $this->load->view('backend/backend_page');
         $this->load->view('templates/backend_footer');
     }
 
-    public function profile(){
+    public function profile()
+    {
+        $this->load->helper('form');
         $this->load->view('templates/backend_header');
         $this->load->view('user/profile_page');
         $this->load->view('templates/backend_footer');
     }
 
-    public function doLogin() {
+    public function doLogin()
+    {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $checker = $this->user_model->get_Userinfo($username, $password);
-        if($checker == FALSE) {
+        if ($checker == FALSE) {
             $_SESSION['error'] = [];
             $error = "Wrong username or password";
             $this->session->set_userdata('error', $error);
@@ -52,7 +59,8 @@ class user extends CI_Controller {
         }
     }
 
-    public function viewUsers() {
+    public function viewUsers()
+    {
         $data['users'] = $this->user_model->getAllUsers();
         if ($data == FALSE) {
             $_SESSION['error'] = [];
@@ -66,15 +74,18 @@ class user extends CI_Controller {
         }
     }
 
-    public function createUser() {
+    public function createUser()
+    {
         $this->load->view('templates/backend_header');
         $this->load->view('user/createUser');
         $this->load->view('templates/backend_footer');
     }
 
-    public function checkUserData() {
+    public function checkUserData()
+    {
         if ($_POST['username'] == '' || $_POST['password'] == '' || $_POST['email'] == '' ||
-        $_POST['role'] == '') {
+            $_POST['role'] == ''
+        ) {
             $_SESSION['error'] = [];
             $error = "User data is left empty";
             $this->session->set_userdata('error', $error);
@@ -83,7 +94,7 @@ class user extends CI_Controller {
             $username = $_POST['username'];
             $password = $_POST['password'];
             $email = $_POST['email'];
-            $role= $_POST['role'];
+            $role = $_POST['role'];
             $insert = $this->user_model->createUser($username, $password, $email, $role);
             if ($insert == FALSE) {
                 $_SESSION['error'] = [];
@@ -95,33 +106,27 @@ class user extends CI_Controller {
             }
         }
     }
-    public function upload_user_avatar() {
-        if(isset($_POST['upload'])){
-            $id = $_POST['id'];
+    public function do_upload()
+    {
+        $config['upload_path']          = './img/avatars/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 100;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
 
-            if (($_FILES["avatar"]["type"] == "image/png")
-                || ($_FILES["avatar"]["type"] == "image/jpg")){
+        $this->load->library('upload', $config);
 
-                    $filename = basename($_FILES['avatar']);
-                    $extension = pathinfo($filename, PATHINFO_EXTENSION);
-                    $new       = 'avatar_'.$user_id.'.png';
+        if ( ! $this->upload->do_upload())
+        {
+            $error = array('error' => $this->upload->display_errors());
 
-                    $target= $_SERVER['DOCUMENT_ROOT'] ."/bigrivers2017/img/avatars";
-                    $this->load->model('user_model');
-
-                    $this->user_model->up_avatar($new);
-                    if (move_uploaded_file($_FILES['avatar']['tmp_name'], $target."/{$new}")){
-                        redirect("user/backend", "refresh");
-                    }
-                    else{
-                        $msg = "Error, upload not succesfull";
-                    }
-                }
-                else{
-                    $this->session->set_flashdata("ERRORava", "Not an jpg or png.");
-                }
-            }
-
+            $this->load->view('backend', $error);
         }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
 
+            $this->load->view('backend', $data);
+        }
+    }
 }

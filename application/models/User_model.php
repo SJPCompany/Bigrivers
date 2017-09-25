@@ -48,10 +48,12 @@ class user_model extends CI_Model {
             return false;
         }
     }
-    function up_avatar($new){
-        $avatar = $new;
-        $id= $this->input->post('user_id');
-        $this->db->where('user_id', $id);
-        $this->db->update('users', array('avatar' => $avatar));
+
+    public function UserCount(){
+        $this->db->select('*') ;
+        $this->db->from('user');
+        $query = $this->db->get();
+        $num_rows = $query->num_rows();
     }
+
 }
