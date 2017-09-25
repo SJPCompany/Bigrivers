@@ -9,7 +9,7 @@ class user_model extends CI_Model {
 
     public function get_Userinfo($username, $password) {
         $this->db->select('*');
-        $this->db->from('user');
+        $this->db->from('v_justinisirritant');
         $this->db->where(array('username'=>$username, 'password'=>$password));
         $query = $this->db->get();
         if($query->num_rows() > 0) {
@@ -23,7 +23,7 @@ class user_model extends CI_Model {
     public function getAllUsers()
     {
         $this->db->select('*');
-        $this->db->from('user');
+        $this->db->from('v_justinisirritant');
         $query = $this->db->get();
         if($query->num_rows() > 0) {
             return $query->result();
@@ -40,7 +40,7 @@ class user_model extends CI_Model {
         $this->db->insert('mytable', $data);
         */
 
-        $data = array('username' => $username, 'password' => $password, 'email' => $email, 'role' => $role);
+        $data = array('username' => $username, 'password' => $password, 'email' => $email, 'role_id' => $role);
         $this->db->insert('user', $data);
         if ($this->db->affected_rows() > 0) {
             return true;
@@ -55,5 +55,39 @@ class user_model extends CI_Model {
         $query = $this->db->get();
         $num_rows = $query->num_rows();
 
+    }
+
+    public function getAllRoles() {
+        $this->db->select('*');
+        $this->db->from('roles');
+        $query = $this->db->get();
+        if($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    public function getUserById($user_id){
+        $this->db->select('*');
+        $this->db->from('v_justinisirritant');
+        $this->db->where(array('id' => $user_id));
+        $query = $this->db->get();
+        if($query->num_rows() > 0) {
+            return $userdata = $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    public function updateUserById($username, $password, $email, $role, $id) {
+        $data = array('username' => $username, 'password' => $password, 'email' => $email, 'role_id' => $role);
+        $this->db->where(array('id' => $id));
+        $this->db->update('user', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

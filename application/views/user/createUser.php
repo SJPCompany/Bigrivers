@@ -27,7 +27,7 @@
                 <header>
                     <h1 class="headerform">Create User</h1>
                 </header>
-                <?php if ($_SESSION['userinfo']->role == 'programmeur') {?>
+                <?php if ($_SESSION['userinfo']->name == 'programmeur') {?>
                 <style>
                     .headerform {
                         background-color: #dd4b39;
@@ -49,9 +49,9 @@
                 <input type="text" name="email" placeholder="example@hotmail.com"><br>
                 <label>Choose Role:</label>
                 <select name="role">
-                    <option value="programmeur">programmeur</option>
-                    <option value="beheerder">beheerder</option>
-                    <option value="gebruiker">gebruiker</option>
+                    <option value="1">programmeur</option>
+                    <option value="2">beheerder</option>
+                    <option value="3">gebruiker</option>
                 </select> <br><br>
                 <label></label><input type="submit" name="submit" value="submit">
             </form>

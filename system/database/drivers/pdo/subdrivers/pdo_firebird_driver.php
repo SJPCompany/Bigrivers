@@ -96,7 +96,7 @@ class CI_DB_pdo_firebird_driver extends CI_DB_pdo_driver {
 			}
 
 			empty($this->char_set) OR $this->dsn .= ';charset='.$this->char_set;
-			empty($this->role) OR $this->dsn .= ';role='.$this->role;
+			empty($this->name) OR $this->dsn .= ';role='.$this->name;
 		}
 		elseif ( ! empty($this->char_set) && strpos($this->dsn, 'charset=', 9) === FALSE)
 		{

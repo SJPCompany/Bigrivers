@@ -22,7 +22,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
-    <?php if($_SESSION['userinfo']->role == 'programmeur') { ?>
+    <?php if($_SESSION['userinfo']->name == 'programmeur') { ?>
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/dist/css/skins/skin-red.min.css">
     <?php } else { ?>
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/dist/css/skins/skin-blue.min.css">
@@ -38,6 +38,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+    </script>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -59,7 +65,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<?php if($_SESSION['userinfo']->role == 'programmeur') { ?>
+<?php if($_SESSION['userinfo']->name == 'programmeur') { ?>
     <body class="hold-transition skin-red sidebar-mini">
 <?php } else { ?>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -83,7 +89,7 @@ desired effect
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-            <?php if ($_SESSION['userinfo']->role == 'programmeur') {?>
+            <?php if ($_SESSION['userinfo']->name == 'programmeur') {?>
                 <span class="Role"><b class="roletext">Developer</b></span>
             <?php } else { ?>
                 <span class="Role"><b class="roletext">Admin</b></span>
