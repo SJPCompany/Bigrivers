@@ -54,7 +54,6 @@ class user_model extends CI_Model {
         $this->db->from('user');
         $query = $this->db->get();
         $num_rows = $query->num_rows();
-
     }
 
     public function getAllRoles() {

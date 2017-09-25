@@ -13,4 +13,10 @@ class errors extends CI_Controller
         $this->load->view('errors/index');
         $this->load->view('templates/footer');
     }
+
+    public function error_back() {
+        $this->load->view('templates/backend_header');
+        $this->load->view('errors/backend_error');
+        $this->load->view('templates/backend_footer');
+    }
 }
