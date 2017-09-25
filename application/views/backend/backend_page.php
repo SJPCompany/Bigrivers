@@ -43,7 +43,7 @@
                     <span class="info-box-icon bg-yellow"><i class="fa fa-calendar-check-o"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Next event</span>
+                        <span class="info-box-text">Volgende evenement</span>
                         <span class="info-box-number">
                             <?php
                             ?>
@@ -56,7 +56,7 @@
                     <span class="info-box-icon bg-aqua"><i class="fa fa-twitter"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Twitter followers</span>
+                        <span class="info-box-text">Twitter volgers</span>
                         <span class="info-box-number">
                             <?php
                             ?>
