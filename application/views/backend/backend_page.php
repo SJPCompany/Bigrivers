@@ -13,34 +13,56 @@
 
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-aqua"><i class="fa fa-clock-o"></i></span>
+                    <span class="info-box-icon bg-green"><i class="fa fa-clock-o"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Houdige tijd</span>
+                        <span class="info-box-text">Huidige tijd</span>
                         <span class="info-box-number">
                             <?php
                             date_default_timezone_set('Europe/Amsterdam');
                             echo date("h:i");
                             ?></span>
                     </div>
-                    <!-- /.info-box-content -->
                 </div>
-                <!-- /.info-box -->
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
                     <span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Gebruikers</span>
+                        <span class="info-box-text">Artiesten</span>
                         <span class="info-box-number">
                             <?php
                             ?>
                         </span>
                     </div>
-                    <!-- /.info-box-content -->
                 </div>
-                <!-- /.info-box -->
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-calendar-check-o"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Next event</span>
+                        <span class="info-box-number">
+                            <?php
+                            ?>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-twitter"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Twitter followers</span>
+                        <span class="info-box-number">
+                            <?php
+                            ?>
+                        </span>
+                    </div>
+                </div>
             </div>
             <!--------------------------
               | Your Page Content Here |

@@ -16,6 +16,18 @@ class user extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function backend() {
+        $this->load->view('templates/backend_header');
+        $this->load->view('backend/backend_page');
+        $this->load->view('templates/backend_footer');
+    }
+
+    public function profile(){
+        $this->load->view('templates/backend_header');
+        $this->load->view('user/profile_page');
+        $this->load->view('templates/backend_footer');
+    }
+
     public function doLogin() {
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -38,12 +50,6 @@ class user extends CI_Controller {
                 return redirect('home/index');
             }
         }
-    }
-
-    public function backend() {
-        $this->load->view('templates/backend_header');
-        $this->load->view('backend/backend_page');
-        $this->load->view('templates/backend_footer');
     }
 
     public function viewUsers() {
@@ -89,7 +95,7 @@ class user extends CI_Controller {
             }
         }
     }
-    public function upload_useravatar() {
+    public function upload_user_avatar() {
         if(isset($_POST['upload'])){
             $id = $_POST['id'];
 

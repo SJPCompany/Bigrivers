@@ -138,14 +138,13 @@ desired effect
 
                                 <p>
                                     <?= $_SESSION['username'] ?> - Web Developer
-                                    <small>Member since Sept.2017</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
                             <li class="user-body">
                                 <div class="row">
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
+                                        <a href="<?php echo base_url("user/profile") ?>">Profiel pagina</a>
                                     </div>
                                     <div class="col-xs-4 text-center">
                                         <a href="#">Sales</a>
@@ -208,16 +207,16 @@ desired effect
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">Menu</li>
-                <!-- Homepage item -->
+                <!-- Homepage -->
                 <li class="active"><a href="<?= base_url("user/backend"); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
 
-                <!-- Bekijk gebruikers menu item -->
+                <!-- Bekijk gebruikers -->
                 <li><a href="<?= base_url("user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>Bekijk gebruikers</span></a></li>
 
-                <!-- Bekijk evenemten menu item -->
+                <!-- Bekijk evenemten -->
                 <li><a href="#"><i class="fa fa-address-book"></i> <span>Bekijk evenementen</span></a></li>
 
-                <!-- Nieuws menu item -->
+                <!-- Nieuws -->
                 <li class="treeview">
                     <a href="#"><i class="fa fa-newspaper-o"></i> <span>Nieuws</span>
                         <span class="pull-right-container">
@@ -230,7 +229,7 @@ desired effect
                     </ul>
                 </li>
 
-                <!-- Artiesten menu item -->
+                <!-- Artiesten -->
                 <li class="treeview">
                     <a href="#"><i class="fa fa-user-circle-o"></i> <span>Artiesten</span>
                         <span class="pull-right-container">
