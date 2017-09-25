@@ -16,7 +16,7 @@
                     <span class="info-box-icon bg-aqua"><i class="fa fa-clock-o"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Current time</span>
+                        <span class="info-box-text">Houdige tijd</span>
                         <span class="info-box-number">
                             <?php
                             date_default_timezone_set('Europe/Amsterdam');
@@ -32,7 +32,7 @@
                     <span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Users</span>
+                        <span class="info-box-text">Gebruikers</span>
                         <span class="info-box-number">
                             <?php
                             ?>

@@ -89,4 +89,33 @@ class user extends CI_Controller {
             }
         }
     }
+    public function upload_useravatar() {
+        if(isset($_POST['upload'])){
+            $id = $_POST['id'];
+
+            if (($_FILES["avatar"]["type"] == "image/png")
+                || ($_FILES["avatar"]["type"] == "image/jpg")){
+
+                    $filename = basename($_FILES['avatar']);
+                    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+                    $new       = 'avatar_'.$user_id.'.png';
+
+                    $target= $_SERVER['DOCUMENT_ROOT'] ."/bigrivers2017/img/avatars";
+                    $this->load->model('user_model');
+
+                    $this->user_model->up_avatar($new);
+                    if (move_uploaded_file($_FILES['avatar']['tmp_name'], $target."/{$new}")){
+                        redirect("user/backend", "refresh");
+                    }
+                    else{
+                        $msg = "Error, upload not succesfull";
+                    }
+                }
+                else{
+                    $this->session->set_flashdata("ERRORava", "Not an jpg or png.");
+                }
+            }
+
+        }
+
 }
