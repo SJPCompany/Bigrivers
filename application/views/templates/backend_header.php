@@ -208,22 +208,100 @@ desired effect
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">Menu</li>
-                <!-- Optionally, you can add icons to the links -->
+                <!-- Homepage item -->
                 <li class="active"><a href="<?= base_url("user/backend"); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
-                <li><a href="<?= base_url("user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>View users</span></a></li>
-                <li><a href="#"><i class="fa fa-address-book"></i> <span>View events</span></a></li>
-                <!-- An dropdown menu for adminlte
+
+                <!-- Bekijk gebruikers menu item -->
+                <li><a href="<?= base_url("user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>Bekijk gebruikers</span></a></li>
+
+                <!-- Bekijk evenemten menu item -->
+                <li><a href="#"><i class="fa fa-address-book"></i> <span>Bekijk evenementen</span></a></li>
+
+                <!-- Nieuws menu item -->
                 <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+                    <a href="#"><i class="fa fa-newspaper-o"></i> <span>Nieuws</span>
                         <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Link in level 2</a></li>
-                        <li><a href="#">Link in level 2</a></li>
+                        <li><a href="#">Voeg nieuwsbericht toe</a></li>
+                        <li><a href="#">Beheer nieuwsberichten</a></li>
                     </ul>
-                </li> -->
+                </li>
+
+                <!-- Artiesten menu item -->
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-user-circle-o"></i> <span>Artiesten</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Beheer artiesten</a></li>
+                        <li><a href="#">Voeg artiest / band toe</a></li>
+                        <li><a href="#">Beheer optredens</a></li>
+                        <li><a href="#">Voeg optredens toe</a></li>
+                    </ul>
+                </li>
+
+                <!-- Evenementen en sponsors -->
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-calendar"></i> <span>Evenementen & sponsoren</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Beheer evenementen</a></li>
+                        <li><a href="#">Voeg evenement toe</a></li>
+                        <li><a href="#">Beheer sponsoren</a></li>
+                        <li><a href="#">Voeg sponsor toe</a></li>
+                    </ul>
+                </li>
+
+                <!-- Genre's en podia -->
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-music"></i> <span>Genre's & Podia</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Beheer genres</a></li>
+                        <li><a href="#">Voeg genres toe</a></li>
+                        <li><a href="#">Beheer podia</a></li>
+                        <li><a href="#">Voeg podium toe</a></li>
+                    </ul>
+                </li>
+
+                <!-- Menu's -->
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-bars"></i> <span>Menu's</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Beheer menubalk</a></li>
+                        <li><a href="#">Voeg toe aan menubalk</a></li>
+                    </ul>
+                </li>
+
+                <!-- Frontpage knoppen -->
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-ellipsis-h"></i> <span>Frontpage knoppen</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Beheer knoppen</a></li>
+                        <li><a href="#">Voeg knoppen toe</a></li>
+                        <li><a href="#">Beheer widget</a></li>
+                    </ul>
+                </li>
+
             </ul>
             <!-- /.sidebar-menu -->
         </section>
