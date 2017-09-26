@@ -7,6 +7,7 @@ class user extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->helper('form');
         $this->load->library('session');
         $this->load->model('../models/user_model');
     }
@@ -28,7 +29,6 @@ class user extends CI_Controller
 
     public function profile()
     {
-        $this->load->helper('form');
         $this->load->view('templates/backend_header');
         $this->load->view('user/profile_page');
         $this->load->view('templates/backend_footer');
@@ -156,9 +156,9 @@ class user extends CI_Controller
         $config['max_size']             = 100;
         $config['max_width']            = 1024;
         $config['max_height']           = 768;
-        $config['overwrite'] = false;
+        $config['overwrite'] = true;
         $config['remove_spaces'] = true;
-        $config['file_name'] = "jammer dit";
+        $config['file_name'] = "" . $_SESSION['userinfo']->username . "_" . $_SESSION['userinfo']->id . "";
 
 
         $this->load->library('upload', $config);
