@@ -159,7 +159,7 @@ class user extends CI_Controller
         $config['overwrite'] = true;
         $config['remove_spaces'] = true;
         $config['file_name'] = "" . $_SESSION['userinfo']->username . "_" . $_SESSION['userinfo']->id . "";
-
+        $this->session->set_userdata('filename', $config['file_name']);
 
         $this->load->library('upload', $config);
 
