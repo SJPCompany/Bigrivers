@@ -51,7 +51,7 @@
                 <?php } else { ?>
                     <td>Geblokt</td>
                 <?php } ?>
-                <td><a href="<?= base_url('user/editUser/'. $user->id) ?>">Edit</a></td>
+                <td><a class="mid" href="<?= base_url('user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
                 <td><a href="#">Block/Unblock</a></td>
                 <td><a href="#">Delete</a></td>
                 </tr>
