@@ -39,9 +39,9 @@ CREATE TABLE `user` (
 -- Gegevens worden geëxporteerd voor tabel `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `role`, `status`) VALUES
-(1, 'admin', 'admin', 'localhost@admin.nl', 'beheerder', 0),
-(2, 'justin125', 'Reken666', 'justin555@live.nl', 'programmeur', 0);
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `role_id`, `status`) VALUES
+(1, 'admin', 'admin', 'localhost@admin.nl', '2', 0),
+(2, 'justin125', 'Reken666', 'justin555@live.nl', '1', 0);
 
 --
 -- Indexen voor geëxporteerde tabellen

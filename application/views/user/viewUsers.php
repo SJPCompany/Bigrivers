@@ -12,7 +12,7 @@
         </section>
 
         <!-- Main content -->
-        <?php if($_SESSION['userinfo']->role == 'programmeur') { ?>
+        <?php if($_SESSION['userinfo']->name == 'programmeur') { ?>
             <style>
                 th {
                     background-color: #dd4b39;
@@ -45,8 +45,12 @@
                 <tr>
                 <td><?= $user->username ?></td>
                 <td><?= $user->email ?></td>
-                <td><?= $user->role ?></td>
-                <td><?= $user->status ?></td>
+                <td><?= $user->name ?></td>
+                <?php if ($user->status == 0 || $user->status == '0') { ?>
+                    <td>Actief</td>
+                <?php } else { ?>
+                    <td>Geblokt</td>
+                <?php } ?>
                 <td><a href="<?= base_url('user/editUser/'. $user->id) ?>">Edit</a></td>
                 <td><a href="#">Block/Unblock</a></td>
                 <td><a href="#">Delete</a></td>
