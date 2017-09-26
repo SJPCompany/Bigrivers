@@ -113,20 +113,24 @@ class user extends CI_Controller
         $config['max_size']             = 100;
         $config['max_width']            = 1024;
         $config['max_height']           = 768;
+        $config['overwrite'] = false;
+        $config['remove_spaces'] = true;
+        $config['file_name'] = "jammer dit";
+
 
         $this->load->library('upload', $config);
 
         if ( ! $this->upload->do_upload())
         {
             $error = array('error' => $this->upload->display_errors());
-
-            $this->load->view('backend', $error);
-        }
+            $this->session->set_userdata('upload_error', $error);
+            $this->profile();
+            }
         else
         {
             $data = array('upload_data' => $this->upload->data());
-
-            $this->load->view('backend', $data);
+            $this->session->set_userdata('upload_avatar', $data);
+            $this->profile();
         }
     }
 }
