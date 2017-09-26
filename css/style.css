@@ -390,11 +390,7 @@ img {
         font-size: 15pt;
     }
 }
-@media (min-width: 768px)
-css?v=omE9BpBMW…GI6DcrPlLSE1:1
-    .col-sm-4 {
-        width: 33.33333333333333%;
-    }
+
 
 .Button {
     margin-bottom: 15px;
