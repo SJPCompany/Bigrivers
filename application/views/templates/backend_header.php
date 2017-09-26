@@ -150,7 +150,7 @@ desired effect
                             <li class="user-body">
                                 <div class="row">
                                     <div class="col-xs-4 text-center">
-                                        <a href="<?php echo base_url("user/profile") ?>">Profiel pagina</a>
+                                        <a href="#">Empty button</a>
                                     </div>
                                     <div class="col-xs-4 text-center">
                                         <a href="#">Sales</a>
@@ -164,7 +164,7 @@ desired effect
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="<?php echo base_url("user/profile") ?>" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="<?= base_url("user/index"); ?>" class="btn btn-default btn-flat">Sign out</a>
