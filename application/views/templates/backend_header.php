@@ -167,7 +167,7 @@ desired effect
                                     <a href="<?php echo base_url("backend/user/profile") ?>" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="<?= base_url("backend/user/index"); ?>" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="<?= base_url("home/login"); ?>" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>

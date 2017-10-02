@@ -1,27 +1,31 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class user extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('upload');
         $this->load->helper('form');
         $this->load->library('session');
+        $this->checkUrl();
         $this->load->model('../models/user_model');
+    }
+
+    public function checkUrl() {
+        $url = uri_string();
+        if (strpos($url, 'backend') !== false) {
+            return true;
+        } else {
+            $_SESSION['error'] = [];
+            $error = "You dont have access to this page";
+            $this->session->set_userdata('error', $error);
+            return redirect('Backend/index');
+        }
     }
 
     public function index()
     {
-        $this->load->view('templates/header');
-        $this->load->view('user/login_page');
-        $this->load->view('templates/footer');
-    }
-
-    public function backend()
-    {
-        $this->load->library('upload');
         $this->load->view('templates/backend_header');
         $this->load->view('backend/backend_page');
         $this->load->view('templates/backend_footer');
@@ -43,7 +47,7 @@ class user extends CI_Controller
             $_SESSION['error'] = [];
             $error = "Wrong username or password";
             $this->session->set_userdata('error', $error);
-            return $this->index();
+            return redirect('home/login');
         } else // Get the role from the user
         {
             foreach ($checker as $info) {
@@ -52,7 +56,7 @@ class user extends CI_Controller
             $this->session->set_userdata('userinfo', $role);
             // Check if the user is allowd for the backend
             if ($_SESSION['userinfo']->name == 'programmeur' || $_SESSION['userinfo']->name == 'beheerder') {
-                $this->backend();
+                $this->index();
             } else {
                 return redirect('home/index');
             }
