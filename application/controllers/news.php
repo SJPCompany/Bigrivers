@@ -8,6 +8,8 @@ class news extends CI_Controller {
         $this->load->model('News_model');
         $this->load->helper('form');
         $this->load->library('form_validation');
+        $this->load->helper('date');
+        $this->load->library('upload');
 
     }
 
@@ -15,7 +17,6 @@ class news extends CI_Controller {
     {
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
-
         $this->load->view('templates/backend_header');
         $this->load->view('user/newscreate');
         $this->load->view('templates/backend_footer');
@@ -24,23 +25,23 @@ class news extends CI_Controller {
 
     public function create()
     {
-
         $data['title'] = 'Create a news item';
 
         $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('text', 'Text', 'required');
+        $this->form_validation->set_rules('inhoud', 'Inhoud', 'required');
+        $this->form_validation->set_rules('image', 'Image', 'required');
 
         if ($this->form_validation->run() === FALSE)
         {
-            $this->load->view('templates/header', $data);
-            $this->load->view('news/create');
-            $this->load->view('templates/footer');
+            $this->load->view('templates/backend_header');
+            $this->load->view('page/news');
+            $this->load->view('templates/backend_footer');
 
         }
         else
         {
             $this->news_model->set_news();
-            $this->load->view('news/success');
+            $this->load->view('page/news');
         }
     }
 

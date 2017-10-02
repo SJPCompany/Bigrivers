@@ -1,16 +1,43 @@
-<div class="container" xmlns="http://www.w3.org/1999/html">
+<!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+          newscreate
+            </h1>
+        </section>
 
-    <?php echo validation_errors(); ?>
+        <!-- Main content -->
+        <section class="content container-fluid">
 
-    <?php echo form_open('news/create'); ?>
+            <?php echo validation_errors(); ?>
 
-    <textarea class="editor" name="text1">Articles should be in here</textarea>
-    <input class="editor" name="text2" value="Articles should be in here">
-    <div class="editor" name="text3">Articles should be in here</div>
-    <span class="editor" name="text4">Articles should be in here</span>
-    <p class="editor" name="text5">Articles should be in here</p>
+            <?php echo form_open('news/create'); ?>
 
-    </form>
+            <label for="title">Title</label><br />
+            <input type="input" name="title" /><br />
 
-    <script> $("textarea").jqte(); </script>
-</div>
+            <label>inhoud</label><br />
+            <textarea id="texteedit" name="inhoud"></textarea><br>
+
+            <label>afbeelding</label><br />
+            <input type="file" name="newsimage"/>
+            <input type="submit" name="submit" value="publiceer" /><br />
+
+            </form>
+
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+            All rights reserved.
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
+    </footer>
