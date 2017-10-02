@@ -76,7 +76,7 @@ desired effect
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="../backend/index2.html" class="logo">
+        <a href="#" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>B</b>RVS</span>
             <!-- logo for regular state and mobile devices -->
@@ -109,7 +109,7 @@ desired effect
                                         <a href="#">
                                             <div class="pull-left">
                                                 <!-- User Image -->
-                                                <img src="http://www.digitspeak.com/wp-content/uploads/2016/02/4-1-300x295.png" class="img-circle" alt="User Image">
+                                                <img src="<?php echo base_url();?>./img/avatars/<?php echo $_SESSION['userinfo']->username;?>" class="img-circle" alt="User Image">
                                             </div>
                                             <!-- Message title and timestamp -->
                                             <h4>
