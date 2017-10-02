@@ -13,7 +13,7 @@
         <!--------------------------
           | Your Page Content Here |
           -------------------------->
-        <?php echo form_open_multipart('user/do_upload');?>
+        <?php echo form_open_multipart('backend/user/do_upload');?>
 
         <input type="file" name="userfile" size="20" />
 

@@ -164,10 +164,10 @@ desired effect
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="<?php echo base_url("user/profile") ?>" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="<?php echo base_url("backend/user/profile") ?>" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="<?= base_url("user/index"); ?>" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="<?= base_url("backend/user/index"); ?>" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -214,10 +214,10 @@ desired effect
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">Menu</li>
                 <!-- Homepage -->
-                <li class="active"><a href="<?= base_url("user/backend"); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
+                <li class="active"><a href="<?= base_url("backend/user/backend"); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
 
                 <!-- Bekijk gebruikers -->
-                <li><a href="<?= base_url("user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>Bekijk gebruikers</span></a></li>
+                <li><a href="<?= base_url("backend/user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>Bekijk gebruikers</span></a></li>
 
                 <!-- Bekijk evenemten -->
                 <li><a href="#"><i class="fa fa-address-book"></i> <span>Bekijk evenementen</span></a></li>

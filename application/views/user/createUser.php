@@ -40,7 +40,7 @@
                         color: #f2f2f2;
                     }
                 </style> <?php } ?>
-            <form action="<?= base_url("user/checkUserData"); ?>" method="post">
+            <form action="<?= base_url("backend/user/checkUserData"); ?>" method="post">
                 <label>Username:</label>
                 <input type="text" name="username" placeholder="John124"><br>
                 <label>Password:</label>

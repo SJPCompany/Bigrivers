@@ -27,7 +27,7 @@
                         color: #f2f2f2;
                     }
                 </style> <?php } ?>
-            <form action="<?= base_url("user/checkEditUserData"); ?>" method="post">
+            <form action="<?= base_url("backend/user/checkEditUserData"); ?>" method="post">
                 <?php foreach ($checkUserInfo as $userinfo) { ?>
                 <label>Username:</label>
                 <input type="text" name="username" value='<?= $userinfo->username ?>'><br>

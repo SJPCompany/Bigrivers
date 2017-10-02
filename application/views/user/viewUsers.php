@@ -6,7 +6,7 @@
                 All users
             </h1>
             <br>
-            <a href="<?= base_url("user/createUser"); ?>" style="font-size: 140%;">
+            <a href="<?= base_url("backend/user/createUser"); ?>" style="font-size: 140%;">
                 Create user
             </a>
         </section>
@@ -51,7 +51,7 @@
                 <?php } else { ?>
                     <td>Geblokt</td>
                 <?php } ?>
-                <td><a class="mid" href="<?= base_url('user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
+                <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
                 <td><a href="#">Block/Unblock</a></td>
                 <td><a href="#">Delete</a></td>
                 </tr>
