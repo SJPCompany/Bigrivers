@@ -67,10 +67,10 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `role_id`, `status`) 
 -- --------------------------------------------------------
 
 --
--- Stand-in structuur voor view `v_justinisirritant`
+-- Stand-in structuur voor view `v_userrole`
 -- (Zie onder voor de actuele view)
 --
-CREATE TABLE `v_justinisirritant` (
+CREATE TABLE `v_userrole` (
 `id` int(11)
 ,`username` varchar(255)
 ,`password` varchar(255)
@@ -83,11 +83,11 @@ CREATE TABLE `v_justinisirritant` (
 -- --------------------------------------------------------
 
 --
--- Structuur voor de view `v_justinisirritant`
+-- Structuur voor de view `v_userrole`
 --
-DROP TABLE IF EXISTS `v_justinisirritant`;
+DROP TABLE IF EXISTS `v_userrole`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_justinisirritant`  AS  select `user`.`id` AS `id`,`user`.`username` AS `username`,`user`.`password` AS `password`,`user`.`email` AS `email`,`user`.`role_id` AS `role_id`,`user`.`status` AS `status`,`r`.`name` AS `name` from (`user` left join `roles` `r` on((`user`.`role_id` = `r`.`id`))) order by `user`.`id` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_userrole`  AS  select `user`.`id` AS `id`,`user`.`username` AS `username`,`user`.`password` AS `password`,`user`.`email` AS `email`,`user`.`role_id` AS `role_id`,`user`.`status` AS `status`,`r`.`name` AS `name` from (`user` left join `roles` `r` on((`user`.`role_id` = `r`.`id`))) order by `user`.`id` ;
 
 --
 -- Indexen voor geëxporteerde tabellen

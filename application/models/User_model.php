@@ -9,7 +9,7 @@ class user_model extends CI_Model {
 
     public function get_Userinfo($username, $password) {
         $this->db->select('*');
-        $this->db->from('v_justinisirritant');
+        $this->db->from('v_userrole');
         $this->db->where(array('username'=>$username, 'password'=>$password));
         $query = $this->db->get();
         if($query->num_rows() > 0) {
@@ -23,7 +23,7 @@ class user_model extends CI_Model {
     public function getAllUsers()
     {
         $this->db->select('*');
-        $this->db->from('v_justinisirritant');
+        $this->db->from('v_userrole');
         $query = $this->db->get();
         if($query->num_rows() > 0) {
             return $query->result();
@@ -69,7 +69,7 @@ class user_model extends CI_Model {
 
     public function getUserById($user_id){
         $this->db->select('*');
-        $this->db->from('v_justinisirritant');
+        $this->db->from('v_userrole');
         $this->db->where(array('id' => $user_id));
         $query = $this->db->get();
         if($query->num_rows() > 0) {

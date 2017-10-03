@@ -51,7 +51,7 @@ class user extends CI_Controller
             foreach ($checker as $info) {
                 $role = $info;
             }
-            $this->session->set_flashdata('userinfo', $role);
+            $this->session->set_userdata('userinfo', $role);
             // Check if the user is allowd for the backend
             if ($_SESSION['userinfo']->name == 'programmeur' || $_SESSION['userinfo']->name == 'beheerder') {
                 $this->index();

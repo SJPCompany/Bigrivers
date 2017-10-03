@@ -214,7 +214,7 @@ desired effect
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">Menu</li>
                 <!-- Homepage -->
-                <li class="active"><a href="<?= base_url("backend/user/backend"); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
+                <li class="active"><a href="<?= base_url("backend/user/index"); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
 
                 <!-- Bekijk gebruikers -->
                 <li><a href="<?= base_url("backend/user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>Gebruikers</span></a></li>
