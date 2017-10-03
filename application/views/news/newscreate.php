@@ -3,7 +3,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-          newscreate
+          Voeg Nieuwsbericht toe
             </h1>
         </section>
 
@@ -18,7 +18,7 @@
             <input type="text" name="title" /><br />
 
             <label>inhoud</label><br />
-            <textarea id="texteedit" name="inhoud"></textarea><br>
+            <textarea id="text_edit" name="inhoud"></textarea><br>
 
             <label>afbeelding</label><br />
             <input type="file" name="newsimage"/>
