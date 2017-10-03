@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <a class="menuitem-link" href="<?php echo base_url("page/view/contact")?>" target="_self">Contact</a>
         </li>
         <li id="menuitem-id-9">
-            <a class="menuitem-link" href="<?php echo base_url("backend/home/login") ?>" target="_self">Login</a>
+            <a class="menuitem-link" href="<?php echo base_url("home/login") ?>" target="_self">Login</a>
         </li>
     </ul>
 </div>

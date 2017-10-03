@@ -28,6 +28,17 @@
             </style>
         <?php } ?>
         <section class="content container-fluid">
+            <?php
+            if (isset($_SESSION['message']) ) {
+                echo '<div class="alert alert-success alert-dismissable" id="alert-success-1"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Gelukt!</strong> <ul>';
+                if ($_SESSION['message'] > 1 ) {
+                    foreach ($_SESSION['message'] as $message) {
+                        echo '<li>' . $message . '</li>';
+                    }
+                } else {
+                    echo '<li>' . $_SESSION['message'] . '</li>';
+                }
+                echo '</ul></div>'; }?>
         <table>
             <thead>
             <tr>

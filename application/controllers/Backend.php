@@ -9,7 +9,7 @@ class Backend extends CI_Controller {
         $this->load->library('session');
     }
 
-    public function index()
+    public function error()
     {
         $this->load->view('templates/backend_header');
         $this->load->view('backend/error/error');
