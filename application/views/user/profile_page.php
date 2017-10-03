@@ -13,7 +13,8 @@
         <!--------------------------
           | Your Page Content Here |
           -------------------------->
-        <?php echo form_open_multipart('backend/user/do_upload');?>
+        <!--
+        <?php echo form_open_multipart('user/do_upload');?>
 
         <input type="file" name="userfile" size="20" />
 
@@ -22,6 +23,10 @@
         <input type="submit" value="upload" />
 
         </form>
+-->
+        <img class="profile-pic" src="https://thenib.imgix.net/usq/28158803-0c45-41b1-84c7-424be4a2a981/pepe-the-frog-to-sleep-perchance-to-meme-001-e7cfd2.png?auto=compress,format&cs=srgb&_=e7cfd221930a67d3e9829515285851a7" />
+        <div class="upload-button">Upload Image</div>
+        <input class="file-upload" type="file" accept="image/*"/>
 
     </section>
     <!-- /.content -->
@@ -35,5 +40,5 @@
         All rights reserved.
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
+    <strong>Copyright &copy; 2017 <a>BigRivers</a>.</strong>
 </footer>

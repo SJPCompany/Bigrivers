@@ -90,9 +90,9 @@ desired effect
                 <span class="sr-only">Toggle navigation</span>
             </a>
             <?php if ($_SESSION['userinfo']->name == 'programmeur') {?>
-                <span class="Role"><b class="roletext">Developer</b></span>
+                <span class="Role"><b class="roletext">Programmeur</b></span>
             <?php } else { ?>
-                <span class="Role"><b class="roletext">Admin</b></span>
+                <span class="Role"><b class="roletext">Beheerder</b></span>
             <?php } ?>
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
@@ -109,7 +109,7 @@ desired effect
                                         <a href="#">
                                             <div class="pull-left">
                                                 <!-- User Image -->
-                                                <img src="<?php echo base_url();?>./img/avatars/<?php echo $_SESSION['userinfo']->username;?>" class="img-circle" alt="User Image">
+                                                <img src="https://i1.sndcdn.com/artworks-000198306615-0csi21-t500x500.jpg" class="img-circle" alt="User Image">
                                             </div>
                                             <!-- Message title and timestamp -->
                                             <h4>
@@ -217,10 +217,10 @@ desired effect
                 <li class="active"><a href="<?= base_url("backend/user/backend"); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
 
                 <!-- Bekijk gebruikers -->
-                <li><a href="<?= base_url("backend/user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>Bekijk gebruikers</span></a></li>
+                <li><a href="<?= base_url("backend/user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>Gebruikers</span></a></li>
 
                 <!-- Bekijk evenemten -->
-                <li><a href="#"><i class="fa fa-address-book"></i> <span>Bekijk evenementen</span></a></li>
+                <li><a href="#"><i class="fa fa-address-book"></i> <span>Evenementen</span></a></li>
 
                 <!-- Nieuws -->
                 <li class="treeview">
