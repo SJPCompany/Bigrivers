@@ -1,8 +1,7 @@
 <div class="container">
-    <div class="first"> <img class="content-pin-left" src="<?=base_url()?>Img/Pin Left.png"></div>
-    <div class="second"><img class="content-pin-right" src="<?=base_url()?>Img/Pin right.png"></div>
-<h1>Contact</h1>
-    <br>
+    <div><img class="content-pin-left" src="<?=base_url()?>Img/Pin Left.png"></div>
+    <div><img class="content-pin-right" src="<?=base_url()?>Img/Pin right.png"></div>
+<h1 class="page_font" style="text-align: left;">&nbsp;&nbsp;Contact</h1>
     <div class="map">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2466.6382321084093!2d4.657104915951324!3d51.812770596150244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c42ed1def4415f%3A0xf12d657582b4d26!2sSlikveld+1%2C+3311+VT+Dordrecht!5e0!3m2!1snl!2snl!4v1504598978692"
             width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe>

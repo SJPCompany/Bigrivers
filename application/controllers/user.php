@@ -152,14 +152,13 @@ class user extends CI_Controller
             }
         }
     }
-
     public function do_upload()
     {
         $config['upload_path']          = './img/avatars/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 100;
-        $config['max_width']            = 1024;
-        $config['max_height']           = 720;
+        $config['max_size']             = 9999999;
+        $config['max_width']            = 90000000000;
+        $config['max_height']           = 90000000000;
         $config['overwrite'] = true;
         $config['remove_spaces'] = true;
         $config['file_name'] = "" . $_SESSION['userinfo']->username . "_" . $_SESSION['userinfo']->id . "";
