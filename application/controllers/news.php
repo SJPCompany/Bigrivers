@@ -29,7 +29,7 @@ class news extends CI_Controller {
 
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('inhoud', 'Inhoud', 'required');
-        $this->form_validation->set_rules('image', 'Image', 'required');
+        $this->form_validation->set_rules('Newsimage', 'Newsimage', 'required');
 
         if ($this->form_validation->run() === FALSE)
         {
