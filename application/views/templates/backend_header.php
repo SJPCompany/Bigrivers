@@ -13,10 +13,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend//dist/css/AdminLTE.min.css">
+    <!-- News style  -->
+    <link href="<?= base_url(); ?>css/editor.css">
     <!-- Favicon -->
     <link rel="icon" href="<?=base_url()?>img/favicon.ico" type="image/x-icon">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -214,7 +214,7 @@ desired effect
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">Menu</li>
                 <!-- Homepage -->
-                <li class="active"><a href="<?= base_url("backend/user/backend"); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
+                <li class="active"><a href="<?= base_url("backend/user/index"); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
 
                 <!-- Bekijk gebruikers -->
                 <li><a href="<?= base_url("backend/user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>Gebruikers</span></a></li>
@@ -230,7 +230,7 @@ desired effect
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Voeg nieuwsbericht toe</a></li>
+                        <li><a href="<?= base_url("backend/news")?>">Voeg nieuwsbericht toe</a></li>
                         <li><a href="#">Beheer nieuwsberichten</a></li>
                     </ul>
                 </li>

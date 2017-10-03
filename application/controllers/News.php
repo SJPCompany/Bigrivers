@@ -17,7 +17,7 @@ class news extends CI_Controller {
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
         $this->load->view('templates/backend_header');
-        $this->load->view('user/newscreate');
+        $this->load->view('news/newscreate');
         $this->load->view('templates/backend_footer');
     }
 

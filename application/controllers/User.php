@@ -17,10 +17,9 @@ class user extends CI_Controller
         if (strpos($url, 'backend') !== false) {
             return true;
         } else {
-            $_SESSION['error'] = [];
             $error = "You dont have access to this page";
-            $this->session->set_userdata('error', $error);
-            return redirect('Backend/index');
+            $this->session->set_flashdata('error', $error);
+            return redirect('Backend/error');
         }
     }
 
@@ -44,9 +43,8 @@ class user extends CI_Controller
         $password = $_POST['password'];
         $checker = $this->user_model->get_Userinfo($username, $password);
         if ($checker == FALSE) {
-            $_SESSION['error'] = [];
             $error = "Wrong username or password";
-            $this->session->set_userdata('error', $error);
+            $this->session->set_flashdata('error', $error);
             return redirect('home/login');
         } else // Get the role from the user
         {
@@ -67,10 +65,9 @@ class user extends CI_Controller
     {
         $data['users'] = $this->user_model->getAllUsers();
         if ($data == FALSE) {
-            $_SESSION['error'] = [];
             $error = "No users has been found?";
-            $this->session->set_userdata('error', $error);
-            return redirect('errors/index');
+            $this->session->set_flashdata('error', $error);
+            return redirect('Backend/error');
         } else {
             $this->load->view('templates/backend_header');
             $this->load->view('user/viewUsers', $data);
@@ -92,7 +89,7 @@ class user extends CI_Controller
         ) {
             $_SESSION['error'] = [];
             $error = "User data is left empty";
-            $this->session->set_userdata('error', $error);
+            $this->session->set_flashdata('error', $error);
             $this->createUser();
         } else {
             $username = $_POST['username'];
@@ -103,10 +100,13 @@ class user extends CI_Controller
             if ($insert == FALSE) {
                 $_SESSION['error'] = [];
                 $error = "insert query went wrong";
-                $this->session->set_userdata('error', $error);
-                return redirect('errors/index');
+                $this->session->set_flashdata('error', $error);
+                return redirect('Backend/error');
             } else {
-                return redirect('user/viewUsers');
+                $_SESSION['message'] = [];
+                $message = "User succesfull created";
+                $this->session->set_flashdata('message', $message);
+                return redirect('backend/user/viewUsers');
             }
         }
     }
@@ -117,8 +117,8 @@ class user extends CI_Controller
         $data['checkRoles'] = $this->user_model->getAllRoles();
         if ($data['checkUserInfo'] == FALSE) {
             $error = "No user with this id has been found";
-            $this->session->set_userdata('error', $error);
-            return redirect('errors/index');
+            $this->session->set_flashdata('error', $error);
+            return redirect('Backend/error');
         } else {
             foreach ($data['checkUserInfo'] as $item) {
                 $_SESSION['user_role'] = $item->name;
@@ -144,11 +144,15 @@ class user extends CI_Controller
             $id = $_SESSION['user_id'];
             $update = $this->user_model->updateUserById($username, $password, $email, $role, $id);
             if ($update == FALSE) {
+                $_SESSION['error'] = [];
                 $error = "Update query went wrong";
-                $this->session->set_userdata('error', $error);
-                return redirect('errors/index');
+                $this->session->set_flashdata('error', $error);
+               return redirect('Backend/error');
             } else {
-                $this->viewUsers();
+                $_SESSION['message'] = [];
+                $message = "User succesfull updated";
+                $this->session->set_flashdata('message', $message);
+                return redirect('backend/user/viewUsers');
             }
         }
     }
@@ -162,20 +166,20 @@ class user extends CI_Controller
         $config['overwrite'] = true;
         $config['remove_spaces'] = true;
         $config['file_name'] = "" . $_SESSION['userinfo']->username . "_" . $_SESSION['userinfo']->id . "";
-        $this->session->set_userdata('filename', $config['file_name']);
+        $this->session->set_flashdata('filename', $config['file_name']);
 
         $this->load->library('upload', $config);
 
         if ( ! $this->upload->do_upload())
         {
             $error = array('error' => $this->upload->display_errors());
-            $this->session->set_userdata('upload_error', $error);
+            $this->session->set_flashdata('upload_error', $error);
             $this->profile();
             }
         else
         {
             $data = array('upload_data' => $this->upload->data());
-            $this->session->set_userdata('upload_avatar', $data);
+            $this->session->set_flashdata('upload_avatar', $data);
             $this->profile();
         }
     }
