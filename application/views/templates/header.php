@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <div class="header-coaster img-circle">
     <div class="header-date-div">
-        <h3 class="header-date">14/15/16 juli!</h3>
+        <h3 class="header-date page_font">14/15/16 juli!</h3>
     </div>
     <div class="pseudo-align"></div>
     <a href="<?php echo base_url("home/index")?>">
@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <img class="beads-left" src="<?=base_url()?>img/kraaltjes.png"/>
 </div>
 <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav page_font">
 
         <li id="menuitem-id-1">
             <a class="menuitem-link" href="<?php echo base_url("home/index")?>" target="_self">Home</a>

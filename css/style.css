@@ -4,10 +4,12 @@
     padding: 0;
     font-size: 36px;
     color: black !important;
-    font-family: "mari&david";
+}
+.page_font {
+    font-family: maridavid !important;
 }
 @font-face {
-    font-family: "mari&david";
+    font-family: "maridavid";
     src: url("../fonts/maridavid.ttf");
 }
 body {
@@ -140,11 +142,48 @@ div.container{
     text-align: center;
     margin-right: auto !important;
     margin-left: auto !important;
+
 }
 
 .h1 {
     font-size: 36px;
 }
+.map {
+    max-width: 110%;
+    padding-left: 5%;
+}
+.contactinformation {
+    padding-left: 60%;
+}
+
+.socialmedialinks{
+    list-style-type: none;
+    display: inline;
+}
+.social{
+    list-style-type: none;
+    display: inline;
+    float:left;
+}
+
+img.content-pin-left{
+    position: relative;
+    left: -40px;
+    top: -35px;
+    float: left;
+    width: 50px;
+    height: auto;
+}
+
+img.content-pin-right{
+    position: relative;
+    right: -40px;
+    top: -35px;
+    float: right;
+    width: 50px;
+    height: auto;
+}
+
 /* Login Interface*/
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 * {
@@ -254,36 +293,6 @@ form button:hover {
     background-color: cornflowerblue;
 }
 /*-*/
-
-.socialmedialinks{
-    list-style-type: none;
-    display: inline;
-}
-.social{
-    list-style-type: none;
-    display: inline;
-    float:left;
-}
-
-img.content-pin-left{
-
-}
-
-img.content-pin-right{
-
-}
-
-.first {
-    float: left;
-}
-
-.second {
-    float: right;
-    margin-left: 10px;
-}
-
-
-
 /**/
 
 @media screen and (max-width:780px) {
@@ -386,7 +395,7 @@ img {
 
 @media (min-width: 768px) {
     .ButtonTitle, .CarouselTitle {
-        font-family: "mari&david";
+        font-family: "maridavid";
         font-size: 15pt;
     }
 }
@@ -406,6 +415,6 @@ div {
     padding-top: 20px;
 }
 .row {
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-left: 40%;
+    margin-top: 7%;
 }
