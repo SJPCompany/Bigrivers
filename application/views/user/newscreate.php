@@ -15,10 +15,10 @@
             <?php echo form_open('news/create'); ?>
 
             <label for="title">Title</label><br />
-            <input type="text" name="title" /><br />
+            <input type="text" name="title" value="<?php echo set_value('title'); ?>" /><br />
 
             <label>inhoud</label><br />
-            <textarea id="texteedit" name="inhoud"></textarea><br>
+            <textarea id="texteedit" name="inhoud" value="<?php echo set_value('inhoud'); ?>" ></textarea><br>
 
             <label>afbeelding</label><br />
             <input type="file" name="newsimage"/>
