@@ -63,5 +63,5 @@ $route['backend/user/checkUserData'] = 'user/checkUserData';
 $route['backend/user/editUser/(:any)'] = 'user/editUser/$1';
 $route['backend/user/checkEditUserData'] = 'user/checkEditUserData';
 $route['backend/user/do_upload'] = 'user/do_upload';
-$route['news'] = 'news/index';
+$route['backend/news'] = 'news/index';
 $route['(:any)'] = 'page/view/$1';
