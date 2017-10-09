@@ -10,6 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Bigrivers backend</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 2.3.2 or unknown -->
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/bower_components/font-awesome/css/font-awesome.min.css">
@@ -167,7 +168,7 @@ desired effect
                                     <a href="<?php echo base_url("backend/user/profile") ?>" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="<?= base_url("home/login"); ?>" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="<?= base_url("backend/user/logout"); ?>" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
