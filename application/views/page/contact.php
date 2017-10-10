@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container_2">
     <div><img class="content-pin-left" src="<?=base_url()?>Img/Pin Left.png"></div>
     <div><img class="content-pin-right" src="<?=base_url()?>Img/Pin right.png"></div>
 <h1 class="page_font" style="text-align: left;">&nbsp;&nbsp;Contact</h1>

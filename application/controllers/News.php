@@ -10,8 +10,8 @@ class news extends CI_Controller {
         $this->load->library('form_validation');
 
     }
-
-    public function index($page = 'newscreate')
+// laad view voor de pagina newscreate
+    public function newscreate($page = 'newscreate')
     {
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
@@ -19,8 +19,42 @@ class news extends CI_Controller {
         $this->load->view('news/newscreate');
         $this->load->view('templates/backend_footer');
     }
+// slug zorgt ervoor dat het id niet in de url gezien wordt maar de titel van het nieuws bericht
+    public function view($slug = NULL)
+    {
+        $data['news_item'] = $this->News_model->get_news($slug);
 
+        if (empty($data['news_item']))
+        {
+            echo 'error';
+        }
 
+        $data['title'] = $data['news_item']['title'];
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('page/newsview', $data);
+        $this->load->view('templates/footer');
+    }
+// laad view voor de niewslijst op de frontend en geef de data mee
+    public function newslist()
+    {
+        $data['news'] = $this->News_model->get_news();
+
+        $this->load->view('templates/header');
+        $this->load->view('page/news',$data);
+        $this->load->view('templates/footer');
+    }
+// laad view voor de nieuwsbeheerlijst op de backend en geef de data mee
+    public function newsedit()
+    {
+        $data['news'] = $this->News_model->get_news();
+
+        $this->load->view('templates/backend_header');
+        $this->load->view('news/newsedit',$data);
+        $this->load->view('templates/backend_footer');
+    }
+
+// pak de data uit de form check of alles is ingevult en geef dan de data door naar de model anders geef een error page
     public function create()
     {
 
@@ -41,7 +75,7 @@ class news extends CI_Controller {
         else
         {
             $this->News_model->set_news();
-            $this->load->view('news');
+            $this->newslist();
         }
     }
 

@@ -69,7 +69,7 @@ class Image extends CI_Controller
             }
             // Kijk of de image bestaat
             if (file_exists($path)) {
-                // Als de image gevonden is geef zijn informatie mee in de view 
+                // Als de image gevonden is geef zijn informatie mee in de view
                 $data['imageinfo'] = $imagelog;
                 $this->load->view('templates/backend_header');
                 $this->load->view('backend/images_view/askedimage', $data);
