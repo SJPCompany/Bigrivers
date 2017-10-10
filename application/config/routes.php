@@ -53,6 +53,7 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['errors/index'] = 'Errors/index';
 $route['translate_uri_dashes'] = FALSE;
+$route['backend/image'] = 'Image/index';
 $route['backend/user/logout'] = 'user/logout';
 $route['backend/user/index'] = 'user/index';
 $route['backend/user/checkUrl'] = 'user/checkUrl';

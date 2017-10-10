@@ -42,10 +42,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>-->
+    <script type="text/javascript" src="<?= base_url(); ?>js/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>js/jquery-latest.js"></script>
     <script type="text/javascript">
+        $(document).ready(function()
+            {
+                $("#imageTable").tablesorter({sortList: [[3,1],[2,0]]});
+            }
+        );
     </script>
-</head>
+    <!--
+    <link href="http://tablesorter.com/docs/css/jq.css" rel="stylesheet">
+    <link href="http://tablesorter.com/themes/blue/style.css" rel="stylesheet">-
+    <script type="text/javascript" src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>js/jquery-latest.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+        $("#imageTable").tablesorter(({
+            theme : 'blue',
+            // enable debug mode
+            debug: true
+  }););
+        });
+    </script>
+    -->
 <!--
 BODY TAG OPTIONS:
 =================
@@ -316,7 +337,7 @@ desired effect
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Beheer plaatjes</a></li>
+                        <li><a href="<?= base_url("backend/image")?>">Beheer plaatjes</a></li>
                         <li><a href="#">Voeg plaatjes toe</a></li>
                     </ul>
                 </li>
