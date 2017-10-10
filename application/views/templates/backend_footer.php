@@ -11,7 +11,9 @@
 <!--jqeury text editor-->
 <script src="<?= base_url();?>js/upload_profile_img.js"></script>
 <script src="<?= base_url(); ?>js/editor.js"></script>
-<script>$("#text_edit").Editor();</script>
+<!--<script>$("#inhoud").Editor();-->
+<!--   </script>-->
+
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
