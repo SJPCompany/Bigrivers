@@ -46,11 +46,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="text/javascript" src="<?= base_url(); ?>js/jquery.tablesorter.js"></script>
     <script type="text/javascript" src="<?= base_url(); ?>js/jquery-latest.js"></script>
     <script type="text/javascript">
-        $(document).ready(function()
-            {
-                $("#imageTable").tablesorter({sortList: [[3,1],[2,0]]});
-            }
-        );
+        $(document).ready(function () {
+            $("#imageTable").tablesorter({
+                theme : 'blue',
+                // enable debug mode
+                debug: true
+            });
+        });
     </script>
     <!--
     <link href="http://tablesorter.com/docs/css/jq.css" rel="stylesheet">
