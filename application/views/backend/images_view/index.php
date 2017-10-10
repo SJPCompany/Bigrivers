@@ -3,8 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Bigrivers
-            <small>Plaatjes overview</small>
+            Plaatjes
         </h1>
     </section>
 
@@ -27,7 +26,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Data Table With Full Features</h3>
+                <h3 class="box-title">Plaatjes Info</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
