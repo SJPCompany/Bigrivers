@@ -26,7 +26,7 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-        <table id="imageTable" class="table tablesorter tablesorter-default">
+        <table id="sort" class="sort">
             <thead>
             <tr>
                 <th>Datum aangemaakt/aangepast</th>
@@ -147,6 +147,9 @@
         <!-- /.tab-pane -->
     </div>
 </aside>
+<script>
+    new Tablesort(document.getElementById('sort'));
+</script>
 <!-- /.control-sidebar -->
 <!-- Add the sidebar's background. This div must be placed
 immediately after the control sidebar -->

@@ -15,7 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend//dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/dist/css/AdminLTE.min.css">
     <!-- News style  -->
     <link href="<?= base_url(); ?>css/editor.css">
     <!-- Favicon -->
@@ -42,16 +42,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- Tablesorter Script -->
+    <script src='<?= base_url(); ?>js/tablesort.min.js'></script>
+
+    <!-- Include sort types you need -->
+    <script src='<?= base_url(); ?>js/tablesort.number.js'></script>
+    <script src='<?= base_url(); ?>js/tablesort.date.js'></script>
     <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>-->
-    <script type="text/javascript" src="<?= base_url(); ?>js/jquery.tablesorter.js"></script>
-    <script type="text/javascript" src="<?= base_url(); ?>js/jquery-latest.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function()
-            {
-                $("#imageTable").tablesorter({sortList: [[3,1],[2,0]]});
-            }
-        );
-    </script>
     <!--
     <link href="http://tablesorter.com/docs/css/jq.css" rel="stylesheet">
     <link href="http://tablesorter.com/themes/blue/style.css" rel="stylesheet">-
