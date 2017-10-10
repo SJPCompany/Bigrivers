@@ -45,12 +45,12 @@ class news extends CI_Controller {
         $this->load->view('templates/footer');
     }
 // laad view voor de nieuwsbeheerlijst op de backend en geef de data mee
-    public function newsedit()
+    public function newsbeheer()
     {
         $data['news'] = $this->News_model->get_news();
 
         $this->load->view('templates/backend_header');
-        $this->load->view('news/newsedit',$data);
+        $this->load->view('news/newsbeheer',$data);
         $this->load->view('templates/backend_footer');
     }
 
@@ -77,6 +77,13 @@ class news extends CI_Controller {
             $this->News_model->set_news();
             $this->newslist();
         }
+    }
+
+//delete function om een artikel uit de database te verwijderen
+    public function delete()
+    {
+
+
     }
 
 }

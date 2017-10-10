@@ -24,18 +24,13 @@
         <tbody>
         <?php foreach ($news as $news_data) { ?>
             <tr>
-                <td><?= $news_data->title ?></td>
-                <td><?= $news_data->text ?></td>
-                <td><?= $news_data->creator ?></td>
-                <td><?= $news_data->creation_date ?></td>
-<!--                --><?php //if ($news_data->status == 0 || $news_data->status == '0') { ?>
-<!--                    <td>Actief</td>-->
-<!--                --><?php //} else { ?>
-<!--                    <td>Geblokt</td>-->
-<!--                --><?php //} ?>
-                <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $news_data->id) ?>"><i class="fa fa-pencil"></i></a></td>
-                <td><a href="#">Block/Unblock</a></td>
-                <td><a href="#">Delete</a></td>
+                <td><?php echo $news_data['title']?></td>
+                <td><?php echo $news_data['text']?></td>
+                <td><?php echo $news_data['creator']?></td>
+                <td><?php echo $news_data['creation_date'] ?></td>
+                <td><?php echo $news_data['status'] ?></td>
+                <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $news_data['id']) ?>"><i class="fa fa-pencil"></i></a></td>
+                <td><a href="<?php echo site_url('news/delete/'.$news_data['id']); ?>" onClick="return confirm('weet je zeker dat je dit arikel wilt verwijderen?')"">Delete</a></td>
             </tr>
         <?php } ?>
         </tbody>
