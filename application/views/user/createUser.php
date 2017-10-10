@@ -10,18 +10,17 @@
 
         <!-- Main content -->
         <section>
-            <?php if(isset($_SESSION['error'])) {
+            <?php if (isset($_SESSION['error'])) {
+                echo '<div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Fout!</strong> <ul>';
                 if ($_SESSION['error'] > 1) {
-                    foreach ($_SESSION['error'] as $item) {
-                        ?> <p class="errortext"><b> <?php echo $item; ?> </b></p> <?php
-                        echo '<br /><br />';
+                    foreach ($_SESSION['error'] as $error) {
+                        echo '<li>' . $error . '</li>';
                     }
                 } else {
-                    ?> <p class="errortext"><b> <?php echo $_SESSION['error']; ?> </b></p> <?php
+                    echo '<li>' . $_SESSION['error'] . '</li>';
                 }
-            } else {
-            }
-            unset($_SESSION['error']);
+                echo '</ul></div>'; }
             ?>
             <div class="divform">
                 <header>

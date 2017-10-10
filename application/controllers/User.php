@@ -17,9 +17,9 @@ class user extends CI_Controller
         if (strpos($url, 'backend') !== false) {
             return true;
         } else {
-            $error = "You dont have access to this page";
+            $error = "Geen toegang tot deze pagina";
             $this->session->set_flashdata('error', $error);
-            return redirect('Backend/error');
+            return redirect('backend/error');
         }
     }
 
@@ -35,6 +35,17 @@ class user extends CI_Controller
         $this->load->view('templates/backend_header');
         $this->load->view('user/profile_page');
         $this->load->view('templates/backend_footer');
+    }
+
+    public function logout(){
+        unset($_SESSION['userinfo']);
+        if (empty($_SESSION['userinfo'])) {
+            return redirect('home/login');
+        } else {
+            $error = "Uitloggen ging verkeerd";
+            $this->session->set_flashdata('error', $error);
+            return redirect('backend/error');
+        }
     }
 
     public function doLogin()

@@ -51,10 +51,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
+$route['errors/index'] = 'Errors/index';
 $route['translate_uri_dashes'] = FALSE;
+$route['backend/image'] = 'Image/index';
+$route['backend/user/logout'] = 'user/logout';
 $route['backend/user/index'] = 'user/index';
 $route['backend/user/checkUrl'] = 'user/checkUrl';
-//$route['backend/user/backend'] = 'user/backend';
+$route['backend/error'] = 'Backend/error';
 $route['backend/user/profile'] = 'user/profile';
 $route['backend/user/doLogin'] = 'user/doLogin';
 $route['backend/user/viewUsers'] = 'user/viewUsers';
