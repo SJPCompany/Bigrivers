@@ -1,5 +1,3 @@
-<!-- ./wrapper -->
-
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->

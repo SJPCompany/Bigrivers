@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div class="container">
+    <div class="container_2">
         <h1>Welcome</h1>
 
         <?php if(isset($_SESSION['error'])) {
