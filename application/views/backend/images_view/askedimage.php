@@ -4,59 +4,15 @@
     <section class="content-header">
         <h1>
             Bigrivers
-            <small>Plaatjes overview</small>
+            <small>Opgevraagde image</small>
         </h1>
     </section>
 
-    <?php if($_SESSION['userinfo']->name == 'programmeur') { ?>
-        <style>
-            th {
-                background-color: #dd4b39;
-                color: white;
-            }
-        </style>
-    <?php } else { ?>
-        <style>
-            th {
-                background-color: #3c8dbc;
-                color: #f2f2f2;
-            }
-        </style>
-    <?php } ?>
-
     <!-- Main content -->
     <section class="content container-fluid">
-        <table id="sort" class="sort">
-            <thead>
-            <tr>
-                <th>Datum aangemaakt/aangepast</th>
-                <th>ipadress aanvrager</th>
-                <th>Oorspronlijke bestandnaam</th>
-                <th>Oorspronlijke KB`s</th>
-                <th>breedte</th>
-                <th>hoogte</th>
-                <th>Herseizen nodig</th>
-                <th>gechachete bestandnaam</th>
-                <th>gechachete KB`s</th>
-                <th>Image pa</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($imagesinfo as $imageinfo) { ?>
-                <tr>
-                    <td><?= $imageinfo->datetime ?></td>
-                    <td><?= $imageinfo->ip_adres_aanvrager ?></td>
-                    <td><?= $imageinfo->orginal_filename ?></td>
-                    <td><?= $imageinfo->orginal_KB ?></td>
-                    <td><?= $imageinfo->width ?></td>
-                    <td><?= $imageinfo->height?></td>
-                    <td><?= $imageinfo->resize_necessary?></td>
-                    <td><?= $imageinfo->cached_filename?></td>
-                    <td><?= $imageinfo->cached_KB?></td>
-                </tr>
-            <?php } ?>
-            </tbody>
-        </table>
+        <?php foreach ($imageinfo as $info) { ?>
+        <img src="<?= base_url($info->file_path); ?>">
+        <?php } ?>
         <!--------------------------
           | Your Page Content Here |
           -------------------------->
