@@ -3,8 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Bigrivers
-            <small>Plaatjes overview</small>
+            Plaatjes
         </h1>
     </section>
 
@@ -23,47 +22,56 @@
             }
         </style>
     <?php } ?>
-
-    <!-- Main content -->
-    <section class="content container-fluid">
-        <table id="sort" class="sort">
-            <thead>
-            <tr>
-                <th>Datum aangemaakt/aangepast</th>
-                <th>ipadress aanvrager</th>
-                <th>Oorspronlijke bestandnaam</th>
-                <th>Oorspronlijke KB`s</th>
-                <th>breedte</th>
-                <th>hoogte</th>
-                <th>Herseizen nodig</th>
-                <th>gechachete bestandnaam</th>
-                <th>gechachete KB`s</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($imagesinfo as $imageinfo) { ?>
-                <tr>
-                    <td><?= $imageinfo->datetime ?></td>
-                    <td><?= $imageinfo->ip_adres_aanvrager ?></td>
-                    <td><?= $imageinfo->orginal_filename ?></td>
-                    <td><?= $imageinfo->orginal_KB ?></td>
-                    <td><?= $imageinfo->width ?></td>
-                    <td><?= $imageinfo->height?></td>
-                    <td><?= $imageinfo->resize_necessary?></td>
-                    <td><?= $imageinfo->cached_filename?></td>
-                    <td><?= $imageinfo->cached_KB?></td>
-                </tr>
-            <?php } ?>
-            </tbody>
-        </table>
-        <!--------------------------
-          | Your Page Content Here |
-          -------------------------->
-
-    </section>
-    <!-- /.content -->
+    <br>
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Plaatjes Info</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="sort" class="sort" role="grid" aria-describedby="example1_info">
+                                <thead>
+                                <tr role="row">
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Datum aangemaakt/aangepast</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">ipadress aanvrager</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Oorspronlijke bestandnaam</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;;">Oorspronlijke KB`s</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">breedte</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">hoogte</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Herseizen nodig</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">gechachete bestandnaam</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">gechachete KB`s</th>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($imagesinfo as $imageinfo) { ?>
+                                    <tr>
+                                        <td><?= $imageinfo->datetime ?></td>
+                                        <td><?= $imageinfo->ip_adres_aanvrager ?></td>
+                                        <td><?= $imageinfo->orginal_filename ?></td>
+                                        <td><?= $imageinfo->orginal_KB ?></td>
+                                        <td><?= $imageinfo->width ?></td>
+                                        <td><?= $imageinfo->height?></td>
+                                        <td><?= $imageinfo->resize_necessary?></td>
+                                        <td><?= $imageinfo->cached_filename?></td>
+                                        <td><?= $imageinfo->cached_KB?></td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<!-- /.content-wrapper -->
+<script>
+    new Tablesort(document.getElementById('sort'));
+</script>
 
 <!-- Main Footer -->
 <footer class="main-footer">
@@ -74,83 +82,3 @@
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
 </footer>
-
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-        <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-        <!-- Home tab content -->
-        <div class="tab-pane active" id="control-sidebar-home-tab">
-            <h3 class="control-sidebar-heading">Recent Activity</h3>
-            <ul class="control-sidebar-menu">
-                <li>
-                    <a href="javascript:;">
-                        <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                            <p>Will be 23 on April 24th</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <!-- /.control-sidebar-menu -->
-
-            <h3 class="control-sidebar-heading">Tasks Progress</h3>
-            <ul class="control-sidebar-menu">
-                <li>
-                    <a href="javascript:;">
-                        <h4 class="control-sidebar-subheading">
-                            Custom Template Design
-                            <span class="pull-right-container">
-                    <span class="label label-danger pull-right">70%</span>
-                  </span>
-                        </h4>
-
-                        <div class="progress progress-xxs">
-                            <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <!-- /.control-sidebar-menu -->
-
-        </div>
-        <!-- /.tab-pane -->
-        <!-- Stats tab content -->
-        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-        <!-- /.tab-pane -->
-        <!-- Settings tab content -->
-        <div class="tab-pane" id="control-sidebar-settings-tab">
-            <form method="post">
-                <h3 class="control-sidebar-heading">General Settings</h3>
-
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Report panel usage
-                        <input type="checkbox" class="pull-right" checked>
-                    </label>
-
-                    <p>
-                        Some information about this general settings option
-                    </p>
-                </div>
-                <!-- /.form-group -->
-            </form>
-        </div>
-        <!-- /.tab-pane -->
-    </div>
-</aside>
-<script>
-    new Tablesort(document.getElementById('sort'));
-</script>
-<!-- /.control-sidebar -->
-<!-- Add the sidebar's background. This div must be placed
-immediately after the control sidebar -->
-<div class="control-sidebar-bg"></div>

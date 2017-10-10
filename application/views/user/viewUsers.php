@@ -3,11 +3,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                All users
+                Gebruikers
             </h1>
             <br>
             <a href="<?= base_url("backend/user/createUser"); ?>" style="font-size: 140%;">
-                Create user
+                Maak gebruiker
             </a>
         </section>
 
@@ -39,125 +39,53 @@
                     echo '<li>' . $_SESSION['message'] . '</li>';
                 }
                 echo '</ul></div>'; }?>
-        <table>
-            <thead>
-            <tr>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Status</th>
-            <th>Edit</th>
-            <th>Block/Unblock</th>
-            <th>Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($users as $user) { ?>
-                <tr>
-                <td><?= $user->username ?></td>
-                <td><?= $user->email ?></td>
-                <td><?= $user->name ?></td>
-                <?php if ($user->status == 0 || $user->status == '0') { ?>
-                    <td>Actief</td>
-                <?php } else { ?>
-                    <td>Geblokt</td>
-                <?php } ?>
-                <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
-                <td><a href="#">Block/Unblock</a></td>
-                <td><a href="#">Delete</a></td>
-                </tr>
-            <?php } ?>
-            </tbody>
-        </table>
-        </section>
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-
-    <!-- Main Footer -->
-     <footer class="main-footer">
-         <!-- To the right -->
-         <div class="pull-right hidden-xs">
-             All rights reserved.
+ <br>
+ <div class="col-xs-12">
+     <div class="box">
+         <div class="box-header">
+             <h3 class="box-title">Alle gebruikers</h3>
          </div>
-         <!-- Default to the left -->
-         <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
-     </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Home tab content -->
-            <div class="tab-pane active" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:;">
-                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                <p>Will be 23 on April 24th</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:;">
-                            <h4 class="control-sidebar-subheading">
-                                Custom Template Design
-                                <span class="pull-right-container">
-                    <span class="label label-danger pull-right">70%</span>
-                  </span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-            </div>
-            <!-- /.tab-pane -->
-            <!-- Stats tab content -->
-            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-            <!-- /.tab-pane -->
-            <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Some information about this general settings option
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-                </form>
-            </div>
-            <!-- /.tab-pane -->
-        </div>
-    </aside>
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-    immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
-</div>
+         <!-- /.box-header -->
+         <div class="box-body">
+             <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <table id="sort" class="sort" role="grid" aria-describedby="example1_info">
+                             <thead>
+                             <tr role="row">
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Username</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Email</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;;">Role</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Status</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Edit</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Block/Unblock</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Delete</th>
+                             </thead>
+                             <tbody>
+                             <?php foreach ($users as $user) { ?>
+                                 <tr>
+                                     <td><?= $user->username ?></td>
+                                     <td><?= $user->email ?></td>
+                                     <td><?= $user->name ?></td>
+                                     <?php if ($user->status == 0 || $user->status == '0') { ?>
+                                         <td>Actief</td>
+                                     <?php } else { ?>
+                                         <td>Geblokt</td>
+                                     <?php } ?>
+                                     <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
+                                     <td><a href="#">Block/Unblock</a></td>
+                                     <td><a href="#">Delete</a></td>
+                                 </tr>
+                             <?php } ?>
+                             </tbody>
+                         </table>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ </div>
+ <script>
+     new Tablesort(document.getElementById('sort'));
+ </script>

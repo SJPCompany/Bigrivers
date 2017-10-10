@@ -14,6 +14,7 @@ class Image extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->library('image_lib');
+        $this->load->helper('path');
         $this->checkUrl();
         $this->load->model('../models/image_model');
     }
@@ -43,6 +44,42 @@ class Image extends CI_Controller
             $this->load->view('templates/backend_header');
             $this->load->view('backend/images_view/index', $data);
             $this->load->view('templates/backend_footer');
+        }
+    }
+
+    public function checkImage() {
+        // Kijkt naar de naam en de breedte en hoogte van het plaatje in de url
+        // Pakt de naam uit de url
+        $imagename = $this->uri->segment(4);
+        // Pak de breedte uit de url
+        $imagewidth = $this->uri->segment(5);
+        // Pak de hoogte uit de url
+        $imageheight = $this->uri->segment(6);
+        //Gaat kijken of de image bestaat in de database
+        $imagelog = $this->image_model->checkImageExits($imagename, $imagewidth, $imageheight);
+        // Als er geen image is voorlopig geef een error terug
+        if ($imagelog == FALSE) {
+            $error = "Image niet gevonden met opgegeven naam " . $imagename . " En breedte " . $imagewidth . " En hoogte " . $imageheight . "";
+            $this->session->set_flashdata('error', $error);
+            return redirect('backend/error');
+        } else {
+            // Haal het pad op uit de array
+            foreach ($imagelog as $filepath) {
+                $path = $filepath->file_path;
+            }
+            // Kijk of de image bestaat
+            if (file_exists($path)) {
+                // Als de image gevonden is geef zijn informatie mee in de view
+                $data['imageinfo'] = $imagelog;
+                $this->load->view('templates/backend_header');
+                $this->load->view('backend/images_view/askedimage', $data);
+                $this->load->view('templates/backend_footer');
+            } // anders voor nu geef een error mee
+            else {
+                $error = "De image is niet gevonden in de apllicatie";
+                $this->session->set_flashdata('error', $error);
+                return redirect('backend/error');
+            }
         }
     }
 }

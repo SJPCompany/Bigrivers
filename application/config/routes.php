@@ -60,6 +60,7 @@ $route['backend/user/checkUrl'] = 'user/checkUrl';
 $route['backend/error'] = 'Backend/error';
 $route['backend/user/profile'] = 'user/profile';
 $route['backend/user/doLogin'] = 'user/doLogin';
+$route['backend/image/checkImage/([^/]*)/([^/]*)/(.*)'] = 'Image/checkImage/image.png/$2/$3';
 $route['backend/user/viewUsers'] = 'user/viewUsers';
 $route['backend/user/createUser'] = 'user/createUser';
 $route['backend/user/checkUserData'] = 'user/checkUserData';
