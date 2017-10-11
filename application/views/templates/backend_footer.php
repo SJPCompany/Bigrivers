@@ -6,12 +6,6 @@
 <script src="<?= base_url(); ?>application/views/backend/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>application/views/backend/dist/js/adminlte.min.js"></script>
-<!--jqeury text editor-->
-<script src="<?= base_url();?>js/upload_profile_img.js"></script>
-<script src="<?= base_url(); ?>js/editor.js"></script>
-<!--<script>$("#inhoud").Editor();-->
-<!--   </script>-->
-
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
