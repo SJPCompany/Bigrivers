@@ -54,6 +54,14 @@ class news extends CI_Controller {
         $this->load->view('templates/backend_footer');
     }
 
+    public function newseditpage ($news_id){
+//        $data['news'] = $this->News_model->get_newsedit($news_id);
+
+        $this->load->view('templates/backend_header');
+        $this->load->view('news/newsedit');
+        $this->load->view('templates/backend_footer');
+    }
+
 // pak de data uit de form check of alles is ingevult en geef dan de data door naar de model anders geef een error page
     public function create()
     {
@@ -80,10 +88,30 @@ class news extends CI_Controller {
     }
 
 //delete function om een artikel uit de database te verwijderen
-    public function delete()
-    {
+    public function delete($news_id) {
+        $this->News_model->deletenews($news_id);
+    }
 
+    public function edit(){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
 
+        $this->form_validation->set_rules('title', 'Title', 'required');
+        $this->form_validation->set_rules('inhoud', 'Inhoud', 'required');
+//        $this->form_validation->set_rules('newsimage', 'Newsimage', 'required');
+
+        if ($this->form_validation->run() === FALSE)
+        {
+            $error = "vul alle velden goed in";
+            $this->session->set_flashdata('error', $error);
+            $this->load->view('backend/error/error',$error);
+
+        }
+        else
+        {
+            $this->News_model->update_news();
+            $this->newslist();
+        }
     }
 
 }

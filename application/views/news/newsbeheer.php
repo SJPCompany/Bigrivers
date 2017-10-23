@@ -29,8 +29,8 @@
                 <td><?php echo $news_data['creator']?></td>
                 <td><?php echo $news_data['creation_date'] ?></td>
                 <td><?php echo $news_data['status'] ?></td>
-                <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $news_data['id']) ?>"><i class="fa fa-pencil"></i></a></td>
-                <td><a href="<?php echo site_url('news/delete/'.$news_data['id']); ?>" onClick="return confirm('weet je zeker dat je dit arikel wilt verwijderen?')"">Delete</a></td>
+                <td><a class="mid" href="<?php echo site_url('news/newseditpage/'.$news_data['id']);?>"><i class="fa fa-pencil"></i></a></td>
+                <td><a href="<?php echo site_url('news/delete/'.$news_data['id']);?>" onClick="return confirm('weet je zeker dat je dit arikel wilt verwijderen?')">Delete</a></td>
             </tr>
         <?php } ?>
         </tbody>
