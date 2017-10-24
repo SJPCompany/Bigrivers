@@ -45,12 +45,20 @@ class news extends CI_Controller {
         $this->load->view('templates/footer');
     }
 // laad view voor de nieuwsbeheerlijst op de backend en geef de data mee
-    public function newsedit()
+    public function newsbeheer()
     {
         $data['news'] = $this->News_model->get_news();
 
         $this->load->view('templates/backend_header');
-        $this->load->view('news/newsedit',$data);
+        $this->load->view('news/newsbeheer',$data);
+        $this->load->view('templates/backend_footer');
+    }
+
+    public function newseditpage ($news_id){
+//        $data['news'] = $this->News_model->get_newsedit($news_id);
+
+        $this->load->view('templates/backend_header');
+        $this->load->view('news/newsedit');
         $this->load->view('templates/backend_footer');
     }
 
@@ -75,6 +83,33 @@ class news extends CI_Controller {
         else
         {
             $this->News_model->set_news();
+            $this->newslist();
+        }
+    }
+
+//delete function om een artikel uit de database te verwijderen
+    public function delete($news_id) {
+        $this->News_model->deletenews($news_id);
+    }
+
+    public function edit(){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('title', 'Title', 'required');
+        $this->form_validation->set_rules('inhoud', 'Inhoud', 'required');
+//        $this->form_validation->set_rules('newsimage', 'Newsimage', 'required');
+
+        if ($this->form_validation->run() === FALSE)
+        {
+            $error = "vul alle velden goed in";
+            $this->session->set_flashdata('error', $error);
+            $this->load->view('backend/error/error',$error);
+
+        }
+        else
+        {
+            $this->News_model->update_news();
             $this->newslist();
         }
     }

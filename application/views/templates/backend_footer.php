@@ -6,11 +6,10 @@
 <script src="<?= base_url(); ?>application/views/backend/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>application/views/backend/dist/js/adminlte.min.js"></script>
-<!--jqeury text editor-->
-<script src="<?= base_url();?>js/upload_profile_img.js"></script>
-<script src="<?= base_url(); ?>js/editor.js"></script>
-<!--<script>$("#inhoud").Editor();-->
-<!--   </script>-->
+
+<link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap3-wysihtml5.css" type="text/css">
+<script src="<?= base_url(); ?>js/bootstrap3-wysihtml5.js"></script>
+<script>$('#newstext').html('Some text dynamically set.');</script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

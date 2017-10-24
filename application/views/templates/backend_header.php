@@ -220,7 +220,7 @@ desired effect
                 <li><a href="<?= base_url("backend/user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>Gebruikers</span></a></li>
 
                 <!-- Bekijk evenemten -->
-                <li><a href="#"><i class="fa fa-address-book"></i> <span>Evenementen</span></a></li>
+                <li><a href="#"><i class="fa fa-address-book"></i> <span>Kalender</span></a></li>
 
                 <!-- Nieuws -->
                 <li class="treeview">

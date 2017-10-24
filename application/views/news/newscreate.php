@@ -17,12 +17,10 @@
             <input type="text" name="title" /><br />
 
             <label for="inhoud">Inhoud</label><br />
-            <textarea id="inhoud" name="inhoud"> </textarea><br>
-
+            <textarea id="newstext" name="inhoud"></textarea><br>
 <!--            <label for="newsimage">afbeelding</label><br />-->
 <!--            <input type="file" name="newsimage"/>-->
             <input type="submit" name="submit" value="publiceer"/><br>
-
             </form>
 
 
