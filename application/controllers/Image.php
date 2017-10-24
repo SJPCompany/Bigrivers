@@ -15,6 +15,7 @@ class Image extends CI_Controller
         $this->load->library('session');
         $this->load->library('image_lib');
         $this->load->helper('path');
+        $this->output->enable_profiler(FALSE);
         $this->checkUrl();
         $this->load->model('../models/image_model');
     }
@@ -56,17 +57,25 @@ class Image extends CI_Controller
         // Pak de hoogte uit de url
         $imageheight = $this->uri->segment(6);
         //Gaat kijken of de image bestaat in de database
-        $imagelog = $this->image_model->checkImageExits($imagename, $imagewidth, $imageheight);
-        // Als er geen image is voorlopig geef een error terug
+        $imagelog = $this->image_model->checkImageExits($imagename);
+        // Als er geen image is stuur terug naar upload pagina
         if ($imagelog == FALSE) {
-            $error = "Image niet gevonden met opgegeven naam " . $imagename . " En breedte " . $imagewidth . " En hoogte " . $imageheight . "";
-            $this->session->set_flashdata('error', $error);
-            return redirect('backend/error');
+            return redirect('backend/uploadimage');
         } else {
+            $imagepath = $this->image_model->getImagePath();
             // Haal het pad op uit de array
-            foreach ($imagelog as $filepath) {
+            foreach ($imagepath as $filepath) {
                 $path = $filepath->file_path;
             }
+            // Kijk of de image bestaat
+            if (file_exists($path)) {
+                $imagesize = $this->image_model->getImagesize($imagewidth, $imageheight);
+            } // anders stuur terug naar upload pagina
+            else {
+                return redirect('backend/uploadimage');
+            }
+        }
+            /*
             // Kijk of de image bestaat
             if (file_exists($path)) {
                 // Als de image gevonden is geef zijn informatie mee in de view
@@ -80,6 +89,17 @@ class Image extends CI_Controller
                 $this->session->set_flashdata('error', $error);
                 return redirect('backend/error');
             }
+        }*/
+    }
+
+    public function uploadImage() {
+        if (isset($_POST['submit_image'])) {
+            $imagename = $_FILES['imageUpload']['name'];
+            var_dump($_FILES['imageUpload']);
+            var_dump($imagename);
         }
+        $this->load->view('templates/backend_header');
+        $this->load->view('backend/images_view/uploadimage');
+        $this->load->view('templates/backend_footer');
     }
 }
