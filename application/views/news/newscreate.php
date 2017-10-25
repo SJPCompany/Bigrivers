@@ -1,10 +1,27 @@
- <div class="content-wrapper">
+<?php if (isset($_SESSION['error'])) {
+    echo '<div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Fout!</strong> <ul>';
+    if ($_SESSION['error'] > 1) {
+        foreach ($_SESSION['error'] as $error) {
+            echo '<li>' . $error . '</li>';
+        }
+    } else {
+        echo '<li>' . $_SESSION['error'] . '</li>';
+    }
+    echo '</ul></div>'; }
+?>
+
+
+<div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
           Voeg Nieuwsbericht toe
             </h1>
         </section>
+
+
+
 
         <!-- Main content -->
         <section class="content container-fluid">
@@ -22,8 +39,6 @@
 <!--            <input type="file" name="newsimage"/>-->
             <input type="submit" name="submit" value="publiceer"/><br>
             </form>
-
-
         </section>
         <!-- /.content -->
     </div>

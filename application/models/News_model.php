@@ -17,7 +17,7 @@ class News_model extends CI_Model
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'text' => $this->input->post('inhoud'),
-            'creator' => $this->input->post('title')
+            'creator' => $_SESSION['userinfo']->username
         );
 
         return $this->db->insert('news', $data);
