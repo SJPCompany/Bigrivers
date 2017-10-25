@@ -23,11 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <div class="header-coaster img-circle">
     <div class="header-date-div">
-        <h3 class="header-date page_font">14/15/16 juli!</h3>
+        <h3 class="header-date page_font">13/14/15 juli!</h3>
     </div>
     <div class="pseudo-align"></div>
     <a href="<?php echo base_url("home/index")?>">
-        <img class="header-logo" src="<?=base_url()?>img/logo.gif">
+        <img class="header-logo" src="<?=base_url()?>img/br18.png">
     </a>
 </div>
 <!-- navigation bar -->
