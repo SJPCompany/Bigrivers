@@ -40,6 +40,26 @@ class image_model extends CI_Model
     }
 
     public function getImagesize($imagewidth, $imageheight) {
+        $imagearray = array('width' => $imagewidth, 'height' => $imageheight);
+        $this->db->select('*');
+        $this->db->from('sizes');
+        $this->db->where($imagearray);
+        $this->db->join('image_sizes', 'sizes.id = image_sizes.size_id');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
 
+    public function insertImageSize($imagewidth, $imageheight) {
+        $data = array('name' => 'çustom', 'width' => $imagewidth, 'height' => $imageheight);
+        $this->db->insert('sizes', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

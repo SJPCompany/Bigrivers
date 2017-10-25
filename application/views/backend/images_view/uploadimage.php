@@ -11,7 +11,7 @@
     <!-- Main content -->
     <section class="content container-fluid">
 
-        <?php echo form_open_multipart();?>
+        <form action="" method="post">
 
         <input type="file" name="image_file" />
 

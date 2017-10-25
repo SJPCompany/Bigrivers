@@ -7,7 +7,6 @@ class Backend extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('session');
-        $this->checkAccess();
         $this->checkUrl();
     }
 
@@ -19,17 +18,6 @@ class Backend extends CI_Controller {
             $error = "Pagina niet beschikbaar";
             $this->session->set_flashdata('error', $error);
             return redirect("backend/error");
-        }
-    }
-
-    public function checkAccess() {
-        if (empty($_SESSION['userinfo']) || $_SESSION['userinfo']->name == 'gebruiker') {
-            $error = "Geen toegang tot deze pagina";
-            $this->session->set_flashdata('error', $error);
-            return redirect("errors/index");
-        }
-        else {
-            return true;
         }
     }
 

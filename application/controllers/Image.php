@@ -15,7 +15,7 @@ class Image extends CI_Controller
         $this->load->library('session');
         $this->load->library('image_lib');
         $this->load->helper('path');
-        $this->output->enable_profiler(FALSE);
+        $this->output->enable_profiler(TRUE);
         $this->checkUrl();
         $this->load->model('../models/image_model');
     }
@@ -57,39 +57,19 @@ class Image extends CI_Controller
         // Pak de hoogte uit de url
         $imageheight = $this->uri->segment(6);
         //Gaat kijken of de image bestaat in de database
-        $imagelog = $this->image_model->checkImageExits($imagename);
+        $imagesize = $this->image_model->getImagesize($imagewidth,$imageheight);
+        var_dump($imageheight, $imagewidth);
         // Als er geen image is stuur terug naar upload pagina
-        if ($imagelog == FALSE) {
-            return redirect('backend/uploadimage');
+        if ($imagesize == FALSE) {
+            $imageSizeInsert = $this->image_model->insertImageSize($imagewidth, $imageheight);
+            if($imageSizeInsert == FALSE) {
+                var_dump('Image insert went wrong');
+            } else {
+                var_dump('Image insert correct');
+            }
         } else {
-            $imagepath = $this->image_model->getImagePath();
-            // Haal het pad op uit de array
-            foreach ($imagepath as $filepath) {
-                $path = $filepath->file_path;
-            }
-            // Kijk of de image bestaat
-            if (file_exists($path)) {
-                $imagesize = $this->image_model->getImagesize($imagewidth, $imageheight);
-            } // anders stuur terug naar upload pagina
-            else {
-                return redirect('backend/uploadimage');
-            }
+            var_dump('i`m True');
         }
-            /*
-            // Kijk of de image bestaat
-            if (file_exists($path)) {
-                // Als de image gevonden is geef zijn informatie mee in de view
-                $data['imageinfo'] = $imagelog;
-                $this->load->view('templates/backend_header');
-                $this->load->view('backend/images_view/askedimage', $data);
-                $this->load->view('templates/backend_footer');
-            } // anders voor nu geef een error mee
-            else {
-                $error = "De image is niet gevonden in de apllicatie";
-                $this->session->set_flashdata('error', $error);
-                return redirect('backend/error');
-            }
-        }*/
     }
 
     public function uploadImage() {
