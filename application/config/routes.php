@@ -69,6 +69,7 @@ $route['backend/user/checkEditUserData'] = 'user/checkEditUserData';
 $route['backend/user/do_upload'] = 'user/do_upload';
 $route['backend/newscreate'] = 'news/newscreate';
 $route['backend/newsbeheer'] = 'news/newsbeheer';
+$route['backend/widgets'] = 'widget/viewWidgets';
 $route['newsview/(:any)'] = 'news/view/$1';
 $route['page/news'] = 'news/newslist';
 $route['(:any)'] = 'page/view/$1';
