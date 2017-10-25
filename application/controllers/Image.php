@@ -48,7 +48,8 @@ class Image extends CI_Controller
         }
     }
 
-    public function checkImage() {
+    public function checkImage()
+    {
         // Kijkt naar de naam en de breedte en hoogte van het plaatje in de url
         // Pakt de naam uit de url
         $imagename = $this->uri->segment(4);
@@ -57,18 +58,23 @@ class Image extends CI_Controller
         // Pak de hoogte uit de url
         $imageheight = $this->uri->segment(6);
         //Gaat kijken of de image bestaat in de database
-        $imagesize = $this->image_model->getImagesize($imagewidth,$imageheight);
-        var_dump($imageheight, $imagewidth);
+        $imagelog = $this->image_model->checkImageExits($imagename);
         // Als er geen image is stuur terug naar upload pagina
-        if ($imagesize == FALSE) {
-            $imageSizeInsert = $this->image_model->insertImageSize($imagewidth, $imageheight);
-            if($imageSizeInsert == FALSE) {
-                var_dump('Image insert went wrong');
-            } else {
-                var_dump('Image insert correct');
-            }
+        if ($imagelog == FALSE) {
+            $error = "Image niet gevonden met opgegeven naam " . $imagename . " En breedte " . $imagewidth . " En hoogte " . $imageheight . "";
+            $this->session->set_flashdata('error', $error);
         } else {
-            var_dump('i`m True');
+            $imagepath = $this->image_model->getImagePath($imagename);
+            foreach ($imagepath as $filepath) {
+                $path = $filepath->file_path;
+            }
+            // Kijk of de image bestaat
+            if (file_exists($path)) {
+                return ($path);
+            } else {
+                $error = "Image niet gevonden met " . $path . " probeer opnieuw ";
+                $this->session->set_flashdata('error', $error);
+            }
         }
     }
 

@@ -27,10 +27,11 @@ class image_model extends CI_Model
         }
     }
 
-    public function getImagePath() {
+    public function getImagePath($imagename) {
         $this->db->select('*');
         $this->db->from('image_sizes');
-        $this->db->join('images', 'image_sizes.image_id = images.id');
+        $this->db->where('name', $imagename);
+        $this->db->join('images', 'images.id = image_sizes.id');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
