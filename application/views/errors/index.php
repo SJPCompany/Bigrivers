@@ -4,7 +4,7 @@
     <title>Errors</title>
 </head>
 <body>
-<div class="container">
+<div class="container_2">
 <h1>Iets ging fout kijk hieronder voor meer info</h1>
     <?php if (isset($_SESSION['error'])) {
         echo '<div class="alert alert-danger alert-dismissable">

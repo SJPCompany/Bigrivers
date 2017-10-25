@@ -4,16 +4,23 @@
     <section class="content-header">
         <h1>
             Bigrivers
-            <small>Opgevraagde image</small>
+            <small>Voege een plaatje toe</small>
         </h1>
     </section>
 
     <!-- Main content -->
     <section class="content container-fluid">
-        <?php
-        foreach ($imageinfo as $info) {?>
-        <img src="<?= base_url('img/' . $info->name . '')?>">
-        <?php } ?>
+
+        <?php echo form_open_multipart();?>
+
+        <input type="file" name="image_file" />
+
+        <br /><br />
+
+        <input type="submit" name="imageupload" value="upload" />
+
+        </form>
+
         <!--------------------------
           | Your Page Content Here |
           -------------------------->

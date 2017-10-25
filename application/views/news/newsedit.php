@@ -1,0 +1,40 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            pas nieuwsbericht aan
+        </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+        <?php foreach ($news_item as $news): ?>
+        <?php echo validation_errors(); ?>
+        <?php echo form_open('news/edit'); ?>
+        <input type="hidden" value="<?php echo $news['id']?>">
+        <label for="title">Title</label><br />
+        <input type="text" name="title" value="<?php echo $news['title'] ?>" /><br />
+
+        <label for="inhoud">Inhoud</label><br />
+        <textarea id="newstext" name="inhoud" ></textarea><br>
+        <input type="submit" name="submit" value="publiceer"/><br>
+        </form>
+
+        <?php endforeach; ?>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Main Footer -->
+<footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+        All rights reserved.
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
+</footer>
+
+</body>
+</html>
