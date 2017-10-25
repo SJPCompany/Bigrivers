@@ -17,7 +17,7 @@ class News_model extends CI_Model
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'text' => $this->input->post('inhoud'),
-            'creator' => $this->input->post('title')
+            'creator' => $_SESSION['userinfo']->username
         );
 
         return $this->db->insert('news', $data);
@@ -40,19 +40,25 @@ class News_model extends CI_Model
         header('Location: news/newsbeheer');
     }
 
-    public function update_news($news_id)
+    public function update_news($news_data)
     {
         $this->load->helper('url');
 
         $slug = url_title($this->input->post('title'), 'dash', TRUE);
 
         $data = array(
+            'id' => $news_data,
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'text' => $this->input->post('inhoud'),
             'creator' => $this->input->post('title')
         );
 
-        return $this->db->update('news', $data);
+        return $this->db->replace('news', $data);
+    }
+
+    public function geteditdata($news_data){
+        $query = $this->db->get_where('news', array('id' => $news_data));
+        return $query->row_array();
     }
 }

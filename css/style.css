@@ -390,3 +390,27 @@ div {
 }
 /**/
 /* Home page */
+.ButtonBackground {
+    width: 100%;
+    height: auto;
+}
+.ButtonTitle {
+    position: absolute;
+    top: 75%;
+    left: 10%;
+    width: 80%;
+    color: #000;
+    text-align: center;
+}
+@media (min-width: 768px){
+    .ButtonTitle, .CarouselTitle {
+        font-family: "maridavid";
+        font-size: 15pt;
+    }
+}
+p {
+    margin: 0 0 10px;
+}
+.row {
+    margin-top: -6%
+}

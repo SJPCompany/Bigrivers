@@ -30,8 +30,6 @@ checkUserAccess();
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/dist/css/AdminLTE.min.css">
-    <!-- News style  -->
-    <link href="<?= base_url(); ?>css/editor.css">
     <!-- Favicon -->
     <link rel="icon" href="<?=base_url()?>img/favicon.ico" type="image/x-icon">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -309,14 +307,14 @@ desired effect
 
                 <!-- Frontpage knoppen -->
                 <li class="treeview">
-                    <a href="#"><i class="fa fa-ellipsis-h"></i> <span>Frontpage knoppen</span>
+                    <a href="#"><i class="fa fa-ellipsis-h"></i> <span>Frontpage widgets</span>
                         <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Beheer knoppen</a></li>
-                        <li><a href="#">Voeg knoppen toe</a></li>
+                        <li><a href="<?= base_url("widget/viewWidgets") ?>">Beheer widgets</a></li>
+                        <li><a href="#">Voeg widgets toe</a></li>
                         <li><a href="#">Beheer widget</a></li>
                     </ul>
                 </li>

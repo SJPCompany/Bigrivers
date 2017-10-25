@@ -54,11 +54,16 @@ class news extends CI_Controller {
         $this->load->view('templates/backend_footer');
     }
 
-    public function newseditpage ($news_id){
-//        $data['news'] = $this->News_model->get_newsedit($news_id);
+    public function newseditpage ($news_data){
+        $data['news_item'] = $this->News_model->geteditdata($news_data);
+
+        if (empty($data['news_item']))
+        {
+            echo 'error';
+        }
 
         $this->load->view('templates/backend_header');
-        $this->load->view('news/newsedit');
+        $this->load->view('news/newsedit',$data);
         $this->load->view('templates/backend_footer');
     }
 
@@ -75,23 +80,27 @@ class news extends CI_Controller {
 
         if ($this->form_validation->run() === FALSE)
         {
-            $error = "vul alle velden goed in";
+//            $error = "vul alle velden goed in";
+//            $this->session->set_flashdata('error', $error);
+//            $this->load->view('backend/error/error',$error);
+            $_SESSION['error'] = [];
+            $error = "vul alles goed in";
             $this->session->set_flashdata('error', $error);
-            $this->load->view('backend/error/error',$error);
+            $this->newscreate();
 
         }
         else
         {
             $this->News_model->set_news();
-            $this->newslist();
+            return redirect('news/newsbeheer');
         }
     }
 
 //delete function om een artikel uit de database te verwijderen
-    public function delete($news_id) {
-        $this->News_model->deletenews($news_id);
+    public function delete($news_data) {
+        $this->News_model->deletenews($news_data);
     }
-
+//edit function om een nieuws bericht aan te passen
     public function edit(){
         $this->load->helper('form');
         $this->load->library('form_validation');
