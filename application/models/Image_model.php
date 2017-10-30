@@ -27,11 +27,12 @@ class image_model extends CI_Model
         }
     }
 
-    public function getImagePath($imagename) {
+    public function getImagePath($imageid, $sizeid) {
+        $imageidinfo = array('size_id' => $sizeid, 'image_id' => $imageid);
         $this->db->select('*');
         $this->db->from('image_sizes');
-        $this->db->where('name', $imagename);
-        $this->db->join('images', 'images.id = image_sizes.id');
+        $this->db->where($imageidinfo);
+        $this->db->join('images', 'images.id = image_sizes.image_id');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -45,7 +46,6 @@ class image_model extends CI_Model
         $this->db->select('*');
         $this->db->from('sizes');
         $this->db->where($imagearray);
-        $this->db->join('image_sizes', 'sizes.id = image_sizes.size_id');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();

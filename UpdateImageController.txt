@@ -1,0 +1,5 @@
+#Bij gewerkt 30-10-2017
+Je moet alle plaatjes bij naam invullen in de image tabel
+*ALS DE OPGEGEVEN SIZE NIET BESTAAT WORDT IE AUTOMATISCHE INGEVOERD
+Daarna moet je de size_id invoeren in de table image_sizes met het image_id
+Dan krijg je voor nu een image terug van de controller
