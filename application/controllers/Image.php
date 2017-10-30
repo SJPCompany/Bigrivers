@@ -1,12 +1,11 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: justi
  * Date: 9-10-2017
  * Time: 11:30
  */
-
-
 class Image extends CI_Controller
 {
     public function __construct()
@@ -20,7 +19,8 @@ class Image extends CI_Controller
         $this->load->model('../models/image_model');
     }
 
-    public function checkUrl() {
+    public function checkUrl()
+    {
         $url = uri_string();
         if (strpos($url, 'backend') !== false) {
             return true;
@@ -70,7 +70,17 @@ class Image extends CI_Controller
             }
             // Kijk of de image bestaat
             if (file_exists($path)) {
-                return ($path);
+                // open the file in a binary mode
+                $name = $path;
+                $fp = fopen($name, 'rb');
+
+                // send the right headers
+                header("Content-Type: image/jpg");
+                header("Content-Length: " . filesize($name));
+
+                // dump the picture and stop the script
+                fpassthru($fp);
+                exit;
             } else {
                 $error = "Image niet gevonden met " . $path . " probeer opnieuw ";
                 $this->session->set_flashdata('error', $error);
@@ -78,7 +88,8 @@ class Image extends CI_Controller
         }
     }
 
-    public function uploadImage() {
+    public function uploadImage()
+    {
         if (isset($_POST['submit_image'])) {
             $imagename = $_FILES['imageUpload']['name'];
             var_dump($_FILES['imageUpload']);

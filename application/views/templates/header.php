@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div class="pseudo-align"></div>
     <a href="<?php echo base_url("home/index")?>">
-        <img class="header-logo" src="<?=base_url()?>img/br18.png">
+        <img class="header-logo" src="backend/image/checkImage/br15.jpg/200/100">
     </a>
 </div>
 <!-- navigation bar -->

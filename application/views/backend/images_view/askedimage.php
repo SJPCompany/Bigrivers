@@ -10,10 +10,7 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-        <?php
-        foreach ($imageinfo as $info) {?>
-        <img src="<?= base_url('img/' . $info->name . '')?>">
-        <?php } ?>
+            <img src="<?= base_url($path)?>">
         <!--------------------------
           | Your Page Content Here |
           -------------------------->
