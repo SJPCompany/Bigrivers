@@ -242,8 +242,8 @@ desired effect
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?= base_url("backend/news")?>">Voeg nieuwsbericht toe</a></li>
-                        <li><a href="#">Beheer nieuwsberichten</a></li>
+                        <li><a href="<?= base_url("backend/news/newscreate")?>">Voeg nieuwsbericht toe</a></li>
+                        <li><a href="<?= base_url("backend/news/newsbeheer")?>">Beheer nieuwsberichten</a></li>
                     </ul>
                 </li>
 
