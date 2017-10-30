@@ -15,7 +15,7 @@ class Image extends CI_Controller
         $this->load->library('session');
         $this->load->library('image_lib');
         $this->load->helper('path');
-        $this->output->enable_profiler(TRUE);
+        $this->output->enable_profiler(FALSE);
         $this->checkUrl();
         $this->load->model('../models/image_model');
     }
