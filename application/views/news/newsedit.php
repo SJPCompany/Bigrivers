@@ -8,19 +8,17 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-        <?php foreach ($news_item as $news): ?>
         <?php echo validation_errors(); ?>
         <?php echo form_open('news/edit'); ?>
-        <input type="hidden" value="<?php echo $news['id']?>">
+        <input name="id" type="hidden" value="<?= $news_item['id']?>">
         <label for="title">Title</label><br />
-        <input type="text" name="title" value="<?php echo $news['title'] ?>" /><br />
-
+        <input type="text" name="title" value="<?= $news_item['title'] ?>" /><br />
         <label for="inhoud">Inhoud</label><br />
-        <textarea id="newstext" name="inhoud" ></textarea><br>
+        <textarea id="newstext" name="inhoud" ></textarea>
         <input type="submit" name="submit" value="publiceer"/><br>
         </form>
 
-        <?php endforeach; ?>
+
     </section>
     <!-- /.content -->
 </div>

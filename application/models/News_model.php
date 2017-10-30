@@ -39,7 +39,7 @@ class News_model extends CI_Model
         $this->db->delete('news', array('id' => $news_id));
     }
 
-    public function update_news($news_data)
+    public function update_news()
     {
         $this->load->helper('url');
 
@@ -50,7 +50,7 @@ class News_model extends CI_Model
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'text' => $this->input->post('inhoud'),
-            'creator' => $this->input->post('title')
+            'creator' => $_SESSION['userinfo']->username
         );
 
         return $this->db->replace('news', $data);
