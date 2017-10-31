@@ -53,24 +53,35 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['errors/index'] = 'Errors/index';
 $route['translate_uri_dashes'] = FALSE;
-$route['backend/image'] = 'Image/index';
-$route['backend/uploadimage'] = 'Image/uploadimage';
+/* Routes */
+
+/* User routes */
 $route['backend/user/logout'] = 'user/logout';
 $route['backend/user/index'] = 'user/index';
 $route['backend/user/checkUrl'] = 'user/checkUrl';
-$route['backend/error'] = 'Backend/error';
 $route['backend/user/profile'] = 'user/profile';
 $route['backend/user/doLogin'] = 'user/doLogin';
-$route['backend/image/checkImage/([^/]*)/([^/]*)/(.*)'] = 'Image/checkImage/image.png/$2/$3';
 $route['backend/user/viewUsers'] = 'user/viewUsers';
 $route['backend/user/createUser'] = 'user/createUser';
 $route['backend/user/checkUserData'] = 'user/checkUserData';
 $route['backend/user/editUser/(:any)'] = 'user/editUser/$1';
 $route['backend/user/checkEditUserData'] = 'user/checkEditUserData';
 $route['backend/user/do_upload'] = 'user/do_upload';
-$route['backend/news/newscreate'] = 'news/newscreate';
-$route['backend/news/newsbeheer'] = 'news/newsbeheer';
-$route['backend/widgets'] = 'widget/viewWidgets';
+/* Error route */
+$route['backend/error'] = 'Backend/error';
+/* Image route */
+$route['backend/image/checkImage/([^/]*)/([^/]*)/(.*)'] = 'Image/checkImage/image.png/$2/$3';
+$route['backend/image'] = 'Image/index';
+$route['backend/uploadimage'] = 'Image/uploadimage';
+/* News route */
+$route['(:any)'] = 'page/view/$1';
 $route['newsview/(:any)'] = 'news/view/$1';
 $route['page/news'] = 'news/newslist';
-$route['(:any)'] = 'page/view/$1';
+$route['backend/newscreate'] = 'news/newscreate';
+$route['backend/newsbeheer'] = 'news/newsbeheer';
+/* Widgets route */
+$route['backend/widgets'] = 'widget/viewWidgets';
+$route['backend/widgets'] = 'widget/addWidgets';
+$route['backend/widgets'] = 'widget/deleteWidgets';
+
+
