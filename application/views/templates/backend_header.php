@@ -313,9 +313,9 @@ desired effect
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?= base_url("widget/viewWidgets") ?>">Beheer widgets</a></li>
-                        <li><a href="#">Voeg widgets toe</a></li>
-                        <li><a href="#">Beheer widget</a></li>
+                        <li><a href="<?= base_url("widget/index") ?>">Bekijk widgets</a></li>
+                        <li><a href="<?= base_url("widget/addWidgets") ?>">Voeg widgets toe</a></li>
+                        <li><a href="<?= base_url("widget/deleteWidgets") ?>">Delete widgets</a></li>
                     </ul>
                 </li>
 

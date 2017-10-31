@@ -15,10 +15,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
-<div class="header">
+<div class="header" style="background-image: <?php echo base_url("backend/image/checkImage/header.png/1080/720")?>">
     <div class="header-items">
-        <img class="header-beer" src="<?=base_url()?>img/beer.png">
-        <img class="header-peanuts" src="<?=base_url()?>img/peanuts.png">
+        <img class="header-beer" src="<?=base_url()?>backend/image/checkImage/beer.png/200/100">
+        <img class="header-peanuts" src="<?=base_url()?>backend/image/checkImage/peanuts.png/200/100">
     </div>
 </div>
 <div class="header-coaster img-circle">
@@ -27,8 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div class="pseudo-align"></div>
     <a href="<?php echo base_url("home/index")?>">
-        <!-- backend/image/checkImage/imagename/w/h -->
-        <img class="header-logo" src="<?= base_url('backend/image/checkImage/br15.jpg/200/100')?>">
+        <img class="header-logo" src="<?php echo base_url("backend/image/checkImage/br18.png/200/100")?>">
     </a>
 </div>
 <!-- navigation bar -->
