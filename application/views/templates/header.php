@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="utf-8">
     <title>Home Page - Big Rivers</title>
 <!-- Css/Fonts -->
-<link rel="icon" href="<?=base_url()?>img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?=base_url()?>favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="<?=base_url()?>css/style.css" type="text/css" />
     <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -15,10 +15,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
-<div class="header">
+<div class="header" style="background-image: <?php echo base_url("backend/image/checkImage/header.png/1080/720")?>">
     <div class="header-items">
-        <img class="header-beer" src="<?=base_url()?>img/beer.png">
-        <img class="header-peanuts" src="<?=base_url()?>img/peanuts.png">
+        <img class="header-beer" src="<?=base_url()?>backend/image/checkImage/beer.png/200/100">
+        <img class="header-peanuts" src="<?=base_url()?>backend/image/checkImage/peanuts.png/200/100">
     </div>
 </div>
 <div class="header-coaster img-circle">
@@ -27,8 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div class="pseudo-align"></div>
     <a href="<?php echo base_url("home/index")?>">
-        <!-- backend/image/checkImage/imagename/w/h -->
-        <img class="header-logo" src="<?= base_url('backend/image/checkImage/br15.jpg/200/100')?>">
+        <img class="header-logo" src="<?php echo base_url("backend/image/checkImage/br18.png/200/100")?>">
     </a>
 </div>
 <!-- navigation bar -->
