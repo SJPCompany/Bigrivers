@@ -99,9 +99,20 @@ class Image extends CI_Controller
                     $sizeid = $sizeinfo->id;
                 }
                 $image = $this->image_model->getImagePath($imageid, $sizeid);
-                foreach ($image as $filepath) {
-                    $path = $filepath->file_path;
-                    $extension = pathinfo($imagename, PATHINFO_EXTENSION);
+                if($image == FALSE) {
+                    $insertImageInfo = $this->image_model->insetImageSizeInfo($imageid, $sizeid);
+                    if($insertImageInfo == FALSE) {
+                        header("X-error: Image en Size niet ingevoerd ");
+                        header("HTTP/1.0 404 Not Found");
+                    } else {
+                            $this->checkImage();
+                        }
+                    }
+                else {
+                    foreach ($image as $filepath) {
+                        $path = $filepath->file_path;
+                        $extension = pathinfo($imagename, PATHINFO_EXTENSION);
+                    }
                 }
                 // Kijk of de image bestaat
                 if (file_exists($path)) {
