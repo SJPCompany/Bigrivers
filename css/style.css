@@ -93,7 +93,6 @@ body {
     margin-bottom: -10px;
 }
 .header-coaster{
-    background-image: url("../img/coaster.png");
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
