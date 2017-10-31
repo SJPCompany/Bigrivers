@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <img class="header-peanuts" src="<?=base_url()?>backend/image/checkImage/peanuts.png/200/100">
     </div>
 </div>
-<div class="header-coaster img-circle" style="background-image: url("backend/image/checkImage/coaster.png")">
+<div class="header-coaster img-circle">
     <div class="header-date-div">
         <h3 class="header-date page_font">13/14/15 juli!</h3>
     </div>
