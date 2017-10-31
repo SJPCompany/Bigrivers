@@ -64,9 +64,19 @@ class image_model extends CI_Model
         }
     }
 
-    public function insetImageSizeInfo($imageid, $sizeid) {
-        $data = array('image_id' => $imageid, 'size_id' => $sizeid);
+    public function insetImageSizeInfo($imageid, $sizeid, $imagename) {
+        $data = array('image_id' => $imageid, 'size_id' => $sizeid, 'file_path' => 'img/' . $imagename . '');
         $this->db->insert('image_sizes', $data);
+        if($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function insetImageName($imagename) {
+        $data = array('name' => $imagename);
+        $this->db->insert('images', $data);
         if($this->db->affected_rows() > 0) {
             return true;
         } else {

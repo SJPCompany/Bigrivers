@@ -79,8 +79,13 @@ class Image extends CI_Controller
         $imagelog = $this->image_model->checkImageExits($imagename);
         // Als er geen image is stuur terug naar upload pagina
         if ($imagelog == FALSE) {
-            header("X-error: Image niet gevonden met opgegeven naam " . $imagename . " En breedte " . $imagewidth . " En hoogte " . $imageheight . "");
-            header("HTTP/1.0 404 Not Found");
+            $imageNameInfo = $this->image_model->insetImageName($imagename);
+            if ($imageNameInfo == FALSE) {
+                header("X-error: Image naam niet ingevoerd ");
+                header("HTTP/1.0 404 Not Found");
+            } else {
+                $this->checkImage();
+            }
         } else {
             $imagesizes = $this->image_model->getImagesize($imagewidth, $imageheight);
             if ($imagesizes == FALSE) {
@@ -100,7 +105,7 @@ class Image extends CI_Controller
                 }
                 $image = $this->image_model->getImagePath($imageid, $sizeid);
                 if($image == FALSE) {
-                    $insertImageInfo = $this->image_model->insetImageSizeInfo($imageid, $sizeid);
+                    $insertImageInfo = $this->image_model->insetImageSizeInfo($imageid, $sizeid, $imagename);
                     if($insertImageInfo == FALSE) {
                         header("X-error: Image en Size niet ingevoerd ");
                         header("HTTP/1.0 404 Not Found");
