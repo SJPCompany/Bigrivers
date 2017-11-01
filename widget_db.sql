@@ -14,28 +14,28 @@
 -- Structuur van  tabel bigrivers2017.widget wordt geschreven
 CREATE TABLE IF NOT EXISTS `widget` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) DEFAULT NULL,
+  `title` varchar(50) NOT NULL,
   `image` int(11) DEFAULT NULL,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
+  `created` datetime DEFAULT CURRENT_TIMESTAMP,
+  `modified` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `link` varchar(50) NOT NULL,
+  `active` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
--- Dumpen data van tabel bigrivers2017.widget: 1 rows
+-- Dumpen data van tabel bigrivers2017.widget: 10 rows
 /*!40000 ALTER TABLE `widget` DISABLE KEYS */;
-INSERT INTO `widget` (`id`, `title`, `image`, `created`, `modified`) VALUES
-	(1, 'Big Rivers 2017 was weer geweldig! ', 1, '2017-10-25 13:47:20', '2018-10-25 13:50:23'),
-	(2, 'Big Rivers 2017 was weer top!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23'),
-	(3, 'Big Rivers 2017 was weer top!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23'),
-	(4, 'Big Rivers 2017 was weer top!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23'),
-	(5, 'Big Rivers 2017 was weer top!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23'),
-	(6, 'Big Rivers 2017 was weer top!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23'),
-	(7, 'Big Rivers 2017 was weer top!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23'),
-	(8, 'Big Rivers 2017 was weer top!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23'),
-	(9, 'Big Rivers 2017 was weer top!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23'),
-	(10, 'Big Rivers 2017 was weer top!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23'),
-	(11, 'Big Rivers 2017 was weer top!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23'),
-	(12, 'Big Rivers 2017 was weer top!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23');
+INSERT INTO `widget` (`id`, `title`, `image`, `created`, `modified`, `link`, `active`) VALUES
+	(1, 'Big Rivers 2017 was weer geweldig! ', 1, '2017-10-25 13:47:20', '2018-10-25 13:50:23', '', 1),
+	(2, 'Foto\'s 2017', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23', '', 1),
+	(3, 'Video\'s 2017', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23', '', 1),
+	(4, 'Big Rivers TV: Let\'s go green!', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23', '', 1),
+	(5, 'Algemene informatie en faq', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23', '', 1),
+	(6, 'Foto\'s big rivers 2017 indoor', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23', '', 1),
+	(7, 'Image_Carousel', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23', '', 1),
+	(8, 'Wall of fame', 2, '2017-10-25 13:47:20', '2018-10-25 13:50:23', '', 1),
+	(36, 'NEE', NULL, '2017-11-01 11:04:26', '2017-11-01 11:04:26', '', 0),
+	(35, 'JA', NULL, '2017-11-01 11:04:18', '2017-11-01 11:04:18', '', 1);
 /*!40000 ALTER TABLE `widget` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
