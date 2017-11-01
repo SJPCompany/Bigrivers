@@ -5,6 +5,7 @@ class news extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('News_model');
+        $this->load->helper('url');
         $this->load->helper('url_helper');
         $this->load->library('session');
         $this->load->library('form_validation');
