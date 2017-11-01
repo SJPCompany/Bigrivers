@@ -79,13 +79,8 @@ class Image extends CI_Controller
         $imagelog = $this->image_model->checkImageExits($imagename);
         // Als er geen image is stuur terug naar upload pagina
         if ($imagelog == FALSE) {
-            $imageNameInfo = $this->image_model->insetImageName($imagename);
-            if ($imageNameInfo == FALSE) {
-                header("X-error: Image naam niet ingevoerd ");
-                header("HTTP/1.0 404 Not Found");
-            } else {
-                $this->checkImage();
-            }
+            header("X-error: Image naam niet gevonden ");
+            header("HTTP/1.0 404 Not Found");
         } else {
             $imagesizes = $this->image_model->getImagesize($imagewidth, $imageheight);
             if ($imagesizes == FALSE) {
