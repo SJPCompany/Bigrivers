@@ -17,7 +17,8 @@ class News_model extends CI_Model
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'text' => $this->input->post('inhoud'),
-            'creator' => $_SESSION['userinfo']->username
+            'creator' => $_SESSION['userinfo']->username,
+            'status' => $this->input->post('status')
         );
 
         return $this->db->insert('news', $data);
@@ -46,11 +47,12 @@ class News_model extends CI_Model
         $slug = url_title($this->input->post('title'), 'dash', TRUE);
 
         $data = array(
-            'id' => $news_data,
+            'id' => $this->input->post('id'),
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'text' => $this->input->post('inhoud'),
-            'creator' => $_SESSION['userinfo']->username
+            'creator' => $_SESSION['userinfo']->username,
+            'status' => $this->input->post('status'),
         );
 
         return $this->db->replace('news', $data);
