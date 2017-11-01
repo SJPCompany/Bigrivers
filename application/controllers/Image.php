@@ -51,14 +51,6 @@ class Image extends CI_Controller
     public function checkImage()
     {
         /* stappen
-        - is er in de tabel images een record waarvoor de naam overeenkomst met de gevraagde name in de url
-        - nee: 404
-        - ja: retourneer het image
-        JE WEET NU HET images.id
-        - is er in de tabel sizes een record voor de gegeven width en height?
-        - nee: insert deze en doe daarna een select die het nieuwe sizes record teruggeeft
-        - ja: geeft het gevonden sizes record terug
-        JE WEET NU HET sizes.id
         - is er in de tabel image_sizes een record voor het gevonden images.id en het gevonden sizes.id?
         - nee: maak een geresized image, sla dit op in de juiste map (image cache ofzo) en bewaar het nieuwe image in de tabel image_sizes en retourneer dat record
         - ja: geef het gevonden image_sizes record terug
@@ -86,7 +78,7 @@ class Image extends CI_Controller
             if ($imagesizes == FALSE) {
                 $imageinsert = $this->image_model->insertImageSize($imagewidth, $imageheight);
                 if ($imageinsert == FALSE) {
-                    header("X-error: Image niet ingevoerd ");
+                    header("X-error: Image Size niet ingevoerd ");
                     header("HTTP/1.0 404 Not Found");
                 } else {
                     $this->checkImage();
