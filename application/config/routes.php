@@ -80,8 +80,8 @@ $route['page/news'] = 'news/newslist';
 $route['backend/newscreate'] = 'news/newscreate';
 $route['backend/newsbeheer'] = 'news/newsbeheer';
 /* Widgets route */
-$route['backend/widgets'] = 'widget/viewWidgets';
-$route['backend/widgets'] = 'widget/addWidgets';
-$route['backend/widgets'] = 'widget/deleteWidgets';
+$route['backend/widget/index'] = 'widget/index';
+$route['backend/widget/createWidget'] = 'widget/createWidget';
+$route['backend/widget/deleteWidget'] = 'widget/deleteWidget';
 
 

@@ -10,7 +10,7 @@
     <?php foreach($widgets as $widget) { ?>
     <div class="col-md-3">
         <?php
-            if ($widget->active == 1 || $widget->active == '1') { ?>
+            if ($widget->active == 1 || $widget->active == 'yes') { ?>
 
         <div class="box box-success box-solid">
             <?php } else { ?>
@@ -41,7 +41,7 @@
 <?php } ?>
     <!-- /.col -->
 </div>
-
+</div>
 <!-- /.content-wrapper -->
 
 <!-- Main Footer -->
