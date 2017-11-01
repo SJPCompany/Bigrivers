@@ -111,9 +111,10 @@ class news extends CI_Controller {
 
         if ($this->form_validation->run() === FALSE)
         {
-            $error = "vul alle velden goed in";
+            $_SESSION['error'] = [];
+            $error = "vul alles goed in";
             $this->session->set_flashdata('error', $error);
-            $this->load->view('backend/error/error',$error);
+            $this->newscreate();
 
         }
         else
