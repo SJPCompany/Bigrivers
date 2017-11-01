@@ -2,6 +2,20 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
+
+            <?php if (isset($_SESSION['error'])) {
+                echo '<div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Fout!</strong> <ul>';
+                if ($_SESSION['error'] > 1) {
+                    foreach ($_SESSION['error'] as $error) {
+                        echo '<li>' . $error . '</li>';
+                    }
+                } else {
+                    echo '<li>' . $_SESSION['error'] . '</li>';
+                }
+                echo '</ul></div>'; }
+            ?>
+
             pas nieuwsbericht aan
         </h1>
     </section>
@@ -14,7 +28,11 @@
         <label for="title">Title</label><br />
         <input type="text" name="title" value="<?= $news_item['title'] ?>" /><br />
         <label for="inhoud">Inhoud</label><br />
-        <textarea id="newstext" name="inhoud" ></textarea>
+        <textarea id="newstext" name="inhoud" ></textarea><br>
+        <select name="status">
+            <option value="actief">actief</option>
+            <option value="inactief">inactief</option>
+        </select><br>
         <input type="submit" name="submit" value="publiceer"/><br>
         </form>
 

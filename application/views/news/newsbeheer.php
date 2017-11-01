@@ -9,7 +9,7 @@
     <!-- Main content -->
 
 
-    <table>
+    <table id="sort" class="sort" role="grid" aria-describedby="example1_info">
         <thead>
         <tr>
             <th>titel</th>

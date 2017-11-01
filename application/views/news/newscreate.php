@@ -34,6 +34,10 @@
             <textarea id="newstext" name="inhoud"></textarea><br>
 <!--            <label for="newsimage">afbeelding</label><br />-->
 <!--            <input type="file" name="newsimage"/>-->
+            <select name="status">
+                <option value="actief">actief</option>
+                <option value="inactief">inactief</option>
+            </select><br>
             <input type="submit" name="submit" value="publiceer"/><br>
             </form>
         </section>
