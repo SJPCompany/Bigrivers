@@ -31,7 +31,7 @@ checkUserAccess();
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/dist/css/AdminLTE.min.css">
     <!-- Favicon -->
-    <link rel="icon" href="<?=base_url()?>img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?=base_url()?>favicon.ico" type="image/x-icon">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
@@ -205,8 +205,6 @@ desired effect
                 </div>
                 <div class="pull-left info">
                     <p><?= $_SESSION['username'] ?></p>
-                    <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
 

@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Home Page - Big Rivers</title>
 <!-- Css/Fonts -->
 <link rel="icon" href="<?=base_url()?>favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="<?=base_url()?>css/style.css" type="text/css" />
+<link rel="stylesheet" href="<?=base_url()?>css/style.css"/>
     <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div class="pseudo-align"></div>
     <a href="<?php echo base_url("home/index")?>">
-        <img class="header-logo" src="<?php echo base_url("backend/image/checkImage/br18.png/200/100")?>">
+        <img class="header-logo" src="<?=base_url()?>backend/image/checkImage/br18.png/200/100">
     </a>
 </div>
 <!-- navigation bar -->

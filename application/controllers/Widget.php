@@ -21,6 +21,7 @@ class widget extends CI_Controller
             return redirect('backend/error');
         } // Als er wel een log terug komt laad de view met de logs uit de database
         else {
+            var_dump($data);
             $this->load->view('templates/backend_header');
             $this->load->view('widget/index', $data);
             $this->load->view('templates/backend_footer');
