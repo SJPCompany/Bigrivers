@@ -313,7 +313,8 @@ desired effect
                     <ul class="treeview-menu">
                         <li><a href="<?= base_url("backend/widget/index") ?>">Bekijk widgets</a></li>
                         <li><a href="<?= base_url("backend/widget/createWidget") ?>">Voeg widgets toe</a></li>
-                        <li><a href="<?= base_url("backend/widget/deleteWidgets") ?>">Delete widgets</a></li>
+                        <li><a href="<?= base_url("backend/widget/editWidgetselect") ?>">Bewerk widget</a></li>
+                        <li><a href="<?= base_url("backend/widget/deleteWidgetselect") ?>">Verwijder widget</a></li>
                     </ul>
                 </li>
 

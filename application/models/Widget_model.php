@@ -32,4 +32,30 @@ class Widget_model extends CI_Model
             return false;
         }
     }
+
+    public function getWidget($id)
+    {
+        $query = $this->db->get_where('widget', array('id' => $id));
+        
+        return $query->row_array();
+    }
+
+    public function editWidget($id, $title, $active)
+    {
+        $data = array('id' => $id, 'title' => $title, 'active' => $active);
+
+        $query = $this->db->where('id', $id);
+        return $this->db->update('widget', $data);
+
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteWidget($id)
+    {
+        $this->db->delete('widget', array('id' => $id));
+    }
 }
