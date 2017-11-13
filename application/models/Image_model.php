@@ -41,6 +41,20 @@ class image_model extends CI_Model
         }
     }
 
+    public function getImageSubPath($imageSubfolder, $imagename, $imageid, $sizeid){
+        $imageidinfo = array('file_path' => 'img/' . $imageSubfolder . '/' . $imagename, 'size_id' => $sizeid, 'image_id' => $imageid);
+        $this->db->select('*');
+        $this->db->from('image_sizes');
+        $this->db->where($imageidinfo);
+        $this->db->join('images', 'images.id = image_sizes.image_id');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     public function getImagesize($imagewidth, $imageheight) {
         $imagearray = array('width' => $imagewidth, 'height' => $imageheight);
         $this->db->select('*');
@@ -68,6 +82,17 @@ class image_model extends CI_Model
         $data = array('image_id' => $imageid, 'size_id' => $sizeid, 'file_path' => 'img/' . $imagename . '');
         $this->db->insert('image_sizes', $data);
         if($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function insetImageSubSizeInfo($imageSubfolder, $imageid, $sizeid, $imagename)
+    {
+        $data = array('size_id' => $sizeid, 'file_path' => 'img/' . $imageSubfolder . '/' . $imagename . '', 'image_id' => $imageid);
+        $this->db->insert('image_sizes', $data);
+        if ($this->db->affected_rows() > 0) {
             return true;
         } else {
             return false;

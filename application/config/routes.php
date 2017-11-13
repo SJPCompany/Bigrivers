@@ -71,6 +71,7 @@ $route['backend/user/do_upload'] = 'user/do_upload';
 $route['backend/error'] = 'Backend/error';
 /* Image route */
 $route['backend/image/checkImage/([^/]*)/([^/]*)/(.*)'] = 'Image/checkImage/image.png/$2/$3';
+$route['backend/image/checkImage/(.+)/([^/]*)/([^/]*)/([^/]*)/(.*)'] = 'Image/checkImage/Subfolder/image.png/$2/$3';
 $route['backend/image'] = 'Image/index';
 $route['backend/uploadimage'] = 'Image/uploadimage';
 /* News route */
