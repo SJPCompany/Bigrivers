@@ -7,9 +7,8 @@
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>application/views/backend/dist/js/adminlte.min.js"></script>
 
-<link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap3-wysihtml5.css" type="text/css">
-<script src="<?= base_url(); ?>js/bootstrap3-wysihtml5.js"></script>
-<script>$('#newstext').html('Some text dynamically set.');</script>
+<script src="<?= base_url(); ?>js/wysihtml.toolbar.js"></script>
+<script src="/<?= base_url(); ?>js/advanced.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

@@ -36,6 +36,9 @@
         </tbody>
     </table>
 
+    <script>
+        new Tablesort(document.getElementById('sort'));
+    </script>
 
     </section>
     <!-- /.content -->

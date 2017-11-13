@@ -141,6 +141,10 @@ class user extends CI_Controller
         }
     }
 
+    public function deleteUser($user_id){
+        $this->user_model->userdelete($user_id);
+    }
+
     public function checkEditUserData()
     {
         if (isset($_POST['submit'])) {
