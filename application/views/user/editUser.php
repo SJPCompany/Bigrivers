@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Edit User
+            Bewerk gebruiker
         </h1> <br>
     </section>
 
@@ -12,7 +12,7 @@
     <section>
         <div class="divform">
             <header>
-                <h1 class="headerform">Edit User</h1>
+                <h1 class="headerform">Bewerk gebruiker</h1>
             </header>
             <?php if ($_SESSION['userinfo']->name == 'programmeur') {?>
                 <style>
@@ -29,13 +29,13 @@
                 </style> <?php } ?>
             <form action="<?= base_url("backend/user/checkEditUserData"); ?>" method="post">
                 <?php foreach ($checkUserInfo as $userinfo) { ?>
-                <label>Username:</label>
+                <label>Gebruikersnaam:</label>
                 <input type="text" name="username" value='<?= $userinfo->username ?>'><br>
-                <label>Password:</label>
+                <label>Wachtwoord:</label>
                 <input type="text" name="password" value="<?= $userinfo->password ?>"><br>
-                <label>Email:</label>
+                <label>Emailadres:</label>
                 <input type="text" name="email" value='<?= $userinfo->email ?>'><br>
-                <label>Choose Role:</label>
+                <label>Selecteer rol:</label>
                 <select class="select" name="role">
                     <?php foreach ($checkRoles as $rolename) {
                         if ($rolename->name == $userinfo->name) {?>
@@ -58,10 +58,10 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        Anything you want
+        Alles wat jij wilt
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2017 <a href="#">SJP Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2017 <a href="#">SJP Company</a>.</strong> Alle rechten voorbehouden.
 </footer>
 
 <!-- Control Sidebar -->
@@ -75,28 +75,28 @@
     <div class="tab-content">
         <!-- Home tab content -->
         <div class="tab-pane active" id="control-sidebar-home-tab">
-            <h3 class="control-sidebar-heading">Recent Activity</h3>
+            <h3 class="control-sidebar-heading">Recente Activiteit</h3>
             <ul class="control-sidebar-menu">
                 <li>
                     <a href="javascript:;">
                         <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
                         <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+                            <h4 class="control-sidebar-subheading">Langdon's verjaardag</h4>
 
-                            <p>Will be 23 on April 24th</p>
+                            <p>Wordt 23 jaar op 24 April</p>
                         </div>
                     </a>
                 </li>
             </ul>
             <!-- /.control-sidebar-menu -->
 
-            <h3 class="control-sidebar-heading">Tasks Progress</h3>
+            <h3 class="control-sidebar-heading">Voortgang taken</h3>
             <ul class="control-sidebar-menu">
                 <li>
                     <a href="javascript:;">
                         <h4 class="control-sidebar-subheading">
-                            Custom Template Design
+                            Aangepast sjabloonontwerp
                             <span class="pull-right-container">
                     <span class="label label-danger pull-right">70%</span>
                   </span>
@@ -113,21 +113,21 @@
         </div>
         <!-- /.tab-pane -->
         <!-- Stats tab content -->
-        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+        <div class="tab-pane" id="control-sidebar-stats-tab">Inhoud statistieken tabblad</div>
         <!-- /.tab-pane -->
         <!-- Settings tab content -->
         <div class="tab-pane" id="control-sidebar-settings-tab">
             <form method="post">
-                <h3 class="control-sidebar-heading">General Settings</h3>
+                <h3 class="control-sidebar-heading">Algemene instellingen</h3>
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        Report panel usage
+                        Gebruik van het rapportpaneel
                         <input type="checkbox" class="pull-right" checked>
                     </label>
 
                     <p>
-                        Some information about this general settings option
+                        Enige informatie over deze algemene instellingsoptie
                     </p>
                 </div>
                 <!-- /.form-group -->

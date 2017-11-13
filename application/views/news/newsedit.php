@@ -25,7 +25,7 @@
         <?php echo validation_errors(); ?>
         <?php echo form_open('news/edit'); ?>
         <input name="id" type="hidden" value="<?= $news_item['id']?>">
-        <label for="title">Title</label><br />
+        <label for="title">Titel</label><br />
         <input type="text" name="title" value="<?= $news_item['title'] ?>" /><br />
         <label for="inhoud">Inhoud</label><br />
         <textarea id="newstext" name="inhoud" ></textarea><br>
@@ -46,7 +46,7 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        All rights reserved.
+        Alle rechten voorbehouden.
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
