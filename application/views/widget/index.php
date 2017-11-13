@@ -30,8 +30,8 @@
             <div class="box-body" style="">
                 <div><img src="https://bigriversstorage.blob.core.windows.net/buttonlogo/File-68a06725-4c13-48f5-886f-d15c3e6aa24f.jpg" width="200px" height="200px"></div>
                 <br>
-                <div><b>Created:</b>&nbsp&nbsp&nbsp<?=$widget->created?></div>
-                <div><b>Modified:</b> <?=$widget->modified?></div>
+                <div><b>Aangemaakt:</b>&nbsp&nbsp&nbsp<?=$widget->created?></div>
+                <div><b>Gewijzigd:</b> <?=$widget->modified?></div>
             </div>
             <!-- /.box-body -->
         </div>
@@ -47,7 +47,7 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        All rights reserved.
+        Alle rechten voorbehouden.
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>

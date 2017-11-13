@@ -53,13 +53,13 @@
                          <table id="sort" class="sort" role="grid" aria-describedby="example1_info">
                              <thead>
                              <tr role="row">
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Username</th>
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Email</th>
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;;">Role</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Gebrukersnaam</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Emailadres</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;;">Rol</th>
                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Status</th>
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Edit</th>
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Block/Unblock</th>
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Delete</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Bewerken</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Blokkeren/deblokkeren</th>
+                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Verwijder</th>
                              </thead>
                              <tbody>
                              <?php foreach ($users as $user) { ?>
@@ -73,8 +73,8 @@
                                          <td>Geblokt</td>
                                      <?php } ?>
                                      <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
-                                     <td><a href="#">Block/Unblock</a></td>
-                                     <td><a href="<?php echo site_url('user/deleteUser/'.$user->id);?>" onClick="return confirm('weet je zeker dat je deze gebruiker wilt verwijderen?')">Delete</a></td>
+                                     <td><a href="#">Blokkeren/deblokkeren</a></td>
+                                     <td><a href="<?= base_url('backend/user/deleteUser/'. $user->id) ?>" onClick="return confirm('weet je zeker dat je deze gebruiker wilt verwijderen?')">Verwijder</a></td>
                                  </tr>
                              <?php } ?>
                              </tbody>

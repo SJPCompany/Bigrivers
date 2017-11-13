@@ -3,13 +3,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Create Widget
+            Creër widget
         </h1> <br>
     </section>
     <!-- New User Form -->
     <div class="box box-info" style="width: 30%;">
         <div class="box-header with-border">
-            <h3 class="box-title">Horizontal Form</h3>
+            <h3 class="box-title">Horizontale Formulier</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -32,8 +32,8 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Create</button>
+                <button type="submit" class="btn btn-default">Annuleren</button>
+                <button type="submit" class="btn btn-info pull-right">Maak aan</button>
             </div>
             <!-- /.box-footer -->
         </form>
