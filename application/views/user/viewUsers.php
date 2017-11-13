@@ -74,7 +74,7 @@
                                      <?php } ?>
                                      <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
                                      <td><a href="#">Block/Unblock</a></td>
-                                     <td><a href="<?php echo site_url('user/deleteUser/'.$user->id);?>" onClick="return confirm('weet je zeker dat je deze gebruiker wilt verwijderen?')">Delete</a></td>
+                                     <td><a href="<?= base_url('backend/user/deleteUser/'. $user->id) ?>" onClick="return confirm('weet je zeker dat je deze gebruiker wilt verwijderen?')">Delete</a></td>
                                  </tr>
                              <?php } ?>
                              </tbody>
