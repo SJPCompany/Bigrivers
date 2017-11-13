@@ -62,12 +62,13 @@ class Image extends CI_Controller
 
         // Kijkt naar de naam en de breedte en hoogte van het plaatje in de url
         // Pakt de naam uit de url
+        var_dump($array = $this->uri->total_segments());
         $imagename = $this->uri->segment(4);
         // Pak de breedte uit de url
         $imagewidth = $this->uri->segment(5);
         // Pak de hoogte uit de url
         $imageheight = $this->uri->segment(6);
-        //Gaat kijken of de image bestaat in de database
+        /*//Gaat kijken of de image bestaat in de database
         $imagelog = $this->image_model->checkImageExits($imagename);
         // Als er geen image is stuur terug naar upload pagina
         if ($imagelog == FALSE) {
@@ -142,10 +143,8 @@ class Image extends CI_Controller
                 } else {
                     header("X-error: Image niet gevonden in de image_size tabel");
                     header("HTTP/1.0 404 Not Found");
-                }
+                }    // }}*/
             }
-        }
-    }
 
     public function uploadImage()
     {
