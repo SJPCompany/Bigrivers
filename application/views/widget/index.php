@@ -32,6 +32,15 @@
                 <br>
                 <div><b>Aangemaakt:</b>&nbsp&nbsp&nbsp<?=$widget->created?></div>
                 <div><b>Gewijzigd:</b> <?=$widget->modified?></div>
+                <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">URL's
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="<?=$widget->intern_URL?>">Intern</a></li>
+                    <li><a href="<?=$widget->extern_URL?>">Extern</a></li>
+                    <li><a href="<?=$widget->document_URL?>">Document</a></li>
+                  </ul>
+                </div>
             </div>
             <!-- /.box-body -->
         </div>

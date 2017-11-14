@@ -47,7 +47,10 @@ class widget extends CI_Controller
         } else {
             $title = $_POST['title'];
             $active = $_POST['active'];
-            $insert = $this->widget_model->createwidget($title, $active);
+            $intern_URL = $_POST['intern_URL'];
+            $extern_URL = $_POST['extern_URL'];
+            $document_URL = $_POST['document_URL'];
+            $insert = $this->widget_model->createwidget($title, $active, $intern_URL, $extern_URL, $document_URL);
             if ($insert == FALSE) {
                 $_SESSION['error'] = [];
                 $error = "insert query went wrong";
@@ -97,11 +100,14 @@ class widget extends CI_Controller
         }
     }
 
-    public function editWidgetData($id = NULL, $title = NULL, $active = NULL)
+    public function editWidgetData($id = NULL, $title = NULL, $active = NULL, $intern_URL = NULL, $extern_URL = NULL, $document_URL = NULL)
     {
             $title = $_POST['title'];
             $active = $_POST['active'];
-            $update = $this->widget_model->editWidget($id, $title, $active);
+            $intern_URL = $_POST['intern_URL'];
+            $extern_URL = $_POST['extern_URL'];
+            $document_URL = $_POST['document_URL'];
+            $update = $this->widget_model->editWidget($id, $title, $active, $intern_URL, $extern_URL, $document_URL);
             if ($update == FALSE) {
                 $_SESSION['error'] = [];
                 $error = "update query went wrong";
