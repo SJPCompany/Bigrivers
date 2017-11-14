@@ -83,18 +83,18 @@ $route['backend/newsbeheer'] = 'news/newsbeheer';
 /* Widgets route */
 $route['backend/widget/index'] = 'widget/index';
 $route['backend/widget/createWidget'] = 'widget/createWidget';
-<<<<<<< HEAD
 $route['backend/widget/deleteWidget'] = 'widget/deleteWidget';
-//artist routes
-$route['backend/artist/createartist'] = 'artist/createartist';
-$route['backend/artist/beheerartist'] = 'artist/beheerartist';
-$route['backend/artist/editartist'] = 'artist/artisteditdata';
-=======
 $route['backend/widget/deleteWidgetselect'] = 'widget/deleteWidgetselect';
 $route['backend/widget/deleteWidget/(:any)'] = 'widget/deleteWidget/$1';
 $route['backend/widget/editWidgetselect'] = 'widget/editWidgetselect';
 $route['backend/widget/editWidget/(:any)'] = 'widget/editWidget/$1';
+//artist routes
+$route['backend/artist/createartist'] = 'artist/createartist';
+$route['backend/artist/beheerartist'] = 'artist/beheerartist';
+$route['backend/artist/editartist'] = 'artist/artisteditdata';
 
 
 
->>>>>>> development
+
+
+
