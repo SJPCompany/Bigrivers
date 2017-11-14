@@ -29,7 +29,7 @@
 
             <?php echo form_open('news/create'); ?>
 
-            <label for="title">Title</label><br />
+            <label for="title">Titel</label><br />
             <input type="text" name="title" /><br />
 
             <label for="inhoud">Inhoud</label><br />
@@ -70,7 +70,7 @@
     <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-            All rights reserved.
+            Alle rechten voorbehouden.
         </div>
         <!-- Default to the left -->
         <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>

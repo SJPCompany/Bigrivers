@@ -11,13 +11,16 @@
     <!-- Main content -->
     <section class="content container-fluid">
 
-        <form action="" method="post">
+        <?php if(isset($_SESSION['error'])) {
+            echo $_SESSION['error'];
+        } ?>
+        <?php echo form_open_multipart('backend/uploadimage');?>
 
-        <input type="file" name="image_file" />
+        <input type="file" name="image" size="20" />
 
         <br /><br />
 
-        <input type="submit" name="imageupload" value="upload" />
+        <input type="submit" name="submit" value="upload" />
 
         </form>
 

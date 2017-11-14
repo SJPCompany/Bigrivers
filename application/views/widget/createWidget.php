@@ -3,13 +3,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Create Widget
+            Creër widget
         </h1> <br>
     </section>
     <!-- New User Form -->
     <div class="box box-info" style="width: 30%;">
         <div class="box-header with-border">
-            <h3 class="box-title">Horizontal Form</h3>
+            <h3 class="box-title">Horizontale Formulier</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -28,12 +28,25 @@
                         <label class="radio-inline"><input type="radio" name="active" value="1">Ja</label>
                         <label class="radio-inline"><input type="radio" name="active" value="0">Nee</label>
                     </div>
+
+                    <label for="intern_URL" class="col-sm-2 control-label">Interne URL</label>
+                    <div class="col-sm-10">
+                        <input type="url" name="intern_URL" class="form-control">
+                    </div>
+                    <label for="extern_URL" class="col-sm-2 control-label">Externe URL</label>
+                    <div class="col-sm-10">
+                        <input type="url" name="extern_URL" class="form-control">
+                    </div>
+                    <label for="document_URL" class="col-sm-2 control-label">Document URL</label>
+                    <div class="col-sm-10">
+                        <input type="url" name="document_URL" class="form-control">
+                    </div>
                 </div>
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Create</button>
+                <button type="submit" class="btn btn-default">Annuleren</button>
+                <button type="submit" class="btn btn-info pull-right">Maak aan</button>
             </div>
             <!-- /.box-footer -->
         </form>

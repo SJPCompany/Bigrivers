@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
-<div class="header" style="background-image: <?php echo base_url("backend/image/checkImage/header.png/1080/720")?>">
+<div class="header">
     <div class="header-items">
         <img class="header-beer" src="<?=base_url()?>backend/image/checkImage/beer.png/200/100">
         <img class="header-peanuts" src="<?=base_url()?>backend/image/checkImage/peanuts.png/200/100">
@@ -85,4 +85,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
-<img class="beads-left hidden-xs" src="<?= base_url()?>img/kraaltjes.png">
+<img class="beads-left hidden-xs" src="<?= base_url()?>backend/image/checkImage/kraaltjes.png/200/100">

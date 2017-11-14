@@ -166,13 +166,13 @@ desired effect
                             <li class="user-body">
                                 <div class="row">
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">Empty button</a>
+                                        <a href="#">Leeg knopje</a>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
+                                        <a href="#">Verkoop</a>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
+                                        <a href="#">Vrienden</a>
                                     </div>
                                 </div>
                                 <!-- /.row -->
@@ -180,10 +180,10 @@ desired effect
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="<?php echo base_url("backend/user/profile") ?>" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="<?php echo base_url("backend/user/profile") ?>" class="btn btn-default btn-flat">Profiel</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="<?= base_url("backend/user/logout"); ?>" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="<?= base_url("backend/user/logout"); ?>" class="btn btn-default btn-flat">Uitloggen</a>
                                 </div>
                             </li>
                         </ul>
@@ -224,7 +224,7 @@ desired effect
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">Menu</li>
                 <!-- Homepage -->
-                <li class="active"><a href="<?= base_url("backend/user/index"); ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
+                <li class="active"><a href="<?= base_url("backend/user/index"); ?>"><i class="fa fa-home"></i> <span>Hoofdpagina</span></a></li>
 
                 <!-- Bekijk gebruikers -->
                 <li><a href="<?= base_url("backend/user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>Gebruikers</span></a></li>
@@ -305,7 +305,7 @@ desired effect
 
                 <!-- Frontpage knoppen -->
                 <li class="treeview">
-                    <a href="#"><i class="fa fa-ellipsis-h"></i> <span>Frontpage widgets</span>
+                    <a href="#"><i class="fa fa-ellipsis-h"></i> <span>Voorpagina widgets</span>
                         <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -313,7 +313,8 @@ desired effect
                     <ul class="treeview-menu">
                         <li><a href="<?= base_url("backend/widget/index") ?>">Bekijk widgets</a></li>
                         <li><a href="<?= base_url("backend/widget/createWidget") ?>">Voeg widgets toe</a></li>
-                        <li><a href="<?= base_url("backend/widget/deleteWidgets") ?>">Delete widgets</a></li>
+                        <li><a href="<?= base_url("backend/widget/editWidgetselect") ?>">Bewerk widget</a></li>
+                        <li><a href="<?= base_url("backend/widget/deleteWidgetselect") ?>">Verwijder widget</a></li>
                     </ul>
                 </li>
 
@@ -326,7 +327,7 @@ desired effect
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="<?= base_url("backend/image")?>">Beheer plaatjes</a></li>
-                        <li><a href="#">Voeg plaatjes toe</a></li>
+                        <li><a href="<?= base_url('backend/uploadimage') ?>">Voeg plaatjes toe</a></li>
                     </ul>
                 </li>
 

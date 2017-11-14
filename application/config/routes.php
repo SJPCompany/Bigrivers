@@ -71,6 +71,7 @@ $route['backend/user/do_upload'] = 'user/do_upload';
 $route['backend/error'] = 'Backend/error';
 /* Image route */
 $route['backend/image/checkImage/([^/]*)/([^/]*)/(.*)'] = 'Image/checkImage/image.png/$2/$3';
+$route['backend/image/checkImage/(.+)/([^/]*)/([^/]*)/([^/]*)/(.*)'] = 'Image/checkImage/Subfolder/image.png/$2/$3';
 $route['backend/image'] = 'Image/index';
 $route['backend/uploadimage'] = 'Image/uploadimage';
 /* News route */
@@ -82,8 +83,18 @@ $route['backend/newsbeheer'] = 'news/newsbeheer';
 /* Widgets route */
 $route['backend/widget/index'] = 'widget/index';
 $route['backend/widget/createWidget'] = 'widget/createWidget';
+<<<<<<< HEAD
 $route['backend/widget/deleteWidget'] = 'widget/deleteWidget';
 //artist routes
 $route['backend/artist/createartist'] = 'artist/createartist';
 $route['backend/artist/beheerartist'] = 'artist/beheerartist';
 $route['backend/artist/editartist'] = 'artist/artisteditdata';
+=======
+$route['backend/widget/deleteWidgetselect'] = 'widget/deleteWidgetselect';
+$route['backend/widget/deleteWidget/(:any)'] = 'widget/deleteWidget/$1';
+$route['backend/widget/editWidgetselect'] = 'widget/editWidgetselect';
+$route['backend/widget/editWidget/(:any)'] = 'widget/editWidget/$1';
+
+
+
+>>>>>>> development

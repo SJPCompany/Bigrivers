@@ -13,6 +13,7 @@ class Image extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->library('image_lib');
+        $this->load->helper('form');
         $this->load->helper('path');
         $this->output->enable_profiler(FALSE);
         $this->checkUrl();
@@ -62,13 +63,24 @@ class Image extends CI_Controller
 
         // Kijkt naar de naam en de breedte en hoogte van het plaatje in de url
         // Pakt de naam uit de url
-        var_dump($array = $this->uri->total_segments());
-        $imagename = $this->uri->segment(4);
-        // Pak de breedte uit de url
-        $imagewidth = $this->uri->segment(5);
-        // Pak de hoogte uit de url
-        $imageheight = $this->uri->segment(6);
-        /*//Gaat kijken of de image bestaat in de database
+        $number = $this->uri->total_segments();
+        if ($number == 7) {
+            $imageSubfolder = $this->uri->segment(4);
+            // Pak de Naam uit de url
+            $imagename = $this->uri->segment(5);
+            // Pak de breedte uit de url
+            $imagewidth = $this->uri->segment(6);
+            // Pak de hoogte uit de url
+            $imageheight = $this->uri->segment(7);
+        } else {
+            // Pak de naam uit url
+            $imagename = $this->uri->segment(4);
+            // Pak de breedte uit de url
+            $imagewidth = $this->uri->segment(5);
+            // Pak de hoogte uit de url
+            $imageheight = $this->uri->segment(6);
+        }
+        //Gaat kijken of de image bestaat in de database
         $imagelog = $this->image_model->checkImageExits($imagename);
         // Als er geen image is stuur terug naar upload pagina
         if ($imagelog == FALSE) {
@@ -84,74 +96,111 @@ class Image extends CI_Controller
                 } else {
                     $this->checkImage();
                 }
+            }
+            /*$config['image_library'] = 'gd2';
+            if (isset($imageSubfolder)) {
+                $config['source_image'] = 'img/' . $imageSubfolder . '/' . $imagename;
             } else {
+                $config['source_image'] = 'img/' . $imagename;
+            }
+            $config['maintain_ratio'] = TRUE;
+            $config['width']         = 75;
+            $config['height']       = 50;
+            */else {
                 foreach ($imagelog as $imageinfo) {
                     $imageid = $imageinfo->id;
                 }
                 foreach ($imagesizes as $sizeinfo) {
                     $sizeid = $sizeinfo->id;
                 }
-                $image = $this->image_model->getImagePath($imageid, $sizeid);
-                if($image == FALSE) {
-                    $insertImageInfo = $this->image_model->insetImageSizeInfo($imageid, $sizeid, $imagename);
-                    if($insertImageInfo == FALSE) {
-                        header("X-error: Image en Size niet ingevoerd ");
-                        header("HTTP/1.0 404 Not Found");
-                    } else {
+                if (isset($imageSubfolder)) {
+                    $image = $this->image_model->getImageSubPath($imageSubfolder, $imagename, $imageid, $sizeid);
+                    if ($image == FALSE) {
+                        $insertImageInfo = $this->image_model->insetImageSubSizeInfo($imageSubfolder, $imageid, $sizeid, $imagename);
+                        if ($insertImageInfo == FALSE) {
+                            header("X-error: Image en Size niet ingevoerd ");
+                            header("HTTP/1.0 404 Not Found");
+                        } else {
                             $this->checkImage();
                         }
                     }
-                else {
+                } else {
+                    $image = $this->image_model->getImagePath($imageid, $sizeid);
+                    if ($image == FALSE) {
+                        $insertImageInfo = $this->image_model->insetImageSizeInfo($imageid, $sizeid, $imagename);
+                        if ($insertImageInfo == FALSE) {
+                            header("X-error: Image en Size niet ingevoerd ");
+                            header("HTTP/1.0 404 Not Found");
+                        } else {
+                            $this->checkImage();
+                        }
+                    }
+                }
                     foreach ($image as $filepath) {
                         $path = $filepath->file_path;
                         $extension = pathinfo($imagename, PATHINFO_EXTENSION);
                     }
-                }
-                // Kijk of de image bestaat
-                if (file_exists($path)) {
-                    // open the file in a binary mode
-                    $name = $path;
-                    $fp = fopen($name, 'rb');
+                    // Kijk of de image bestaat
+                        if (file_exists($path)) {
+                            // open the file in a binary mode
+                            $name = $path;
+                            $fp = fopen($name, 'rb');
 
-                    // send the right headers
-                    //header("X-name: " . $name);
-                    //header("X-extension: " . $extension);
-                    switch ($extension) {
-                        case 'jpg': {
-                            header("Content-Type: image/jpg");
-                            break;
-                        }
-                        case 'jpeg': {
-                            header("Content-Type: image/jpg");
-                            break;
-                        }
-                        case 'png': {
-                            header("Content-Type: image/png");
-                            break;
-                        }
-                        default: {
-                            header("HTTP/1.0 404 Not Found");
+                            // send the right headers
+                            //header("X-name: " . $name);
+                            //header("X-extension: " . $extension);
+                            switch ($extension) {
+                                case 'jpg': {
+                                    header("Content-Type: image/jpg");
+                                    break;
+                                }
+                                case 'jpeg': {
+                                    header("Content-Type: image/jpg");
+                                    break;
+                                }
+                                case 'png': {
+                                    header("Content-Type: image/png");
+                                    break;
+                                }
+                                default: {
+                                    header("HTTP/1.0 404 Not Found");
+                                    exit;
+                                }
+                            }
+
+                            header("Content-Length: " . filesize($name));
+
+                            // dump the picture and stop the script
+                            fpassthru($fp);
                             exit;
+                        } else {
+                            header("X-error: Image niet gevonden in de image_size tabel");
+                            header("HTTP/1.0 404 Not Found");
                         }
                     }
-
-                    header("Content-Length: " . filesize($name));
-
-                    // dump the picture and stop the script
-                    fpassthru($fp);
-                    exit;
-                } else {
-                    header("X-error: Image niet gevonden in de image_size tabel");
-                    header("HTTP/1.0 404 Not Found");
-                }    // }}*/
+                }
             }
 
     public function uploadImage()
     {
-        if (isset($_POST['submit_image'])) {
-            $imagename = $_FILES['imageUpload']['name'];
-            var_dump($_FILES['imageUpload']);
-            var_dump($imagename);
+        if (isset($_POST['submit'])) {
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             =  500;
+            $config['max_width']             =  0;
+            $config['max_height']             =  0;
+            $sizecheck = $_FILES['image']['size'] / 1000;
+            $number = round($sizecheck);
+            if($number > $config['max_size']) {
+                $error = "Geen image log gevonden";
+                $this->session->set_flashdata('error', $error);
+                unset($_POST);
+                $this->uploadImage();
+            } else {
+                $sizes = getimagesize($_FILES["image"]["tmp_name"]);
+                $width = $sizes[0];
+                $height = $sizes[1];
+                var_dump($width, $height);
+            }
         }
         $this->load->view('templates/backend_header');
         $this->load->view('backend/images_view/uploadimage');
