@@ -32,7 +32,7 @@ class user_model extends CI_Model {
         }
     }
 
-    public function createUser($username, $password, $email, $role) {
+    public function createUser($username, $passwordhash, $email, $role) {
         /* how to make a insert query
         $data = array('title' => 'My title',
         'name' => 'My Name',
@@ -40,7 +40,7 @@ class user_model extends CI_Model {
         $this->db->insert('mytable', $data);
         */
 
-        $data = array('username' => $username, 'password' => $password, 'email' => $email, 'role_id' => $role);
+        $data = array('username' => $username, 'password' => $passwordhash, 'email' => $email, 'role_id' => $role);
         $this->db->insert('user', $data);
         if ($this->db->affected_rows() > 0) {
             return true;

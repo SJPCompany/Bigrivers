@@ -83,5 +83,7 @@ $route['backend/newsbeheer'] = 'news/newsbeheer';
 $route['backend/widget/index'] = 'widget/index';
 $route['backend/widget/createWidget'] = 'widget/createWidget';
 $route['backend/widget/deleteWidget'] = 'widget/deleteWidget';
-
-
+//artist routes
+$route['backend/artist/createartist'] = 'artist/createartist';
+$route['backend/artist/beheerartist'] = 'artist/beheerartist';
+$route['backend/artist/editartist'] = 'artist/artisteditdata';

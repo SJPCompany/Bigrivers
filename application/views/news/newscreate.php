@@ -33,7 +33,7 @@
             <input type="text" name="title" /><br />
 
             <label for="inhoud">Inhoud</label><br />
-            <textarea id="wysihtml-textarea" placeholder="Enter your text ..." autofocus></textarea>
+            <textarea id="wysihtml-textarea" placeholder="Enter your text ..." autofocus name="inhoud"></textarea>
             <div id="wysihtml-toolbar" style="display: none;">
                 <a data-wysihtml-command="bold">bold</a>
                 <a data-wysihtml-command="italic">italic</a>

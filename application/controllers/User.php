@@ -107,7 +107,11 @@ class user extends CI_Controller
             $password = $_POST['password'];
             $email = $_POST['email'];
             $role = $_POST['role'];
-            $insert = $this->user_model->createUser($username, $password, $email, $role);
+            $options = [
+                'cost' => 8,
+            ];
+           $passwordhash = password_hash($password, PASSWORD_BCRYPT, $options);
+            $insert = $this->user_model->createUser($username, $passwordhash, $email, $role);
             if ($insert == FALSE) {
                 $_SESSION['error'] = [];
                 $error = "insert query went wrong";
