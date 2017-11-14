@@ -1,7 +1,7 @@
 <div class="col-xs-12">
      <div class="box">
          <div class="box-header">
-             <h3 class="box-title">Alle gebruikers</h3>
+             <h3 class="box-title">Selecteer een widget</h3>
          </div>
          <!-- /.box-header -->
          <div class="box-body">
