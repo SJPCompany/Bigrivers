@@ -28,6 +28,19 @@
                         <label class="radio-inline"><input type="radio" name="active" value="1">Ja</label>
                         <label class="radio-inline"><input type="radio" name="active" value="0">Nee</label>
                     </div>
+
+                    <label for="intern_URL" class="col-sm-2 control-label">Interne URL</label>
+                    <div class="col-sm-10">
+                        <input type="url" name="intern_URL" class="form-control">
+                    </div>
+                    <label for="extern_URL" class="col-sm-2 control-label">Externe URL</label>
+                    <div class="col-sm-10">
+                        <input type="url" name="extern_URL" class="form-control">
+                    </div>
+                    <label for="document_URL" class="col-sm-2 control-label">Document URL</label>
+                    <div class="col-sm-10">
+                        <input type="url" name="document_URL" class="form-control">
+                    </div>
                 </div>
             </div>
             <!-- /.box-body -->
