@@ -326,7 +326,7 @@ desired effect
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="<?= base_url("backend/image")?>">Beheer plaatjes</a></li>
-                        <li><a href="#">Voeg plaatjes toe</a></li>
+                        <li><a href="<?= base_url('backend/uploadimage') ?>">Voeg plaatjes toe</a></li>
                     </ul>
                 </li>
 

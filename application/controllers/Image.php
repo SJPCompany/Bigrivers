@@ -13,6 +13,7 @@ class Image extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->library('image_lib');
+        $this->load->helper('form');
         $this->load->helper('path');
         $this->output->enable_profiler(FALSE);
         $this->checkUrl();
@@ -95,7 +96,17 @@ class Image extends CI_Controller
                 } else {
                     $this->checkImage();
                 }
+            }
+            /*$config['image_library'] = 'gd2';
+            if (isset($imageSubfolder)) {
+                $config['source_image'] = 'img/' . $imageSubfolder . '/' . $imagename;
             } else {
+                $config['source_image'] = 'img/' . $imagename;
+            }
+            $config['maintain_ratio'] = TRUE;
+            $config['width']         = 75;
+            $config['height']       = 50;
+            */else {
                 foreach ($imagelog as $imageinfo) {
                     $imageid = $imageinfo->id;
                 }
@@ -129,7 +140,7 @@ class Image extends CI_Controller
                         $path = $filepath->file_path;
                         $extension = pathinfo($imagename, PATHINFO_EXTENSION);
                     }
-                        // Kijk of de image bestaat
+                    // Kijk of de image bestaat
                         if (file_exists($path)) {
                             // open the file in a binary mode
                             $name = $path;
@@ -172,10 +183,24 @@ class Image extends CI_Controller
 
     public function uploadImage()
     {
-        if (isset($_POST['submit_image'])) {
-            $imagename = $_FILES['imageUpload']['name'];
-            var_dump($_FILES['imageUpload']);
-            var_dump($imagename);
+        if (isset($_POST['submit'])) {
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             =  500;
+            $config['max_width']             =  0;
+            $config['max_height']             =  0;
+            $sizecheck = $_FILES['image']['size'] / 1000;
+            $number = round($sizecheck);
+            if($number > $config['max_size']) {
+                $error = "Geen image log gevonden";
+                $this->session->set_flashdata('error', $error);
+                unset($_POST);
+                $this->uploadImage();
+            } else {
+                $sizes = getimagesize($_FILES["image"]["tmp_name"]);
+                $width = $sizes[0];
+                $height = $sizes[1];
+                var_dump($width, $height);
+            }
         }
         $this->load->view('templates/backend_header');
         $this->load->view('backend/images_view/uploadimage');
