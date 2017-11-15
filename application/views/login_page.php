@@ -16,7 +16,7 @@
         unset($_SESSION['error']);
         ?>
 
-        <form class="form" autocomplete="off" method="post" action="<?php echo base_url("backend/user/doLogin") ?>" style="font-family: 'Source Sans Pro', sans-serif;">
+        <form class="form" autocomplete="off" method="post" action="<?php echo base_url("user/doLogin") ?>" style="font-family: 'Source Sans Pro', sans-serif;">
             <input type="text" name='username' placeholder="Username" placeholder="Email Address" required="" autofocus="" >
             <input type="password" name="password" placeholder="Password" required="">
             <button type="submit" id="login-button">Login</button>

@@ -108,4 +108,13 @@ class image_model extends CI_Model
             return false;
         }
     }
+
+    public function getImage($name) {
+        $query = $this->db->get_where('images', array('name' => $name));
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
 }

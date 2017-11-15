@@ -1,5 +1,6 @@
 <?php
-class Artist extends CI_Controller {
+include 'CI_BackendController.php';
+class Artist extends CI_BackendController {
 
     public function __construct()
     {

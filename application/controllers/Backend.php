@@ -1,7 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Backend extends CI_Controller {
+include 'CI_BackendController.php';
+
+class Backend extends CI_BackendController {
 
     public function __construct()
     {

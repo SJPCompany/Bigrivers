@@ -6,7 +6,8 @@
  * Date: 9-10-2017
  * Time: 11:30
  */
-class Image extends CI_Controller
+include 'CI_BackendController.php';
+class Image extends CI_BackendController
 {
     public function __construct()
     {
@@ -191,15 +192,24 @@ class Image extends CI_Controller
             $sizecheck = $_FILES['image']['size'] / 1000;
             $number = round($sizecheck);
             if($number > $config['max_size']) {
-                $error = "Geen image log gevonden";
+                $error = "Plaatje is te groot";
                 $this->session->set_flashdata('error', $error);
                 unset($_POST);
                 $this->uploadImage();
             } else {
                 $sizes = getimagesize($_FILES["image"]["tmp_name"]);
+                $name = $_FILES['image']['name'];
                 $width = $sizes[0];
                 $height = $sizes[1];
-                var_dump($width, $height);
+                $imageCheck = $this->image_model->getImage($name);
+                if($imageCheck == FALSE) {
+                    var_dump('Nothing found');
+                } else {
+                    $success = "Plaatje Bestaat al in de database";
+                    $this->session->set_flashdata('succes', $success);
+                    unset($_POST);
+                    $this->uploadImage();
+                }
             }
         }
         $this->load->view('templates/backend_header');

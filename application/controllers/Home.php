@@ -8,6 +8,7 @@ class home extends CI_Controller {
         parent::__construct();
         $this->load->library('session');
         $this->load->model('../models/widget_model');
+        $this->load->model('../models/user_model');
     }
 
     public function index()
@@ -32,5 +33,29 @@ class home extends CI_Controller {
         $this->load->view('templates/header');
         $this->load->view('login_page');
         $this->load->view('templates/footer');
+    }
+
+    public function doLogin()
+    {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $checker = $this->user_model->get_Userinfo($username, $password);
+        if ($checker == FALSE) {
+            $error = "Wrong username or password";
+            $this->session->set_flashdata('error', $error);
+            return redirect('home/login');
+        } else // Get the role from the user
+        {
+            foreach ($checker as $info) {
+                $role = $info;
+            }
+            $this->session->set_userdata('userinfo', $role);
+            // Check if the user is allowd for the backend
+            if ($_SESSION['userinfo']->name == 'programmeur' || $_SESSION['userinfo']->name == 'beheerder') {
+                return redirect('backend/user/index');
+            } else {
+                return redirect('home/index');
+            }
+        }
     }
 }

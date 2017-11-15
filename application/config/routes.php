@@ -54,13 +54,13 @@ $route['404_override'] = '';
 $route['errors/index'] = 'Errors/index';
 $route['translate_uri_dashes'] = FALSE;
 /* Routes */
+$route['user/doLogin'] = 'home/doLogin';
 
 /* User routes */
 $route['backend/user/logout'] = 'user/logout';
 $route['backend/user/index'] = 'user/index';
 $route['backend/user/checkUrl'] = 'user/checkUrl';
 $route['backend/user/profile'] = 'user/profile';
-$route['backend/user/doLogin'] = 'user/doLogin';
 $route['backend/user/viewUsers'] = 'user/viewUsers';
 $route['backend/user/createUser'] = 'user/createUser';
 $route['backend/user/checkUserData'] = 'user/checkUserData';

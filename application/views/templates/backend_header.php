@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <?php
-function checkUserAccess() {
-    if (!isset($_SESSION['userinfo'])) {
+/*    if (!isset($_SESSION['userinfo'])) {
         $_SESSION['error'] = [];
         $error = "Geen toegang tot deze pagina";
         array_push($_SESSION['error'], $error);
         return redirect("errors/index");
     }
-    else {
-        return true;
-    }
-}
-checkUserAccess();
+*/
 ?>
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
 <html>
 <head>
     <meta charset="utf-8">

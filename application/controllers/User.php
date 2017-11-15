@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class user extends CI_Controller
+
+include 'CI_BackendController.php';
+
+class user extends CI_BackendController
 {
     public function __construct()
     {
@@ -45,30 +48,6 @@ class user extends CI_Controller
             $error = "Uitloggen ging verkeerd";
             $this->session->set_flashdata('error', $error);
             return redirect('backend/error');
-        }
-    }
-
-    public function doLogin()
-    {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $checker = $this->user_model->get_Userinfo($username, $password);
-        if ($checker == FALSE) {
-            $error = "Wrong username or password";
-            $this->session->set_flashdata('error', $error);
-            return redirect('home/login');
-        } else // Get the role from the user
-        {
-            foreach ($checker as $info) {
-                $role = $info;
-            }
-            $this->session->set_userdata('userinfo', $role);
-            // Check if the user is allowd for the backend
-            if ($_SESSION['userinfo']->name == 'programmeur' || $_SESSION['userinfo']->name == 'beheerder') {
-                $this->index();
-            } else {
-                return redirect('home/index');
-            }
         }
     }
 
