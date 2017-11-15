@@ -28,7 +28,7 @@
         <label for="title">Titel</label><br />
         <input type="text" name="title" value="<?= $news_item['title'] ?>" /><br />
         <label for="inhoud">Inhoud</label><br />
-        <textarea id="newstext" name="inhoud" ></textarea><br>
+        <textarea id="newstext" name="inhoud" ><?php echo$news_item['text'] ?></textarea><br>
         <select name="status">
             <option value="actief">actief</option>
             <option value="inactief">inactief</option>

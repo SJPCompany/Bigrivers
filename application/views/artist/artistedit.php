@@ -32,7 +32,7 @@
         <input type="text" name="name"  value="<?= $artist_data['name']?>"/><br />
 
         <label for="description">Beschrijving</label><br />
-        <textarea  name="description" id="wysihtml-textarea" placeholder="Enter your text ..." autofocus></textarea>
+        <textarea  name="description" id="wysihtml-textarea" placeholder="Enter your text ..." autofocus><?php echo $artist_data['description'] ?></textarea>
         <div id="wysihtml-toolbar" style="display: none;">
             <a data-wysihtml-command="bold">bold</a>
             <a data-wysihtml-command="italic">italic</a>
