@@ -160,8 +160,9 @@ class user extends CI_Controller
             $username = $_POST['username'];
             $password = $_POST['password'];
             $email = $_POST['email'];
+            $status = $_POST['status'];
             $id = $_SESSION['user_id'];
-            $update = $this->user_model->updateUserById($username, $password, $email, $role, $id);
+            $update = $this->user_model->updateUserById($username, $password, $email, $role, $status, $id);
             if ($update == FALSE) {
                 $_SESSION['error'] = [];
                 $error = "Update query went wrong";
