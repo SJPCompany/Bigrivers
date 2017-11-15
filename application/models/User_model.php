@@ -83,8 +83,8 @@ class user_model extends CI_Model {
         }
     }
 
-    public function updateUserById($username, $password, $email, $role, $id) {
-        $data = array('username' => $username, 'password' => $password, 'email' => $email, 'role_id' => $role);
+    public function updateUserById($username, $password, $email, $role, $status, $id) {
+        $data = array('username' => $username, 'password' => $password, 'email' => $email, 'status' => $status, 'role_id' => $role);
         $this->db->where(array('id' => $id));
         $this->db->update('user', $data);
         if ($this->db->affected_rows() > 0) {

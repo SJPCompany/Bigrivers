@@ -248,8 +248,8 @@ desired effect
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Beheer artiesten</a></li>
-                        <li><a href="#">Voeg artiest / band toe</a></li>
+                        <li><a href="<?= base_url("backend/artist/beheerartist")?>">Beheer artiesten/bands</a></li>
+                        <li><a href="<?= base_url("backend/artist/createartist")?>">Voeg artiest/band toe</a></li>
                         <li><a href="#">Beheer optredens</a></li>
                         <li><a href="#">Voeg optredens toe</a></li>
                     </ul>

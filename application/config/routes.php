@@ -88,7 +88,7 @@ $route['backend/widget/deleteWidgetselect'] = 'widget/deleteWidgetselect';
 $route['backend/widget/deleteWidget/(:any)'] = 'widget/deleteWidget/$1';
 $route['backend/widget/editWidgetselect'] = 'widget/editWidgetselect';
 $route['backend/widget/editWidget/(:any)'] = 'widget/editWidget/$1';
-//artist routes
+/* Artist route */
 $route['backend/artist/createartist'] = 'artist/createartist';
 $route['backend/artist/beheerartist'] = 'artist/beheerartist';
 $route['backend/artist/editartist'] = 'artist/artisteditdata';

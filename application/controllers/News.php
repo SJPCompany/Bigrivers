@@ -98,6 +98,7 @@ class news extends CI_BackendController {
 //delete function om een artikel uit de database te verwijderen
     public function delete($news_data) {
         $this->News_model->deletenews($news_data);
+        $this->newsbeheer();
     }
 //edit function om een nieuws bericht aan te passen
     public function edit(){

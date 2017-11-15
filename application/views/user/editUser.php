@@ -44,7 +44,10 @@
                             <option value="<?= $rolename->id ?>"><?= $rolename->name ?></option>
                       <?php  }
                     } ?>
-                </select> <br><br>
+                </select> <br>
+                    <label>block/unblock:</label>
+                    <input type="radio" name="status" value="0"> unblocked
+                    <input type="radio" name="status" value="1"> blocked
                 <label></label><input type="submit" name="submit" value="submit">
                 <?php } ?>
             </form>
