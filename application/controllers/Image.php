@@ -6,8 +6,7 @@
  * Date: 9-10-2017
  * Time: 11:30
  */
-include 'CI_BackendController.php';
-class Image extends CI_BackendController
+class Image extends CI_Controller
 {
     public function __construct()
     {
@@ -97,17 +96,7 @@ class Image extends CI_BackendController
                 } else {
                     $this->checkImage();
                 }
-            }
-            /*$config['image_library'] = 'gd2';
-            if (isset($imageSubfolder)) {
-                $config['source_image'] = 'img/' . $imageSubfolder . '/' . $imagename;
             } else {
-                $config['source_image'] = 'img/' . $imagename;
-            }
-            $config['maintain_ratio'] = TRUE;
-            $config['width']         = 75;
-            $config['height']       = 50;
-            */else {
                 foreach ($imagelog as $imageinfo) {
                     $imageid = $imageinfo->id;
                 }
