@@ -51,7 +51,7 @@ class Artist extends CI_BackendController {
         else
         {
             $this->Artist_model->set_artist();
-            return redirect('artist/artistbeheer');
+            return redirect('backend/artist/beheerartist');
         }
 
 
