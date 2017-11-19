@@ -81,18 +81,19 @@ class Artist extends CI_BackendController {
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('name', 'Naam', 'required');
-//        $this->form_validation->set_rules('description', 'Beschrijving', 'required');
+        $this->form_validation->set_rules('description', 'Beschrijving', 'required');
         $this->form_validation->set_rules('website', 'Website', 'required');
         $this->form_validation->set_rules('youtube', 'Youtube', 'required');
         $this->form_validation->set_rules('facebook', 'Facebook', 'required');
         $this->form_validation->set_rules('twitter', 'Twitter', 'required');
-
         if ($this->form_validation->run() === FALSE)
         {
             $_SESSION['error'] = [];
             $error = "vul alles goed in";
             $this->session->set_flashdata('error', $error);
-            $this->artisteditdata();
+            $artist_data = $this->input->post('id');
+
+            $this->artisteditdata($artist_data);
 
         }
         else
