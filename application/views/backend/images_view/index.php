@@ -5,6 +5,9 @@
         <h1>
             Plaatjes
         </h1>
+        <a href="<?= base_url("backend/uploadimage"); ?>" class="btn btn-primary btn-lg">
+            Voeg een plaatje toe
+        </a>
     </section>
 
     <?php if($_SESSION['userinfo']->name == 'programmeur') { ?>

@@ -6,7 +6,7 @@
                 Gebruikers
             </h1>
             <br>
-            <a href="<?= base_url("backend/user/createUser"); ?>" style="font-size: 140%;">
+            <a href="<?= base_url("backend/user/createUser"); ?>" class="btn btn-primary btn-lg">
                 Maak gebruiker
             </a>
         </section>
