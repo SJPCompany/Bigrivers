@@ -38,7 +38,7 @@ class Image extends CI_Controller
         $data['imagesinfo'] = $this->image_model->getAllImages();
         // Als er niks terug komt geef een error
         if ($data == FALSE) {
-            $error = "Geen image log gevonden";
+            $error = "Geen plaatjes log gevonden";
             $this->session->set_flashdata('error', $error);
             return redirect('backend/error');
         } // Als er wel een log terug komt laad de view met de logs uit de database
@@ -184,7 +184,7 @@ class Image extends CI_Controller
                 $error = "Plaatje is te groot";
                 $this->session->set_flashdata('error', $error);
                 unset($_POST);
-                $this->uploadImage();
+                return $this->uploadImage();
             } else {
                 $sizes = getimagesize($_FILES["image"]["tmp_name"]);
                 $name = $_FILES['image']['name'];
@@ -192,12 +192,23 @@ class Image extends CI_Controller
                 $height = $sizes[1];
                 $imageCheck = $this->image_model->getImage($name);
                 if($imageCheck == FALSE) {
-                    var_dump('Niks gevonden');
+                    $imageload = $this->image_model->insertImage($name, $width, $height);
+                    if($imageload == FALSE) {
+                        $error = 'Plaatje invullen ging mis';
+                        $this->session->set_flashdata('error', $error);
+                        unset($_POST);
+                        return $this->uploadImage();
+                    } else {
+                        $success = "Plaatje aangemaakt";
+                        $this->session->set_flashdata('success', $success);
+                        unset($_POST);
+                        return $this->uploadImage();
+                    }
                 } else {
                     $success = "Plaatje Bestaat al in de database";
-                    $this->session->set_flashdata('succes', $success);
+                    $this->session->set_flashdata('success', $success);
                     unset($_POST);
-                    $this->uploadImage();
+                    return $this->uploadImage();
                 }
             }
         }
