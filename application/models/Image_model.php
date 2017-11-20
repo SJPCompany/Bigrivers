@@ -117,4 +117,14 @@ class image_model extends CI_Model
             return false;
         }
     }
+
+    public function insertImage($name, $width, $height) {
+        $data = array('name' => $name, 'orginal_width' => $width, 'orginal_height' => $height);
+        $this->db->insert('images', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

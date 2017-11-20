@@ -240,8 +240,8 @@ CREATE TABLE `widget` (
   `id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `image` int(11) DEFAULT NULL,
-  `created` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `modified` datetime NULL,
   `link` varchar(50) NOT NULL,
   `active` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
