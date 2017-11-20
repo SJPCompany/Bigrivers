@@ -32,7 +32,7 @@
             <label for="title"><i class="fa fa-check" aria-hidden="true"></i> status</label><br/>
             <select name="status">
                 <option value="actief">actief</option>
-                <option value="inactief">inactief</option>
+                <option value="nonactief">nonactief</option>
             </select><br/>
             <label for="description"><i class="fa fa-comments" aria-hidden="true"></i> Beschrijving</label><br/>
             <textarea name="inhoud" id="textbox" rows="10" cols="40"></textarea><br>
@@ -52,3 +52,4 @@
     </footer>
 </body>
 </html>
+
