@@ -220,65 +220,24 @@ desired effect
                 <li><a href="<?= base_url("artist/beheerartist")?>"><i class="fa fa-user-circle-o"></i> <span>Artiesten/bands</span></a></li>
 
                 <!-- Evenementen en sponsors -->
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-calendar"></i> <span>Evenementen & sponsoren</span>
-                        <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#">Beheer evenementen</a></li>
-                        <li><a href="#">Voeg evenement toe</a></li>
-                        <li><a href="#">Beheer sponsoren</a></li>
-                        <li><a href="#">Voeg sponsor toe</a></li>
-                    </ul>
-                </li>
+                <li><a href="<?= base_url("")?>"><i class="fa fa-calendar"></i> <span>evenementen</span></a></li>
+
+                <li><a href="<?= base_url("")?>"><i class="fa fa-money"></i> <span>sponsoren</span></a></li>
+
 
                 <!-- Genre's en podia -->
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-music"></i> <span>Genre's & Podia</span>
-                        <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#">Beheer genres</a></li>
-                        <li><a href="#">Voeg genres toe</a></li>
-                        <li><a href="#">Beheer podia</a></li>
-                        <li><a href="#">Voeg podium toe</a></li>
-                    </ul>
-                </li>
+                <li><a href="<?= base_url("")?>"><i class="fa fa-music"></i> <span>podiums</span></a></li>
+
+                <li><a href="<?= base_url("")?>"><i class="fa fa-tags"></i> <span>genres</span></a></li>
 
                 <!-- Menu's -->
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-bars"></i> <span>Menu's</span>
-                        <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#">Beheer menubalk</a></li>
-                        <li><a href="#">Voeg toe aan menubalk</a></li>
-                    </ul>
-                </li>
+                <li><a href="<?= base_url("")?>"><i class="fa fa-bars"></i> <span>Menu's</span></a></li>
 
                 <!-- Frontpage knoppen -->
-                <li>
-                    <a href="<?= base_url("backend/widget/index") ?>"><i class="fa fa-ellipsis-h"></i> <span>Voorpagina widgets</span>
-                </li>
+                <li><a href="<?= base_url("backend/widget/index")?>"><i class="fa fa-ellipsis-h"></i> <span>widgets</span></a></li>
 
                 <!-- Images -->
-                <li class="treeview">
-                    <a href="#"><i class="fa  fa-picture-o"></i> <span>Plaatjes</span>
-                        <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="<?= base_url("backend/image")?>">Beheer plaatjes</a></li>
-                        <li><a href="<?= base_url('backend/uploadimage') ?>">Voeg plaatjes toe</a></li>
-                    </ul>
-                </li>
+                <li><a href="<?= base_url("backend/image")?>"><i class="fa fa-picture-o"></i> <span>Plaatjes</span></a></li>
 
             </ul>
             <!-- /.sidebar-menu -->
