@@ -263,18 +263,8 @@ desired effect
                 </li>
 
                 <!-- Frontpage knoppen -->
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-ellipsis-h"></i> <span>Voorpagina widgets</span>
-                        <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="<?= base_url("backend/widget/index") ?>">Bekijk widgets</a></li>
-                        <li><a href="<?= base_url("backend/widget/createWidget") ?>">Voeg widgets toe</a></li>
-                        <li><a href="<?= base_url("backend/widget/editWidgetselect") ?>">Bewerk widget</a></li>
-                        <li><a href="<?= base_url("backend/widget/deleteWidgetselect") ?>">Verwijder widget</a></li>
-                    </ul>
+                <li>
+                    <a href="<?= base_url("backend/widget/index") ?>"><i class="fa fa-ellipsis-h"></i> <span>Voorpagina widgets</span>
                 </li>
 
                 <!-- Images -->
