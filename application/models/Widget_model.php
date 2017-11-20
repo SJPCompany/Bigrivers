@@ -58,4 +58,11 @@ class Widget_model extends CI_Model
     {
         $this->db->delete('widget', array('id' => $id));
     }
+
+    public function getAllNews()
+    {
+        $query = $this->db->get('news');
+
+        return $query->result_array();
+    }
 }

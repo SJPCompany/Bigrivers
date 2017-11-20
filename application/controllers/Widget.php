@@ -33,8 +33,10 @@ class widget extends CI_BackendController
 
     public function CreateWidget()
     {
+        $data['news'] = $this->widget_model->getAllNews();
+
         $this->load->view('templates/backend_header');
-        $this->load->view('widget/createWidget');
+        $this->load->view('widget/createWidget', $data);
         $this->load->view('templates/backend_footer');
     }
 

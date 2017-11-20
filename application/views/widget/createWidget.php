@@ -363,43 +363,15 @@
                         <option value="40">Workshops</option>
                     </select>
                     <select class="InternalType" id="News" name="LinkView.InternalNewsId" style="display:none;">
-                        <option value=""></option>
-                        <option value="4">Big Rivers maakt eerste namen bekend!</option>
-                        <option value="5">Crowdfunding actie Big Rivers 2015</option>
-                        <option value="6">Big Rivers deelt Gold Card uit!</option>
-                        <option value="7">Programma Big Rivers 2015 bekend</option>
-                        <option value="8">Kaartverkoop Big Rivers Blues Cruise 2015 start</option>
-                        <option value="10">aMeeZing zoekt mannenstemmen!</option>
-                        <option value="11">Aafje omarmt de Silver Talent Show</option>
-                        <option value="12">De Aafje Silver Talent Show Grande Finale winnaar</option>
-                        <option value="13">Mondharmonica workshop</option>
-                        <option value="14">Blues Cruise Menu</option>
-                        <option value="15">Big Rivers 2015 is gestart</option>
-                        <option value="16">Studio De Witt live @ Merz</option>
-                        <option value="18">Optreden tijdens het Big Rivers festival?</option>
-                        <option value="19">Big Rivers Indoor komt er aan!</option>
-                        <option value="20">Rock the Garden</option>
-                        <option value="21">Programma Big Rivers 2016 online!</option>
-                        <option value="23">Meebouwen aan Big Rivers</option>
-                        <option value="24">Centje voor een Bandje prijswinnaar Jetske</option>
-                        <option value="25">De rollende fotograaf John van der Laan bedient camera met zijn voeten!</option>
-                        <option value="27">200 volgers op Instagram </option>
-                        <option value="28">Goed nieuws in situatie podium Stadsherberg</option>
-                        <option value="29">#VLOG 5 met Antoine Peeters</option>
-                        <option value="30">Winnares Rituals pakket</option>
-                        <option value="31">De festival krant is weer onderweg!</option>
-                        <option value="32">Update Centje voor een Bandje</option>
-                        <option value="33">Eerste namen twintig jarig jubileum Big Rivers bekend. </option>
-                        <option value="34">Leer mondharmonica spelen op Big Rivers festival.</option>
-                        <option value="35">Centje voor een Bandje - tussenstand</option>
-                        <option value="36">Big Rivers.. Let’s go green!</option>
-                        <option value="37">Centje voor een Bandje - al over de helft! </option>
-                        <option value="38">Centje voor een Bandje – al over de helft!</option>
-                        <option value="39">Wegafsluiting tijdens Big Rivers.</option>
-                        <option value="40">Geen programmafolder dit jaar. Wat dan wel?</option>
-                        <option value="41">Brandstof voor kids tijdens Big Rivers festival</option>
-                        <option value="42">Waterbus vaart langer door tijdens Big Rivers</option>
-                        <option value="43">Big Rivers bedankt.</option>
+                        <?php 
+                        if(isset($news)):
+                        foreach($news as $row): 
+                        ?>
+                            <option value="<?= $row['id'] ?>"><?= $row['title'] ?></option>
+                        <?php 
+                        endforeach; 
+                        endif;
+                        ?>
                     </select>
 
                 </div>
