@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label for="LinkView_LinkType">Naar...</label>
                     <select id="SelectLinkType" name="LinkView.LinkType">
-                        <option selected="selected" value="internal">Sitepagina</option>
+                        <option value="internal">Sitepagina</option>
                         <option value="external">Andere website</option>
                         <option value="file">Een bestand</option>
                     </select>
@@ -49,11 +49,11 @@
                         <option value="Events">Evenementen</option>
                         <option value="Performances">Programma voor Evenement</option>
                         <option value="Artists">Artiesten</option>
-                        <option selected="selected" value="Page">Pagina&#39;s</option>
+                        <option value="Page">Pagina&#39;s</option>
                         <option value="News">Nieuwsberichten</option>
                     </select>
                     <span style="font-size: 22px; font-weight: bold;">></span>
-                    <select class="InternalType" id="Events" name="LinkView.InternalEventId">
+                    <select class="InternalType" id="Events" name="LinkView.InternalEventId" style="display:none;">
                         <option value=""></option>
                         <option value="1">De Aftrap </option>
                         <option value="2">Big Rivers Muziek 2016 was geweldig</option>
@@ -71,7 +71,7 @@
                         <option value="16">Pre Party @ Bibelot</option>
                         <option value="17">Big Rivers 2017 was weer geweldig!</option>
                     </select>
-                    <select class="InternalType" id="Performances" name="LinkView.InternalPerformanceId">
+                    <select class="InternalType" id="Performances" name="LinkView.InternalPerformanceId" style="display:none;">
                         <option value=""></option>
                         <option value="1">De Aftrap </option>
                         <option value="2">Big Rivers Muziek 2016 was geweldig</option>
@@ -89,7 +89,7 @@
                         <option value="16">Pre Party @ Bibelot</option>
                         <option value="17">Big Rivers 2017 was weer geweldig!</option>
                     </select>
-                    <select class="InternalType" id="Artists" name="LinkView.InternalArtistId">
+                    <select class="InternalType" id="Artists" name="LinkView.InternalArtistId" style="display:none;">
                         <option value=""></option>
                         <option value="251">Fixxxman &amp; Friends</option>
                         <option value="253">Popgunnn</option>
@@ -322,7 +322,7 @@
                         <option value="500">Three Rivers Crossing (binnenpodium)</option>
                         <option value="501">Dele Sosimi</option>
                     </select>
-                    <select class="InternalType" id="Page" name="LinkView.InternalPageId">
+                    <select class="InternalType" id="Page" name="LinkView.InternalPageId" style="display:none;">
                         <option value="1">Vrijwilligersfuncties</option>
                         <option value="2">Stageplaatsen</option>
                         <option value="3">Wall of Fame</option>
@@ -362,7 +362,7 @@
                         <option value="39">Let&#39;s Go Green!</option>
                         <option value="40">Workshops</option>
                     </select>
-                    <select class="InternalType" id="News" name="LinkView.InternalNewsId">
+                    <select class="InternalType" id="News" name="LinkView.InternalNewsId" style="display:none;">
                         <option value=""></option>
                         <option value="4">Big Rivers maakt eerste namen bekend!</option>
                         <option value="5">Crowdfunding actie Big Rivers 2015</option>
