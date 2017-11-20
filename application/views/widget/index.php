@@ -4,8 +4,10 @@
         <h1>
             Widgets
         </h1>
+        <a href="<?= base_url('backend/widget/createWidget')?>" role="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>Maak widget</a>
     </section>
 <br>
+
     <!-- Main content -->
     <?php foreach($widgets as $widget) { ?>
     <div class="col-md-3">
