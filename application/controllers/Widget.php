@@ -71,6 +71,7 @@ class widget extends CI_BackendController
     public function editWidget($id = NULL)
     {
         $data['widget'] = $this->widget_model->getWidget($id);
+        $data['news'] = $this->widget_model->getAllNews();
 
         // Als er niks terug komt geef een error
         if ($data == FALSE) {
