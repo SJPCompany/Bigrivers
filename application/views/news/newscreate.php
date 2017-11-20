@@ -1,6 +1,4 @@
 <div class="content-wrapper">
-
-
         <!-- Content Header (Page header) -->
         <section class="content-header">
 
@@ -29,43 +27,20 @@
 
             <?php echo form_open('news/create'); ?>
 
-            <label for="title">Titel</label><br />
-            <input type="text" name="title" /><br />
-
-            <label for="inhoud">Inhoud</label><br />
-            <textarea id="wysihtml-textarea" placeholder="Enter your text ..." autofocus name="inhoud"></textarea>
-            <div id="wysihtml-toolbar" style="display: none;">
-                <a data-wysihtml-command="bold">bold</a>
-                <a data-wysihtml-command="italic">italic</a>
-
-                <!-- Some wysihtml5 commands require extra parameters -->
-                <a data-wysihtml-command="foreColor" data-wysihtml-command-value="red">red</a>
-                <a data-wysihtml-command="foreColor" data-wysihtml-command-value="green">green</a>
-                <a data-wysihtml-command="foreColor" data-wysihtml-command-value="blue">blue</a>
-
-                <!-- Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href) -->
-                <a data-wysihtml-command="createLink">insert link</a>
-                <div data-wysihtml-dialog="createLink" style="display: none;">
-                    <label>
-                        Link:
-                        <input data-wysihtml-dialog-field="href" value="http://" class="text">
-                    </label>
-                    <a data-wysihtml-dialog-action="save">OK</a> <a data-wysihtml-dialog-action="cancel">Cancel</a>
-                </div>
-            </div>
-<!--            <label for="newsimage">afbeelding</label><br />-->
-<!--            <input type="file" name="newsimage"/>-->
+            <label for="title"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Titel</label><br/>
+            <input type="text" name="title" /><br/>
+            <label for="title"><i class="fa fa-check" aria-hidden="true"></i> status</label><br/>
             <select name="status">
                 <option value="actief">actief</option>
                 <option value="inactief">inactief</option>
-            </select><br>
+            </select><br/>
+            <label for="description"><i class="fa fa-comments" aria-hidden="true"></i> Beschrijving</label><br/>
+            <textarea name="inhoud" id="textbox" rows="10" cols="40"></textarea><br>
             <input type="submit" name="submit" value="publiceer"/><br>
             </form>
         </section>
         <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-
     <!-- Main Footer -->
     <footer class="main-footer">
         <!-- To the right -->
@@ -75,13 +50,5 @@
         <!-- Default to the left -->
         <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
     </footer>
-
-<script>
-    var editor = new wysihtml.Editor("wysihtml-textarea", { // id of textarea element
-        toolbar:      "wysihtml-toolbar", // id of toolbar element
-        parserRules:  wysihtml5ParserRules // defined in parser rules set
-    });
-</script>
-<!--<script>$('#newstext').html('Some text dynamically set.');</script>-->
 </body>
 </html>

@@ -25,14 +25,15 @@
         <?php echo validation_errors(); ?>
         <?php echo form_open('news/edit'); ?>
         <input name="id" type="hidden" value="<?= $news_item['id']?>">
-        <label for="title">Titel</label><br />
+        <label for="title"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Titel</label><br/>
         <input type="text" name="title" value="<?= $news_item['title'] ?>" /><br />
-        <label for="inhoud">Inhoud</label><br />
-        <textarea id="newstext" name="inhoud" ></textarea><br>
+        <label for="title"><i class="fa fa-check" aria-hidden="true"></i> status</label><br/>
         <select name="status">
             <option value="actief">actief</option>
-            <option value="inactief">inactief</option>
+            <option value="nonactief">non-actief</option>
         </select><br>
+        <label for="inhoud"><i class="fa fa-comments" aria-hidden="true"></i> inhoud</label><br/>
+        <textarea name="inhoud" id="textbox" rows="10" cols="40"><?php echo $news_item['text'] ?></textarea><br>
         <input type="submit" name="submit" value="publiceer"/><br>
         </form>
 

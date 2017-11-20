@@ -56,6 +56,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Include sort types you need -->
     <script src='<?= base_url(); ?>js/tablesort.number.js'></script>
     <script src='<?= base_url(); ?>js/tablesort.date.js'></script>
+    <script src="<?=base_url()?>/ckeditor/ckeditor.js"></script>
 <!--
 BODY TAG OPTIONS:
 =================
@@ -154,23 +155,8 @@ desired effect
                                 <img src="http://www.digitspeak.com/wp-content/uploads/2016/02/4-1-300x295.png" class="img-circle" alt="User Image">
 
                                 <p>
-                                    <?= $_SESSION['username'] ?> - Web Developer
+                                    <?= $_SESSION['username'] ?>
                                 </p>
-                            </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Leeg knopje</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Verkoop</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Vrienden</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
@@ -228,32 +214,10 @@ desired effect
                 <li><a href="#"><i class="fa fa-address-book"></i> <span>Kalender</span></a></li>
 
                 <!-- Nieuws -->
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-newspaper-o"></i> <span>Nieuws</span>
-                        <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="<?= base_url("backend/newscreate")?>">Voeg nieuwsbericht toe</a></li>
-                        <li><a href="<?= base_url("backend/newsbeheer")?>">Beheer nieuwsberichten</a></li>
-                    </ul>
-                </li>
+                <li><a href="<?= base_url("backend/newsbeheer")?>"><i class="fa fa-newspaper-o"></i> <span>nieuwsberichten</span></a></li>
 
                 <!-- Artiesten -->
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-user-circle-o"></i> <span>Artiesten</span>
-                        <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="<?= base_url("backend/artist/beheerartist")?>">Beheer artiesten/bands</a></li>
-                        <li><a href="<?= base_url("backend/artist/createartist")?>">Voeg artiest/band toe</a></li>
-                        <li><a href="#">Beheer optredens</a></li>
-                        <li><a href="#">Voeg optredens toe</a></li>
-                    </ul>
-                </li>
+                <li><a href="<?= base_url("artist/beheerartist")?>"><i class="fa fa-user-circle-o"></i> <span>Artiesten/bands</span></a></li>
 
                 <!-- Evenementen en sponsors -->
                 <li class="treeview">

@@ -38,11 +38,11 @@ class Artist_model extends CI_Model
         $data = array(
             'id' => $this->input->post('id'),
             'name' => $this->input->post('name'),
-//            'description' => $this->input->post('description'),
             'website' => $this->input->post('website'),
             'youtube' => $this->input->post('youtube'),
             'facebook' => $this->input->post('facebook'),
             'twitter' => $this->input->post('twitter'),
+            'description' => $this->input->post('description'),
         );
 
         return $this->db->replace('artists', $data);

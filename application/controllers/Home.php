@@ -17,7 +17,7 @@ class home extends CI_Controller {
         $data['widgets'] = $this->widget_model->getAllWidgets();
         // Als er niks terug komt geef een error
         if ($data == FALSE) {
-            $error = "Error 404 nothing found";
+            $error = "Foutmelding 404: Niks gevonden";
             $this->session->set_flashdata('error', $error);
             return redirect('backend/error');
         } // Als er wel een log terug komt laad de view met de logs uit de database
@@ -41,7 +41,7 @@ class home extends CI_Controller {
         $password = $_POST['password'];
         $checker = $this->user_model->get_Userinfo($username, $password);
         if ($checker == FALSE) {
-            $error = "Wrong username or password";
+            $error = "Gebruikersnaam en/of wachtwoord is verkeerd ingevuld";
             $this->session->set_flashdata('error', $error);
             return redirect('home/login');
         } else // Get the role from the user

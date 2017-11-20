@@ -42,7 +42,7 @@ class widget extends CI_BackendController
     {
         if (!$_POST['title']) {
             $_SESSION['error'] = [];
-            $error = "Widget data is left empty";
+            $error = "De data kan niet gevonden worden!";
             $this->session->set_flashdata('error', $error);
             $this->createwidget();
         } else {
@@ -54,12 +54,12 @@ class widget extends CI_BackendController
             $insert = $this->widget_model->createwidget($title, $active, $intern_URL, $extern_URL, $document_URL);
             if ($insert == FALSE) {
                 $_SESSION['error'] = [];
-                $error = "insert query went wrong";
+                $error = "Er gaat iets fout met de query!";
                 $this->session->set_flashdata('error', $error);
                 return redirect('Backend/error');
             } else {
                 $_SESSION['message'] = [];
-                $message = "Widget succesfull created";
+                $message = "Widget is aangemaakt!";
                 $this->session->set_flashdata('message', $message);
                 return redirect('backend/widget/index');
             }
@@ -72,7 +72,7 @@ class widget extends CI_BackendController
         $data['widgets'] = $this->widget_model->getAllWidgets();
         // Als er niks terug komt geef een error
         if ($data == FALSE) {
-            $error = "Error 404 nothing found";
+            $error = "Foutmelding 404: Niks gevonden";
             $this->session->set_flashdata('error', $error);
             return redirect('backend/error');
         } // Als er wel een log terug komt laad de view met de logs uit de database
@@ -89,7 +89,7 @@ class widget extends CI_BackendController
 
         // Als er niks terug komt geef een error
         if ($data == FALSE) {
-            $error = "Error 404 nothing found";
+            $error = "Foutmelding 404: Niks gevonden";
             $this->session->set_flashdata('error', $error);
             return redirect('backend/error');
         } // Als er wel een log terug komt laad de view met de logs uit de database
@@ -111,12 +111,12 @@ class widget extends CI_BackendController
             $update = $this->widget_model->editWidget($id, $title, $active, $intern_URL, $extern_URL, $document_URL);
             if ($update == FALSE) {
                 $_SESSION['error'] = [];
-                $error = "update query went wrong";
+                $error = "Er gaat iets fout in de query";
                 $this->session->set_flashdata('error', $error);
                 return redirect('Backend/error');
             } else {
                 $_SESSION['message'] = [];
-                $message = "Widget succesfull edited";
+                $message = "Widget is bewerkt en opgeslagen";
                 $this->session->set_flashdata('message', $message);
                 return redirect('backend/widget/index');
             }
@@ -128,7 +128,7 @@ class widget extends CI_BackendController
         $data['widgets'] = $this->widget_model->getAllWidgets();
         // Als er niks terug komt geef een error
         if ($data == FALSE) {
-            $error = "Error 404 nothing found";
+            $error = "Foutmelding 404: Niks gevonden";
             $this->session->set_flashdata('error', $error);
             return redirect('backend/error');
         } // Als er wel een log terug komt laad de view met de logs uit de database

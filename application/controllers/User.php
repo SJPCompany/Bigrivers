@@ -55,7 +55,7 @@ class user extends CI_BackendController
     {
         $data['users'] = $this->user_model->getAllUsers();
         if ($data == FALSE) {
-            $error = "No users has been found?";
+            $error = "Er zijn geen gebruikers gevonden";
             $this->session->set_flashdata('error', $error);
             return redirect('Backend/error');
         } else {
@@ -78,7 +78,7 @@ class user extends CI_BackendController
             $_POST['role'] == ''
         ) {
             $_SESSION['error'] = [];
-            $error = "User data is left empty";
+            $error = "Formulier is in sommige velden niet ingevuld";
             $this->session->set_flashdata('error', $error);
             $this->createUser();
         } else {
@@ -93,12 +93,12 @@ class user extends CI_BackendController
             $insert = $this->user_model->createUser($username, $passwordhash, $email, $role);
             if ($insert == FALSE) {
                 $_SESSION['error'] = [];
-                $error = "insert query went wrong";
+                $error = "Er gaat iets fout in de query";
                 $this->session->set_flashdata('error', $error);
                 return redirect('Backend/error');
             } else {
                 $_SESSION['message'] = [];
-                $message = "User succesfull created";
+                $message = "Gebruiker aangemaakt";
                 $this->session->set_flashdata('message', $message);
                 return redirect('backend/user/viewUsers');
             }
@@ -110,7 +110,7 @@ class user extends CI_BackendController
         $data['checkUserInfo'] = $this->user_model->getUserById($user_id);
         $data['checkRoles'] = $this->user_model->getAllRoles();
         if ($data['checkUserInfo'] == FALSE) {
-            $error = "No user with this id has been found";
+            $error = "De geselecteerde gebruiker kan niet gevonden worden";
             $this->session->set_flashdata('error', $error);
             return redirect('Backend/error');
         } else {
@@ -144,12 +144,12 @@ class user extends CI_BackendController
             $update = $this->user_model->updateUserById($username, $password, $email, $role, $status, $id);
             if ($update == FALSE) {
                 $_SESSION['error'] = [];
-                $error = "Update query went wrong";
+                $error = "Er gaat iets fout in de query";
                 $this->session->set_flashdata('error', $error);
                return redirect('Backend/error');
             } else {
                 $_SESSION['message'] = [];
-                $message = "User succesfull updated";
+                $message = "Gebruiker is bewerkt en opgeslagen";
                 $this->session->set_flashdata('message', $message);
                 return redirect('backend/user/viewUsers');
             }
