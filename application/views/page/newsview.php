@@ -1,6 +1,8 @@
-<div class="container">
-<?php
-echo '<h2>'.$news_item['title'].'</h2>';
-echo $news_item['text'];
-?>
+<div class="container_2">
+    <div class="newstext">
+        <?php
+        echo '<h2>' . $news_item['title'] . '</h2>';
+        echo '<p>' .  $news_item['text'] . '</p>';
+        ?>
+    </div>
 </div>

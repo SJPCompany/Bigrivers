@@ -189,23 +189,11 @@ desired effect
                 </div>
             </div>
 
-            <!-- search form (Optional) -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-                </div>
-            </form>
-            <!-- /.search form -->
-
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">Menu</li>
                 <!-- Homepage -->
-                <li class="active"><a href="<?= base_url("backend/user/index"); ?>"><i class="fa fa-home"></i> <span>Hoofdpagina</span></a></li>
+                <li class=""><a href="<?= base_url("backend/user/index"); ?>"><i class="fa fa-home"></i> <span>Hoofdpagina</span></a></li>
 
                 <!-- Bekijk gebruikers -->
                 <li><a href="<?= base_url("backend/user/viewUsers"); ?>"><i class="fa fa-users"></i> <span>Gebruikers</span></a></li>

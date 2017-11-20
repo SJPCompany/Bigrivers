@@ -28,14 +28,14 @@
             <?php echo form_open('news/create'); ?>
 
             <label for="title"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Titel</label><br/>
-            <input type="text" name="title" /><br/>
+            <input type="text" name="title" value="<?php echo set_value('title'); ?>" /><br/>
             <label for="title"><i class="fa fa-check" aria-hidden="true"></i> status</label><br/>
             <select name="status">
                 <option value="actief">actief</option>
                 <option value="nonactief">nonactief</option>
             </select><br/>
             <label for="description"><i class="fa fa-comments" aria-hidden="true"></i> Beschrijving</label><br/>
-            <textarea name="inhoud" id="textbox" rows="10" cols="40"></textarea><br>
+            <textarea name="inhoud" id="textbox" rows="10" cols="40"><?php echo set_value('inhoud'); ?></textarea><br>
             <input type="submit" name="submit" value="publiceer"/><br>
             </form>
         </section>
