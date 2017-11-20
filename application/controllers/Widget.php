@@ -51,7 +51,7 @@ class widget extends CI_BackendController
             $intern_URL = $_POST['intern_URL'];
             $extern_URL = $_POST['extern_URL'];
             $document_URL = $_POST['document_URL'];
-            $insert = $this->widget_model->createwidget($title, $active, $intern_URL, $extern_URL, $document_URL);
+            $insert = $this->widget_model->createwidget($title, $active, $link);
             if ($insert == FALSE) {
                 $_SESSION['error'] = [];
                 $error = "Er gaat iets fout met de query!";
@@ -101,14 +101,14 @@ class widget extends CI_BackendController
         }
     }
 
-    public function editWidgetData($id = NULL, $title = NULL, $active = NULL, $intern_URL = NULL, $extern_URL = NULL, $document_URL = NULL)
+    public function editWidgetData($id = NULL, $title = NULL, $active = NULL, $link = NULL)
     {
             $title = $_POST['title'];
             $active = $_POST['active'];
             $intern_URL = $_POST['intern_URL'];
             $extern_URL = $_POST['extern_URL'];
             $document_URL = $_POST['document_URL'];
-            $update = $this->widget_model->editWidget($id, $title, $active, $intern_URL, $extern_URL, $document_URL);
+            $update = $this->widget_model->editWidget($id, $title, $active, $link);
             if ($update == FALSE) {
                 $_SESSION['error'] = [];
                 $error = "Er gaat iets fout in de query";

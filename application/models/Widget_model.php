@@ -16,7 +16,7 @@ class Widget_model extends CI_Model
         }
     }
 
-    public function createWidget($title, $active, $intern_URL, $extern_URL, $document_URL) {
+    public function createWidget($title, $active, $link) {
         /* how to make a insert query
         $data = array('title' => 'My title',
         'name' => 'My Name',
@@ -24,7 +24,7 @@ class Widget_model extends CI_Model
         $this->db->insert('mytable', $data);
         */
 
-        $data = array('title' => $title, 'active' => $active, 'intern_URL' => $intern_URL, 'extern_URL' => $extern_URL, 'document_URL' => $document_URL);
+        $data = array('title' => $title, 'active' => $active, 'link' => $link);
         $this->db->insert('widget', $data);
         if ($this->db->affected_rows() > 0) {
             return true;
@@ -40,9 +40,9 @@ class Widget_model extends CI_Model
         return $query->row_array();
     }
 
-    public function editWidget($id, $title, $active, $intern_URL, $extern_URL, $document_URL)
+    public function editWidget($id, $title, $active, $link)
     {
-        $data = array('id' => $id, 'title' => $title, 'active' => $active, 'intern_URL' => $intern_URL, 'extern_URL' => $extern_URL, 'document_URL' => $document_URL);
+        $data = array('id' => $id, 'title' => $title, 'active' => $active, 'link' => $link);
 
         $query = $this->db->where('id', $id);
         return $this->db->update('widget', $data);

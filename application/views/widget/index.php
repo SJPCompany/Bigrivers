@@ -36,9 +36,7 @@
                   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">URL's
                   <span class="caret"></span></button>
                   <ul class="dropdown-menu">
-                    <li><a href="<?=$widget->intern_URL?>">Intern</a></li>
-                    <li><a href="<?=$widget->extern_URL?>">Extern</a></li>
-                    <li><a href="<?=$widget->document_URL?>">Document</a></li>
+                    <li><a href="<?=$widget->link?>">Link</a></li>
                   </ul>
                 </div>
             </div>
