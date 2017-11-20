@@ -44,7 +44,7 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        All rights reserved.
+        Alle rechten voorbehouden.
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
@@ -61,28 +61,28 @@
     <div class="tab-content">
         <!-- Home tab content -->
         <div class="tab-pane active" id="control-sidebar-home-tab">
-            <h3 class="control-sidebar-heading">Recent Activity</h3>
+            <h3 class="control-sidebar-heading">Recente Activiteit</h3>
             <ul class="control-sidebar-menu">
                 <li>
                     <a href="javascript:;">
                         <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
                         <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+                            <h4 class="control-sidebar-subheading">Langdon's verjaardag</h4>
 
-                            <p>Will be 23 on April 24th</p>
+                            <p>Wordt 23 jaar in 24 april</p>
                         </div>
                     </a>
                 </li>
             </ul>
             <!-- /.control-sidebar-menu -->
 
-            <h3 class="control-sidebar-heading">Tasks Progress</h3>
+            <h3 class="control-sidebar-heading">Voortgang taken</h3>
             <ul class="control-sidebar-menu">
                 <li>
                     <a href="javascript:;">
                         <h4 class="control-sidebar-subheading">
-                            Custom Template Design
+                            Aangepast sjabloonontwerp
                             <span class="pull-right-container">
                     <span class="label label-danger pull-right">70%</span>
                   </span>
@@ -99,21 +99,21 @@
         </div>
         <!-- /.tab-pane -->
         <!-- Stats tab content -->
-        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+        <div class="tab-pane" id="control-sidebar-stats-tab">Statistieken Inhoud Tabblad</div>
         <!-- /.tab-pane -->
         <!-- Settings tab content -->
         <div class="tab-pane" id="control-sidebar-settings-tab">
             <form method="post">
-                <h3 class="control-sidebar-heading">General Settings</h3>
+                <h3 class="control-sidebar-heading">Algemene instellingen</h3>
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        Report panel usage
+                        Gebruik van het rapportpaneel
                         <input type="checkbox" class="pull-right" checked>
                     </label>
 
                     <p>
-                        Some information about this general settings option
+                        Enige informatie over deze algemene instellingsoptie
                     </p>
                 </div>
                 <!-- /.form-group -->

@@ -50,8 +50,13 @@ class home extends CI_Controller {
                 $role = $info;
             }
             $this->session->set_userdata('userinfo', $role);
+            if ($_SESSION['userinfo']->status == 1){
+                $error = "Uw account is op nonactief gestelt neem contact op met de beheerder van de website aub";
+                $this->session->set_flashdata('error', $error);
+                return redirect('home/login');
+            }
             // Check if the user is allowd for the backend
-            if ($_SESSION['userinfo']->name == 'programmeur' || $_SESSION['userinfo']->name == 'beheerder') {
+            elseif ($_SESSION['userinfo']->name == 'programmeur' || $_SESSION['userinfo']->name == 'beheerder') {
                 return redirect('backend/user/index');
             } else {
                 return redirect('home/index');

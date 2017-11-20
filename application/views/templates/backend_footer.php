@@ -6,6 +6,8 @@
 <script src="<?= base_url(); ?>application/views/backend/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>application/views/backend/dist/js/adminlte.min.js"></script>
+<script src="<?= base_url(); ?>js/showFields.js"></script>
+<script src="<?= base_url(); ?>js/showInternalSelects.js"></script>
 <script>CKEDITOR.replace( 'textbox', {
         language: 'nl'
     });</script>

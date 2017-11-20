@@ -4,8 +4,10 @@
         <h1>
             Widgets
         </h1>
+        <a href="<?= base_url('backend/widget/createWidget')?>" role="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>Maak widget</a>
     </section>
 <br>
+
     <!-- Main content -->
     <?php foreach($widgets as $widget) { ?>
     <div class="col-md-3">
@@ -32,13 +34,13 @@
                 <br>
                 <div><b>Aangemaakt:</b>&nbsp&nbsp&nbsp<?=$widget->created?></div>
                 <div><b>Gewijzigd:</b> <?=$widget->modified?></div>
+                <div><a href="<?=$widget->link?>">Link</a></div>
                 <div class="dropdown">
                   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">URL's
                   <span class="caret"></span></button>
                   <ul class="dropdown-menu">
-                    <li><a href="<?=$widget->intern_URL?>">Intern</a></li>
-                    <li><a href="<?=$widget->extern_URL?>">Extern</a></li>
-                    <li><a href="<?=$widget->document_URL?>">Document</a></li>
+                    <li><a href="<?= base_url('backend/widget/editWidget/'. $widget->id) ?>">Bewerken</a></li>
+                    <li><a href="<?= base_url('backend/widget/deleteWidget/'. $widget->id) ?>" onClick="return confirm('weet je zeker dat je deze widget wilt verwijderen?')">Verwijderen</a></li>
                   </ul>
                 </div>
             </div>

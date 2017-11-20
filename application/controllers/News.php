@@ -120,7 +120,7 @@ class news extends CI_BackendController {
         else
         {
             $this->News_model->update_news();
-            $this->newslist();
+            $this->newsbeheer();
         }
     }
 
