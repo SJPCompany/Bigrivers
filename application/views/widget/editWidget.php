@@ -401,37 +401,37 @@
                         </div>
 
                     
-                    <div id="link-file-select-button-bar">
-                        <div id="link-upload-button" class="file-upload-button selected">
-                            <p>Upload een bestand</p>
-                        </div>
-                        <div id="link-gallery-button" class="file-upload-button non-selected">
-                            <p>Kies een bestaande afbeelding</p>
-                        </div>
-                    </div>
-
-                    
-                    <div id="link-file-upload">
-                        <input id="LinkView_File_UploadFile" name="LinkView.File.UploadFile" type="file" value="" />
-                    </div>
-
-                    
-                    <div id="link-file-gallery">
-                            <div class="link-file-gallery-item-container non-selected" data-file-key="File-5e104d4e-547a-49ca-ac6c-a0b710c04416.pdf">
-                                <div class="file-block">
-                                    <div class="pseudo-align"></div>
-                                    <div class="file-container">
-                                        <img src="https://bigriversstorage.blob.core.windows.net/linkupload/File-5e104d4e-547a-49ca-ac6c-a0b710c04416.pdf" />
-                                    </div>
-                                </div>
-                                <div class="text-block">
-                                    <div class="text-container">
-                                        <p>concept website lay-out en tekst Centje voor een Bandje</p>
-                                    </div>
-                                </div>
+                        <div id="link-file-select-button-bar">
+                            <div id="link-upload-button" class="file-upload-button selected">
+                                <p>Upload een bestand</p>
                             </div>
+                            <div id="link-gallery-button" class="file-upload-button non-selected">
+                                <p>Kies een bestaande afbeelding</p>
+                            </div>
+                        </div>
+
+                        
+                        <div id="link-file-upload">
+                            <input id="LinkView_File_UploadFile" name="LinkView.File.UploadFile" type="file" value="" />
+                        </div>
+
+                        
+                        <div id="link-file-gallery">
+                                <div class="link-file-gallery-item-container non-selected" data-file-key="File-5e104d4e-547a-49ca-ac6c-a0b710c04416.pdf">
+                                    <div class="file-block">
+                                        <div class="pseudo-align"></div>
+                                        <div class="file-container">
+                                            <img src="https://bigriversstorage.blob.core.windows.net/linkupload/File-5e104d4e-547a-49ca-ac6c-a0b710c04416.pdf" />
+                                        </div>
+                                    </div>
+                                    <div class="text-block">
+                                        <div class="text-container">
+                                            <p>concept website lay-out en tekst Centje voor een Bandje</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-                </div>
 
                 </div>
             </div>
