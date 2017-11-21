@@ -99,6 +99,17 @@ class image_model extends CI_Model
         }
     }
 
+    public function insetImageCachedInfo($imageSubfolder, $imageid, $sizeid)
+    {
+        $data = array('size_id' => $sizeid, 'file_path' => 'img/' . $imageSubfolder, 'image_id' => $imageid);
+        $this->db->insert('image_sizes', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function insetImageName($imagename) {
         $data = array('name' => $imagename);
         $this->db->insert('images', $data);

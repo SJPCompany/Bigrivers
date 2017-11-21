@@ -171,13 +171,20 @@ class Image extends CI_Controller
                         $config['new_image'] = FCPATH . '/img/cached/' . $requested_imagewidth . 'x' . $requested_imageheight . '-' . $requested_imagename;
                         $this->load->library('image_lib', $config);
                         $this->image_lib->resize();
+                        $imagepath = 'cached/' . $requested_imagewidth . 'x' . $requested_imageheight . '-' . $requested_imagename;
+                        $newInsertImageInfo = $this->image_model->insetImageCachedInfo($imagepath, $imageid, $sizeid);
+                        header("Content-Length: " . filesize($name));
+
+                        // dump the picture and stop the script
+                        fpassthru($fp);
+                        exit;
+                    } else {
+                        header("Content-Length: " . filesize($name));
+
+                        // dump the picture and stop the script
+                        fpassthru($fp);
+                        exit;
                     }
-
-                    header("Content-Length: " . filesize($name));
-
-                    // dump the picture and stop the script
-                    fpassthru($fp);
-                    exit;
                 } else {
                     header("X-error: Afbeelding niet gevonden in de image_size tabel");
                     header("HTTP/1.0 404 Niet gevonden");

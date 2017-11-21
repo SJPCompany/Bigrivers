@@ -85,4 +85,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
-<img class="beads-left hidden-xs" src="<?= base_url()?>backend/image/checkImage/kraaltjes.png/200/100">
+<img class="beads-left hidden-xs" src="<?= base_url()?>backend/image/checkImage/kraaltjes.png/100/380">
