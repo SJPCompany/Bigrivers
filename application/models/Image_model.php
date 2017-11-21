@@ -28,11 +28,9 @@ class image_model extends CI_Model
     }
 
     public function getImagePath($imageid, $sizeid) {
-        $imageidinfo = array('size_id' => $sizeid, 'image_id' => $imageid);
         $this->db->select('*');
         $this->db->from('image_sizes');
-        $this->db->where($imageidinfo);
-        $this->db->join('images', 'images.id = image_sizes.image_id');
+        $this->db->where(array('size_id' => $sizeid, 'image_id' => $imageid));
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -55,7 +53,7 @@ class image_model extends CI_Model
         }
     }
 
-    public function getImagesize($imagewidth, $imageheight) {
+    public function getSize($imagewidth, $imageheight) {
         $imagearray = array('width' => $imagewidth, 'height' => $imageheight);
         $this->db->select('*');
         $this->db->from('sizes');
@@ -68,8 +66,8 @@ class image_model extends CI_Model
         }
     }
 
-    public function insertImageSize($imagewidth, $imageheight) {
-        $data = array('name' => 'çustom', 'width' => $imagewidth, 'height' => $imageheight);
+    public function insertSize($imagewidth, $imageheight) {
+        $data = array('name' => 'custom', 'width' => $imagewidth, 'height' => $imageheight);
         $this->db->insert('sizes', $data);
         if ($this->db->affected_rows() > 0) {
             return true;
