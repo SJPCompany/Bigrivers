@@ -42,6 +42,8 @@ class widget extends CI_BackendController
 
     public function checkWidgetData()
     {
+        $this->lang->load('form_validation_lang', 'dutch');
+
         if (!$_POST['title']) {
             $_SESSION['error'] = [];
             $error = "De data kan niet gevonden worden!";
@@ -53,17 +55,32 @@ class widget extends CI_BackendController
             $intern_URL = $_POST['intern_URL'];
             $extern_URL = $_POST['extern_URL'];
             $document_URL = $_POST['document_URL'];
-            $insert = $this->widget_model->createwidget($title, $active, $link);
-            if ($insert == FALSE) {
-                $_SESSION['error'] = [];
-                $error = "Er gaat iets fout met de query!";
-                $this->session->set_flashdata('error', $error);
-                return redirect('Backend/error');
-            } else {
-                $_SESSION['message'] = [];
-                $message = "Widget is aangemaakt!";
-                $this->session->set_flashdata('message', $message);
-                return redirect('backend/widget/index');
+
+            $this->form_validation->set_rules('title', 'title', 'required');
+            $this->form_validation->set_rules('active', 'active', 'required');
+
+            if($this->form_validation->run() == FALSE)
+            {
+                $data['news'] = $this->widget_model->getAllNews();
+
+                $this->load->view('templates/backend_header');
+                $this->load->view('widget/createWidget', $data);
+                $this->load->view('templates/backend_footer');
+            }
+            else 
+            {
+                $insert = $this->widget_model->createwidget($title, $active, $link);
+                if ($insert == FALSE) {
+                    $_SESSION['error'] = [];
+                    $error = "Er gaat iets fout met de query!";
+                    $this->session->set_flashdata('error', $error);
+                    return redirect('Backend/error');
+                } else {
+                    $_SESSION['message'] = [];
+                    $message = "Widget is aangemaakt!";
+                    $this->session->set_flashdata('message', $message);
+                    return redirect('backend/widget/index');
+                }
             }
         }
     }
@@ -94,17 +111,25 @@ class widget extends CI_BackendController
             $intern_URL = $_POST['intern_URL'];
             $extern_URL = $_POST['extern_URL'];
             $document_URL = $_POST['document_URL'];
-            $update = $this->widget_model->editWidget($id, $title, $active, $link);
-            if ($update == FALSE) {
-                $_SESSION['error'] = [];
-                $error = "Er gaat iets fout in de query";
-                $this->session->set_flashdata('error', $error);
-                return redirect('Backend/error');
-            } else {
-                $_SESSION['message'] = [];
-                $message = "Widget is bewerkt en opgeslagen";
-                $this->session->set_flashdata('message', $message);
-                return redirect('backend/widget/index');
+
+            $this->form_validation->set_rules('title', 'title', 'required');
+
+            if($this->form_validation->run() == TRUE)
+            {
+                $this->lang->load('form_validation_lang', 'dutch');
+
+                $update = $this->widget_model->editWidget($id, $title, $active, $link);
+                if ($update == FALSE) {
+                    $_SESSION['error'] = [];
+                    $error = "Er gaat iets fout in de query";
+                    $this->session->set_flashdata('error', $error);
+                    return redirect('Backend/error');
+                } else {
+                    $_SESSION['message'] = [];
+                    $message = "Widget is bewerkt en opgeslagen";
+                    $this->session->set_flashdata('message', $message);
+                    return redirect('backend/widget/index');
+                }
             }
     }
 
