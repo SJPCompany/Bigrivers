@@ -43,11 +43,6 @@
  <div class="box box-info">
     <div class="box-header with-border">
         <h3 class="box-title">Alle gebruikers</h3>
-         <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-          </div>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -75,7 +70,7 @@
                     <td><span class="label label-danger">Geblokt</span></td>
                 <?php } ?>
                 <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
-                <td><a href="<?php echo site_url('user/deleteUser/'.$user->id);?>" onClick="return confirm('weet je zeker dat je deze gebruiker wilt verwijderen?')">Verwijder</a></td>
+                <td><a href="<?php echo site_url('user/deleteUser/'. $user->id);?>" onClick="return confirm('weet je zeker dat je deze gebruiker wilt verwijderen?')">Verwijder</a></td>
               </tr>
               <?php } ?>
               </tbody>
