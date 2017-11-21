@@ -72,7 +72,7 @@
                 <?php if ($user->status == 0 || $user->status == '0') { ?>
                     <td><span class="label label-success">Actief</span></td>
                 <?php } else { ?>
-                    <td><span class="label label-error">Geblokt</span></td>
+                    <td><span class="label label-danger">Geblokt</span></td>
                 <?php } ?>
                 <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
                 <td><a href="<?php echo site_url('user/deleteUser/'.$user->id);?>" onClick="return confirm('weet je zeker dat je deze gebruiker wilt verwijderen?')">Verwijder</a></td>
