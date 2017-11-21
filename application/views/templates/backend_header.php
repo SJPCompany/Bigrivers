@@ -214,7 +214,7 @@ desired effect
 
 
                 <!-- Genre's en podia -->
-                <li><a href="<?= base_url("")?>"><i class="fa fa-music"></i> <span>podiums</span></a></li>
+                <li><a href="<?= base_url("podia/podiabeheerpage")?>"><i class="fa fa-music"></i> <span>podiums</span></a></li>
 
                 <li><a href="<?= base_url("")?>"><i class="fa fa-tags"></i> <span>genres</span></a></li>
 
