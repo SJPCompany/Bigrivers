@@ -145,14 +145,14 @@ desired effect
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="http://www.digitspeak.com/wp-content/uploads/2016/02/4-1-300x295.png" class="user-image" alt="User Image">
+                            <img src="http://localhost/bigrivers2017/backend/image/checkImage/profile_image.png/50/50" class="user-image" alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs"><?= $_SESSION['username'] ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="http://www.digitspeak.com/wp-content/uploads/2016/02/4-1-300x295.png" class="img-circle" alt="User Image">
+                                <img src="http://localhost/bigrivers2017/backend/image/checkImage/profile_image.png/150/150" class="img-circle" alt="User Image">
 
                                 <p>
                                     <?= $_SESSION['username'] ?>

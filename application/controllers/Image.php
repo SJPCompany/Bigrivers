@@ -104,6 +104,7 @@ class Image extends CI_Controller
             $imageid = $imagelog[0]->id;
             $sizeid = $imagesizes[0]->id;
 
+                // Ga kijken of er een folder is mee gegeven aan de controlelr
                 if (isset($requested_imageSubfolder)) {
                     $image = $this->image_model->getImageSubPath($requested_imageSubfolder, $requested_imagename, $imageid, $sizeid);
                     if ($image == FALSE) {
@@ -127,6 +128,7 @@ class Image extends CI_Controller
                         }
                     }
                 }
+                //Haal het pad op uit de records
                 foreach ($image as $filepath) {
                     $path = $filepath->file_path;
                     $extension = pathinfo($requested_imagename, PATHINFO_EXTENSION);
@@ -159,8 +161,10 @@ class Image extends CI_Controller
                         }
                     }
 
+                    // Haal de originele breedte en hoogte op
                     $width = $imagelog[0]->orginal_width;
                     $height = $imagelog[0]->orginal_height;
+                    //Kijk of de opgevragen breedte en hoogte overeen komen met de originele sizes
                     if ($width != $requested_imagewidth || $height != $requested_imageheight) {
                         $config['image_library'] = 'gd2';
                         $config['quality'] = '100%';
