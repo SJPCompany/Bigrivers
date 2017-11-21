@@ -106,6 +106,8 @@ class widget extends CI_BackendController
 
     public function editWidgetData($id = NULL, $title = NULL, $active = NULL, $link = NULL)
     {
+            $this->lang->load('form_validation_lang', 'dutch');
+
             $title = $_POST['title'];
             $active = $_POST['active'];
             $intern_URL = $_POST['intern_URL'];
@@ -113,11 +115,19 @@ class widget extends CI_BackendController
             $document_URL = $_POST['document_URL'];
 
             $this->form_validation->set_rules('title', 'title', 'required');
+            $this->form_validation->set_rules('active', 'active', 'required');
 
-            if($this->form_validation->run() == TRUE)
+            if($this->form_validation->run() == FALSE)
             {
-                $this->lang->load('form_validation_lang', 'dutch');
+                $data['widget'] = $this->widget_model->getWidget($id);
+                $data['news'] = $this->widget_model->getAllNews();
 
+                $this->load->view('templates/backend_header');
+                $this->load->view('widget/editWidget', $data);
+                $this->load->view('templates/backend_footer');
+            }
+            else
+            {
                 $update = $this->widget_model->editWidget($id, $title, $active, $link);
                 if ($update == FALSE) {
                     $_SESSION['error'] = [];
