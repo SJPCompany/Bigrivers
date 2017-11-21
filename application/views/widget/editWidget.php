@@ -16,6 +16,7 @@
         <!-- /.box-header -->
         <!-- form start -->
     <?php echo form_open('widget/editWidgetData/'. (isset($widget) ? $widget["id"] : "")); ?>
+        <?php echo validation_errors(); ?>
             <div class="box-body">
                 <div class="form-group">
                     <label for="title1" class="col-sm-2 control-label">Titel</label>
@@ -394,45 +395,11 @@
                 </div>
                 <div class="form-group" id="file" style="display: none;">
                     <div id="link-file-select-container">
-                    <label for="LinkView_File" class="col-sm-2 control-label">Upload een bestand om naar te linken</label>
+                        <label for="LinkView_File" class="col-sm-2 control-label">Selecteer bestand</label>
                         <div class="col-sm-10">
-                            <input data-val="true" data-val-required="The NewUpload field is required." id="link-upload-type" name="LinkView.File.NewUpload" type="hidden" value="True" />
-                            <input id="link-select-existing-key" name="LinkView.File.Key" type="hidden" value="" />
-                        </div>
-
-                    
-                        <div id="link-file-select-button-bar">
-                            <div id="link-upload-button" class="file-upload-button selected">
-                                <p>Upload een bestand</p>
-                            </div>
-                            <div id="link-gallery-button" class="file-upload-button non-selected">
-                                <p>Kies een bestaande afbeelding</p>
-                            </div>
-                        </div>
-
-                        
-                        <div id="link-file-upload">
-                            <input id="LinkView_File_UploadFile" name="LinkView.File.UploadFile" type="file" value="" />
-                        </div>
-
-                        
-                        <div id="link-file-gallery">
-                                <div class="link-file-gallery-item-container non-selected" data-file-key="File-5e104d4e-547a-49ca-ac6c-a0b710c04416.pdf">
-                                    <div class="file-block">
-                                        <div class="pseudo-align"></div>
-                                        <div class="file-container">
-                                            <img src="https://bigriversstorage.blob.core.windows.net/linkupload/File-5e104d4e-547a-49ca-ac6c-a0b710c04416.pdf" />
-                                        </div>
-                                    </div>
-                                    <div class="text-block">
-                                        <div class="text-container">
-                                            <p>concept website lay-out en tekst Centje voor een Bandje</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <input id="filebutton" name="filebutton" class="input-file" type="file">
                         </div>
                     </div>
-
                 </div>
             </div>
             </div>
