@@ -4,10 +4,10 @@ class user_model extends CI_Model {
     {
         $this->load->database();
     }
-    public function get_Userinfo($username, $password) {
+    public function get_Userinfo($username) {
         $this->db->select('*');
         $this->db->from('v_userrole');
-        $this->db->where(array('username'=>$username, 'password'=>$password));
+        $this->db->where(array('username'=>$username));
         $query = $this->db->get();
         if($query->num_rows() > 0) {
             $_SESSION['username'] = $username;
