@@ -92,6 +92,12 @@ $route['backend/widget/editWidget/(:any)'] = 'widget/editWidget/$1';
 $route['backend/artist/createartist'] = 'artist/createartist';
 $route['backend/artist/beheerartist'] = 'artist/beheerartist';
 $route['backend/artist/editartist'] = 'artist/artisteditdata';
+/*podia routes*/
+$route['backend/podia/createpodia'] = 'podia/podiacreatepage';
+$route['backend/podia/beheerpodia'] = 'podia/podiabeheerpage';
+$route['backend/podia/editpodia'] = 'podia/podiaeditpage';
+
+
 
 
 
