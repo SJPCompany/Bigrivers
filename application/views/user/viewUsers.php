@@ -40,57 +40,58 @@
                 }
                 echo '</ul></div>'; }?>
  <br>
- <div class="col-xs-12">
-     <div class="box">
-         <div class="box-header">
-             <h3 class="box-title">Alle gebruikers</h3>
-         </div>
-         <!-- /.box-header -->
-         <div class="box-body">
-             <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-                 <div class="row">
-                     <div class="col-sm-12">
-                         <table id="sort" class="sort" role="grid" aria-describedby="example1_info">
-                             <thead>
-                             <tr role="row">
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Gebrukersnaam</th>
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Emailadres</th>
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;;">Rol</th>
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Status</th>
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Bewerken</th>
-                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Verwijder</th>
-                             </thead>
-                             <tbody>
-                             <?php foreach ($users as $user) { ?>
-                                 <tr>
-                                     <td><?= $user->username ?></td>
-                                     <td><?= $user->email ?></td>
-                                     <td><?= $user->name ?></td>
-                                     <?php if ($user->status == 0 || $user->status == '0') { ?>
-                                         <td>Actief</td>
-                                     <?php } else { ?>
-                                         <td>Geblokt</td>
-                                     <?php } ?>
-                                     <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
-                                     <td><a href="<?php echo site_url('user/deleteUser/'.$user->id);?>" onClick="return confirm('weet je zeker dat je deze gebruiker wilt verwijderen?')">Verwijder</a></td>
-                                 </tr>
-                             <?php } ?>
-                             </tbody>
-                         </table>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>
- </div>
+ <div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">Alle gebruikers</h3>
+         <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="table-responsive">
+            <table class="table no-margin">
+              <thead>
+              <tr>
+                <th>Gebruikersnaam</th>
+                <th>Emailadres</th>
+                <th>Rol</th>
+                <th>Status</th>
+                <th>Bewerken</th>
+                <th>Verwijderen</th>
+              </tr>
+              </thead>
+              <tbody>
+            <?php foreach ($users as $user) { ?>
+              <tr>
+                <td><?= $user->username ?></td>
+                <td><?= $user->email ?></td>
+                <td><?= $user->name ?></td>
+                <?php if ($user->status == 0 || $user->status == '0') { ?>
+                    <td><span class="label label-success">Actief</span></td>
+                <?php } else { ?>
+                    <td><span class="label label-error">Geblokt</span></td>
+                <?php } ?>
+                <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
+                <td><a href="<?php echo site_url('user/deleteUser/'.$user->id);?>" onClick="return confirm('weet je zeker dat je deze gebruiker wilt verwijderen?')">Verwijder</a></td>
+              </tr>
+              <?php } ?>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.table-responsive -->
+        </div>
+        <!-- /.box-footer -->
+    </div>
  <script>
      new Tablesort(document.getElementById('sort'));
  </script>
  <footer class="main-footer">
      <!-- To the right -->
      <div class="pull-right hidden-xs">
-         All rights reserved.
+         Alle rechten voorbehouden.
      </div>
      <!-- Default to the left -->
      <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
