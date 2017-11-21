@@ -43,7 +43,12 @@ class user_model extends CI_Model {
         }
     }
     public function userdelete($user_id){
-        $this->db->delete('news', array('id' => $user_id));
+        $this->db->delete('user', array('id' => $user_id));
+        if($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            false;
+        }
     }
     public function UserCount(){
         $this->db->select('*') ;

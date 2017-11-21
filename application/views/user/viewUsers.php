@@ -70,7 +70,7 @@
                     <td><span class="label label-danger">Geblokt</span></td>
                 <?php } ?>
                 <td><a class="mid" href="<?= base_url('backend/user/editUser/'. $user->id) ?>"><i class="fa fa-pencil"></i></a></td>
-                <td><a href="<?php echo site_url('user/deleteUser/'. $user->id);?>" onClick="return confirm('weet je zeker dat je deze gebruiker wilt verwijderen?')">Verwijder</a></td>
+                <td><a href="<?= base_url('backend/user/delete/'. $user->id) ?>">Verwijder</a></td>
               </tr>
               <?php } ?>
               </tbody>
