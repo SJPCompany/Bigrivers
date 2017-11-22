@@ -4,10 +4,10 @@ class user_model extends CI_Model {
     {
         $this->load->database();
     }
-    public function get_Userinfo($username, $password) {
+    public function get_Userinfo($username) {
         $this->db->select('*');
         $this->db->from('v_userrole');
-        $this->db->where(array('username'=>$username, 'password'=>$password));
+        $this->db->where(array('username'=>$username));
         $query = $this->db->get();
         if($query->num_rows() > 0) {
             $_SESSION['username'] = $username;
@@ -77,8 +77,8 @@ class user_model extends CI_Model {
             return false;
         }
     }
-    public function updateUserById($username, $password, $email, $role, $status, $id) {
-        $data = array('username' => $username, 'password' => $password, 'email' => $email, 'status' => $status, 'role_id' => $role);
+    public function updateUserById($username, $passwordhash, $email, $role, $status, $id) {
+        $data = array('username' => $username, 'password' => $passwordhash, 'email' => $email, 'status' => $status, 'role_id' => $role);
         $this->db->where(array('id' => $id));
         $this->db->update('user', $data);
         if ($this->db->affected_rows() > 0) {
