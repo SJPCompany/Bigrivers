@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-include 'CI_BackendController.php';
-class errors extends CI_BackendController
+class errors extends CI_Controller 
 {
     public function __construct(){
         parent::__construct();

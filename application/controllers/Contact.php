@@ -1,7 +1,5 @@
 <?php
-include 'CI_BackendController.php';
-class contact extends CI_BackendController {
-
+class contact extends CI_Controller {
     public function view($page = 'contact')
     {
         if ( ! file_exists(APPPATH.'views/contact/'.$page.'.php'))
