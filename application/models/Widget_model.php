@@ -65,4 +65,11 @@ class Widget_model extends CI_Model
 
         return $query->result_array();
     }
+
+    public function getAllArtists()
+    {
+        $query = $this->db->get('artists');
+
+        return $query->result_array();
+    }
 }
