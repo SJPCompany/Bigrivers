@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 22 nov 2017 om 13:04
+-- Gegenereerd op: 22 nov 2017 om 13:10
 -- Serverversie: 5.6.17
 -- PHP-versie: 5.5.12
 
@@ -19,6 +19,32 @@ SET time_zone = "+00:00";
 --
 -- Databank: `bigrivers2017`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `artists`
+--
+
+CREATE TABLE IF NOT EXISTS `artists` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) DEFAULT NULL,
+  `description` text,
+  `website` varchar(300) DEFAULT NULL,
+  `youtube` varchar(300) DEFAULT NULL,
+  `facebook` varchar(300) DEFAULT NULL,
+  `twitter` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `artists`
+--
+
+INSERT INTO `artists` (`id`, `name`, `description`, `website`, `youtube`, `facebook`, `twitter`) VALUES
+(2, '1', '1', '1', '1', '1', '1'),
+(3, '4', '4', '4', '4', '4', '4'),
+(4, '4', '4', '4', '4', '4', '4');
 
 -- --------------------------------------------------------
 
