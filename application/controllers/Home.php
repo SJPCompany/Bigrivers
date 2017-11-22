@@ -39,7 +39,7 @@ class home extends CI_Controller {
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $checker = $this->user_model->get_Userinfo($username, $password);
+        $checker = $this->user_model->get_Userinfo($username);
         if ($checker == FALSE) {
             $error = "Gebruikersnaam en/of wachtwoord is verkeerd ingevuld";
             $this->session->set_flashdata('error', $error);
@@ -49,6 +49,7 @@ class home extends CI_Controller {
             foreach ($checker as $info) {
                 $role = $info;
             }
+            if (password_verify($password,$role->password)){
             $this->session->set_userdata('userinfo', $role);
             if ($_SESSION['userinfo']->status == 1){
                 $error = "Uw account is op nonactief gestelt neem contact op met de beheerder van de website aub";
@@ -60,6 +61,12 @@ class home extends CI_Controller {
                 return redirect('backend/user/index');
             } else {
                 return redirect('home/index');
+            }
+            }
+            else {
+                $error = "Gebruikersnaam en/of wachtwoord is verkeerd ingevuld";
+                $this->session->set_flashdata('error', $error);
+                return redirect('home/login');
             }
         }
     }

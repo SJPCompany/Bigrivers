@@ -177,7 +177,11 @@ class user extends CI_BackendController
             $email = $_POST['email'];
             $status = $_POST['status'];
             $id = $_SESSION['user_id'];
-            $update = $this->user_model->updateUserById($username, $password, $email, $role, $status, $id);
+            $options = [
+                'cost' => 8,
+            ];
+            $passwordhash = password_hash($password, PASSWORD_BCRYPT, $options);
+            $update = $this->user_model->updateUserById($username, $passwordhash, $email, $role, $status, $id);
             if ($update == FALSE) {
                 $_SESSION['error'] = [];
                 $error = "Er gaat iets fout in de query";
