@@ -124,8 +124,44 @@ class user extends CI_BackendController
         }
     }
 
-    public function deleteUser($user_id){
-        $this->user_model->userdelete($user_id);
+    public function delete($user_id) {
+        $data['checkUserInfo'] = $this->user_model->getUserById($user_id);
+        $data['checkRoles'] = $this->user_model->getAllRoles();
+        if ($data['checkUserInfo'] == FALSE) {
+            $error = "De geselecteerde gebruiker kan niet gevonden worden";
+            $this->session->set_flashdata('error', $error);
+            return redirect('Backend/error');
+        } else {
+            foreach ($data['checkUserInfo'] as $item) {
+                $_SESSION['user_role'] = $item->name;
+            }
+            $_SESSION['user_id'] = $user_id;
+            $this->load->view('templates/backend_header');
+            $this->load->view('user/deleteUser', $data);
+            $this->load->view('templates/backend_footer');
+        }
+    }
+
+    public function deleteUser() {
+        if(isset($_POST['ja'])) {
+            $user_id = $_POST['id'];
+            $delete = $this->user_model->userdelete($user_id);
+            if($delete == FALSE) {
+                $error = 'Gefaald gebruiker te verwijderen';
+                $this->session->set_flashdata('error', $error);
+                return redirect('backend/user/viewUsers');
+            } else {
+                $message = 'Gebruiker verwijdert';
+                $this->session->set_flashdata('message', $message);
+                return redirect('backend/user/viewUsers');
+            }
+        } elseif (isset($_POST['nee'])) {
+            $message = 'Gebruiker niet verwijdert omdat nee is gedrukt';
+            $this->session->set_flashdata('message', $message);
+            return redirect('backend/user/viewUsers');
+        } else {
+            return redirect('backend/user/viewUsers');
+        }
     }
 
     public function checkEditUserData()

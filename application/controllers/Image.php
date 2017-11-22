@@ -57,143 +57,111 @@ class Image extends CI_Controller
         JE HEBT NU HET FILESYSTEM PAD NAAR HET IMAGE VAN HET JUISTE FORMAAT
         - retourneer de inhoud van het gevonden bestand
         als er ergens in dit proces een error komt of iets lukt niet (misschien zelf exception gebruiken),
-          stuur dan een header terug: X-error: ndjfkhjkfhsjkdfhskdjf    en vervolgens een 404 header.
+          stuur dan een header_content_type terug: X-error: ndjfkhjkfhsjkdfhskdjf    en vervolgens een 404 header_content_type.
         */
 
-        // Kijkt naar de naam en de breedte en hoogte van het plaatje in de url
-        // Pakt de naam uit de url
-        $number = $this->uri->total_segments();
-        if ($number == 7) {
-            $requested_imageSubfolder = $this->uri->segment(4);
-            // Pak de Naam uit de url
-            $requested_imagename = $this->uri->segment(5);
-            // Pak de breedte uit de url
-            $requested_imagewidth = $this->uri->segment(6);
-            // Pak de hoogte uit de url
-            $requested_imageheight = $this->uri->segment(7);
-        } else {
-            // Pak de naam uit url
-            $requested_imagename = $this->uri->segment(4);
-            // Pak de breedte uit de url
-            $requested_imagewidth = $this->uri->segment(5);
-            // Pak de hoogte uit de url
-            $requested_imageheight = $this->uri->segment(6);
-        }
-        //Gaat kijken of de image bestaat in de database
-        $imagelog = $this->image_model->checkImageExits($requested_imagename);
-        // Als er geen image is stuur terug naar upload pagina
-        if ($imagelog == FALSE) {
-            header("X-error: Naam afbeelding niet gevonden ");
-            header("HTTP/1.0 404 Not Found");
-        } else {
-            // afbeelding bestaat in tabel 'images'
-            $imagesizes = $this->image_model->getImagesize($requested_imagewidth, $requested_imageheight);
+        // Pak de naam uit url
+        $requested_imagename = $this->uri->segment(4);
+        // Pak de breedte uit de url
+        $requested_imagewidth = $this->uri->segment(5);
+        // Pak de hoogte uit de url
+        $requested_imageheight = $this->uri->segment(6);
 
-            // als de afmetingen niet voorkomen in de tabel 'sizes', maak dan het ontbrekende record aan en ga verder
-            if ($imagesizes == FALSE) {
-                $imageinsert = $this->image_model->insertImageSize($requested_imagewidth, $requested_imageheight);
-                if ($imageinsert == FALSE) {
-                    header("X-error: Grootte afbeelding niet ingevoerd ");
+        //Gaat in tabel images kijken of de image bestaat; als er geen image is stuur dan een 404 not found
+        $original_image_record = $this->image_model->checkImageExits($requested_imagename);
+        if ($original_image_record == FALSE) {
+            header("X-error: Naam afbeelding niet gevonden "); // TODO: remove this debug statement
+            header("HTTP/1.0 404 Not Found");
+            exit();
+        }
+        $original_imageid = $original_image_record[0]->id;
+        $original_imagepath =  FCPATH . '/img/' . $original_image_record[0]->name;
+
+        // komt de gevraagde size voor in de tabel 'sizes';
+        // als de afmetingen niet voorkomen in de tabel 'sizes', maak dan het ontbrekende record aan en ga verder
+        $size_record = $this->image_model->getSize($requested_imagewidth, $requested_imageheight);
+        if ($size_record == FALSE) {
+            $imageinsert = $this->image_model->insertSize($requested_imagewidth, $requested_imageheight);
+            if ($imageinsert == FALSE) {
+                header("X-error:d kan geen record toevoegen aan tabel sizes.");
+                header("HTTP/1.0 404 Not Found");
+                exit();
+            }
+            $size_record = $this->image_model->getSize($requested_imagewidth, $requested_imageheight);
+        }
+        $sizeid = $size_record[0]->id;
+
+        // haal het juiste record op uit de tabel image_sizes; maak zo nodig aan als nog niet bestaat
+        $image_sizes_record = $this->image_model->getImagePath($original_imageid, $sizeid);
+        if ($image_sizes_record == FALSE) {
+            // do resize
+            $resized_image_fullpath = $this->do_resize($original_imageid, $original_imagepath, $requested_imagename, $requested_imagewidth, $requested_imageheight, $sizeid);
+            if ($resized_image_fullpath == null) {    // TODO: remove duplicate code by rewriting if statements
+                header("X-error: kan image niet resizen");
+                header("HTTP/1.0 404 Not Found");
+                exit();
+            }
+            $insertImageInfo = $this->image_model->insetImageSizeInfo($original_imageid, $sizeid, $resized_image_fullpath);
+            if ($insertImageInfo == FALSE) {    // TODO: remove duplicate code by rewriting if statements
+                    header("X-error: kan geen record toevoegen aan tabel image_sizes");
                     header("HTTP/1.0 404 Not Found");
                     exit();
-                }
-                $imagesizes = $this->image_model->getImagesize($requested_imagewidth, $requested_imageheight);
             }
+            $image_sizes_record = $this->image_model->getImagePath($original_imageid, $sizeid);
+        }
+        // return file as found in image_sizes
+        $resized_image_path = $image_sizes_record[0]->file_path;      // relatief pad ten opzichte van /img map
+        $extension = pathinfo($image_sizes_record[0]->file_path, PATHINFO_EXTENSION);
+        if (file_exists($resized_image_path)) {
+            // open the file in a binary mode
+            $fp = fopen($resized_image_path, 'rb');
 
-            // get record id's for the image, and the sizes records
-            $imageid = $imagelog[0]->id;
-            $sizeid = $imagesizes[0]->id;
-
-                // Ga kijken of er een folder is mee gegeven aan de controlelr
-                if (isset($requested_imageSubfolder)) {
-                    $image = $this->image_model->getImageSubPath($requested_imageSubfolder, $requested_imagename, $imageid, $sizeid);
-                    if ($image == FALSE) {
-                        $insertImageInfo = $this->image_model->insetImageSubSizeInfo($requested_imageSubfolder, $imageid, $sizeid, $requested_imagename);
-                        if ($insertImageInfo == FALSE) {
-                            header("X-error: Afbeelding en grootte niet ingevoerd ");
-                            header("HTTP/1.0 404 Not Found");
-                        } else {
-                            return $this->checkImage();
-                        }
-                    }
-                } else {
-                    $image = $this->image_model->getImagePath($imageid, $sizeid);
-                    if ($image == FALSE) {
-                        $insertImageInfo = $this->image_model->insetImageSizeInfo($imageid, $sizeid, $requested_imagename);
-                        if ($insertImageInfo == FALSE) {
-                            header("X-error: Afbeelding en grootte niet ingevoerd ");
-                            header("HTTP/1.0 404 Niet gevonden");
-                        } else {
-                            return $this->checkImage();
-                        }
-                    }
+            // send the right headers
+            $header_content_type = '';
+            switch ($extension) {
+                case 'jpg': {
+                    $header_content_type = "Content-Type: image/jpg";
+                    break;
                 }
-                //Haal het pad op uit de records
-                foreach ($image as $filepath) {
-                    $path = $filepath->file_path;
-                    $extension = pathinfo($requested_imagename, PATHINFO_EXTENSION);
+                case 'jpeg': {
+                    $header_content_type = "Content-Type: image/jpg";
+                    break;
                 }
-                // Kijk of de image bestaat
-                if (file_exists($path)) {
-                    // open the file in a binary mode
-                    $name = $path;
-                    $fp = fopen($name, 'rb');
-
-                    // send the right headers
-                    //header("X-name: " . $name);
-                    //header("X-extension: " . $extension);
-                    switch ($extension) {
-                        case 'jpg': {
-                            header("Content-Type: image/jpg");
-                            break;
-                        }
-                        case 'jpeg': {
-                            header("Content-Type: image/jpg");
-                            break;
-                        }
-                        case 'png': {
-                            header("Content-Type: image/png");
-                            break;
-                        }
-                        default: {
-                            header("HTTP/1.0 404 Niet gevonden");
-                            exit;
-                        }
-                    }
-
-                    // Haal de originele breedte en hoogte op
-                    $width = $imagelog[0]->orginal_width;
-                    $height = $imagelog[0]->orginal_height;
-                    //Kijk of de opgevragen breedte en hoogte overeen komen met de originele sizes
-                    if ($width != $requested_imagewidth || $height != $requested_imageheight) {
-                        $config['image_library'] = 'gd2';
-                        $config['quality'] = '100%';
-                        $config['maintain_ratio'] = TRUE;
-                        $config['source_image'] = $path;
-                        $config['width'] = $requested_imagewidth;
-                        $config['height'] = $requested_imageheight;
-                        $config['new_image'] = FCPATH . '/img/cached/' . $requested_imagewidth . 'x' . $requested_imageheight . '-' . $requested_imagename;
-                        $this->load->library('image_lib', $config);
-                        $this->image_lib->resize();
-                        $imagepath = 'cached/' . $requested_imagewidth . 'x' . $requested_imageheight . '-' . $requested_imagename;
-                        $newInsertImageInfo = $this->image_model->insetImageCachedInfo($imagepath, $imageid, $sizeid);
-                        header("Content-Length: " . filesize($name));
-
-                        // dump the picture and stop the script
-                        fpassthru($fp);
-                        exit;
-                    } else {
-                        header("Content-Length: " . filesize($name));
-
-                        // dump the picture and stop the script
-                        fpassthru($fp);
-                        exit;
-                    }
-                } else {
-                    header("X-error: Afbeelding niet gevonden in de image_size tabel");
-                    header("HTTP/1.0 404 Niet gevonden");
+                case 'png': {
+                    $header_content_type = "Content-Type: image/png";
+                    break;
+                }
+                default: {
+                    $header_content_type = "HTTP/1.0 404 Niet gevonden";
+                    exit;
                 }
             }
+            header($header_content_type);
+            header("Content-Length: " . filesize($resized_image_path));
+
+            // dump the picture and stop the script
+            fpassthru($fp);
+        } else {
+            header("X-error: Afbeelding [". $resized_image_path . "] niet gevonden in de image_size tabel");
+            header("HTTP/1.0 404 Niet gevonden");
+        }
+
+    }
+
+    private function do_resize($original_imageid, $original_imagepath, $requested_imagename, $requested_imagewidth, $requested_imageheight, $sizeid) {
+        $config['image_library'] = 'gd2';
+        $config['quality'] = '100%';
+        $config['maintain_ratio'] = TRUE;
+        $config['source_image'] = $original_imagepath;
+        $config['width'] = $requested_imagewidth;
+        $config['height'] = $requested_imageheight;
+        $filename = $original_imageid . '-'. $requested_imagename . '-' . $requested_imagewidth . 'x' . $requested_imageheight . '.' .pathinfo($requested_imagename, PATHINFO_EXTENSION);
+        $resized_image_fullpath = FCPATH . '/img/cached/' . $filename ;
+        $config['new_image'] = $resized_image_fullpath;
+        $this->load->library('image_lib', $config);
+        $this->image_lib->resize();
+
+        return 'cached/' . $filename;
     }
 
     public function uploadImage()

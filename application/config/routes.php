@@ -67,6 +67,8 @@ $route['backend/user/checkUserData'] = 'user/checkUserData';
 $route['backend/user/editUser/(:any)'] = 'user/editUser/$1';
 $route['backend/user/checkEditUserData'] = 'user/checkEditUserData';
 $route['backend/user/do_upload'] = 'user/do_upload';
+$route['backend/user/delete/(:any)'] = 'user/delete/$1';
+$route['backend/user/deleteUser'] = 'user/deleteUser';
 /* Error route */
 $route['backend/error'] = 'Backend/error';
 /* Image route */
