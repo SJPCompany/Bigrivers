@@ -32,13 +32,13 @@
         <input type="text" name="podianame" value="<?php echo set_value('podianame'); ?>"/><br/>
         <label for="name"><i class="fa fa-road" aria-hidden="true"></i> straat</label><br/>
         <input type="text" name="street" value="<?php echo set_value('street'); ?>"/><br/>
-        <label for="name"><i class="fa fa-user" aria-hidden="true"></i> huisnummer</label><br/>
+        <label for="name"><i class="fa fa-home" aria-hidden="true"></i> huisnummer</label><br/>
         <input type="text" name="housenumber" value="<?php echo set_value('housenumber'); ?>"/><br/>
-        <label for="name"><i class="fa fa-user" aria-hidden="true"></i> postcode</label><br/>
+        <label for="name"><i class="fa fa-home" aria-hidden="true"></i> postcode</label><br/>
         <input type="text" name="zip" value="<?php echo set_value('zip'); ?>"/><br/>
-        <label for="name"><i class="fa fa-user" aria-hidden="true"></i> stad</label><br/>
+        <label for="name"><i class="fa fa-building" aria-hidden="true"></i> stad</label><br/>
         <input type="text" name="city" value="<?php echo set_value('city'); ?>"/><br/>
-        <label for="name"><i class="fa fa-user" aria-hidden="true"></i> status</label><br/>
+        <label for="name"><i class="fa fa-check-square-o" aria-hidden="true"></i> status</label><br/>
         <select name="status">
             <option value="actief">actief</option>
             <option value="nonactief">non-actief</option>

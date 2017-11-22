@@ -47,6 +47,9 @@ class podia extends CI_Controller
     public function delete($podia)
     {
         $this->Podia_model->deletepodia($podia);
+        $_SESSION['message'] = [];
+        $message = "Podia is verwijdert";
+        $this->session->set_flashdata('message', $message);
         $this->podiabeheerpage();
     }
 
@@ -72,6 +75,9 @@ class podia extends CI_Controller
 
         } else {
             $this->Podia_model->set_podia();
+            $_SESSION['message'] = [];
+            $message = "Podia is aangemaakt";
+            $this->session->set_flashdata('message', $message);
             return redirect('podia/podiabeheerpage');
         }
     }
@@ -97,6 +103,9 @@ class podia extends CI_Controller
 
         } else {
             $this->Podia_model->edit_podia();
+            $_SESSION['message'] = [];
+            $message = "Podia is bewerkt en opgeslagen";
+            $this->session->set_flashdata('message', $message);
             return redirect('podia/podiabeheerpage');
         }
     }

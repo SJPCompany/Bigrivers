@@ -91,6 +91,9 @@ class news extends CI_BackendController {
         else
         {
             $this->News_model->set_news();
+            $_SESSION['message'] = [];
+            $message = "Artiest is aangemaakt";
+            $this->session->set_flashdata('message', $message);
             return redirect('news/newsbeheer');
         }
     }
@@ -98,6 +101,9 @@ class news extends CI_BackendController {
 //delete function om een artikel uit de database te verwijderen
     public function delete($news_data) {
         $this->News_model->deletenews($news_data);
+        $_SESSION['message'] = [];
+        $message = "Artiest is verwijdert";
+        $this->session->set_flashdata('message', $message);
         $this->newsbeheer();
     }
 //edit function om een nieuws bericht aan te passen
@@ -120,6 +126,9 @@ class news extends CI_BackendController {
         else
         {
             $this->News_model->update_news();
+            $_SESSION['message'] = [];
+            $message = "Artiest is bewerkt en opgeslagen";
+            $this->session->set_flashdata('message', $message);
             $this->newsbeheer();
         }
     }

@@ -51,6 +51,9 @@ class Artist extends CI_BackendController {
         else
         {
             $this->Artist_model->set_artist();
+            $_SESSION['message'] = [];
+            $message = "Artiest is aangemaakt";
+            $this->session->set_flashdata('message', $message);
             return redirect('backend/artist/beheerartist');
         }
 
@@ -59,6 +62,9 @@ class Artist extends CI_BackendController {
 
     public function delete($artist_data) {
         $this->Artist_model->deleteartist($artist_data);
+        $_SESSION['message'] = [];
+        $message = "Artiest is verwijder";
+        $this->session->set_flashdata('message', $message);
         $this->beheerartist();
     }
 
@@ -99,6 +105,9 @@ class Artist extends CI_BackendController {
         else
         {
             $this->Artist_model->update_artist();
+            $_SESSION['message'] = [];
+            $message = "Artiest is bewerkt en opgeslagen";
+            $this->session->set_flashdata('message', $message);
             $this->beheerartist();
         }
     }
