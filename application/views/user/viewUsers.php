@@ -11,6 +11,7 @@
             </a>
         </section>
 
+
         <!-- Main content -->
         <?php if($_SESSION['userinfo']->name == 'programmeur') { ?>
             <style>
@@ -90,6 +91,8 @@
         <!-- /.box-footer -->
     </div>
   </div>
+</div>
+</div>
 </div>
  <script>
      new Tablesort(document.getElementById('sort'));
