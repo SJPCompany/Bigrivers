@@ -40,22 +40,31 @@
                 }
                 echo '</ul></div>'; }?>
  <br>
+ <div class="col-xs-12">
  <div class="box box-info">
     <div class="box-header with-border">
         <h3 class="box-title">Alle gebruikers</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
-            <table class="table no-margin">
+          <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+            <div class="row">
+              <div class="col-sm-12">
+            <table id="sort" class="sort" role="grid" aria-describedby="example1_info">
               <thead>
-              <tr>
-                <th>Gebruikersnaam</th>
-                <th>Emailadres</th>
-                <th>Rol</th>
-                <th>Status</th>
-                <th>Bewerken</th>
-                <th>Verwijderen</th>
+              <tr role="row">
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                style="width: 120px;">Gebruikersnaam</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                style="width: 120px;">Emailadres</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                style="width: 120px;">Rol</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                style="width: 120px;">Status</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                style="width: 120px;">Bewerken</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                style="width: 120px;">Verwijderen</th>
               </tr>
               </thead>
               <tbody>
@@ -80,6 +89,8 @@
         </div>
         <!-- /.box-footer -->
     </div>
+  </div>
+</div>
  <script>
      new Tablesort(document.getElementById('sort'));
  </script>
