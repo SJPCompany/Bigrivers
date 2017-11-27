@@ -176,7 +176,7 @@
                     <div id="link-file-select-container">
                         <label for="LinkView_File" class="col-sm-2 control-label">Selecteer bestand</label>
                         <div class="col-sm-10">
-                            <input id="filebutton" name="filebutton" class="input-file" type="file">
+                            <input id="filebutton" name="LinkView_File" class="input-file" type="file">
                         </div>
                     </div>
                 </div>
