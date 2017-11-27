@@ -130,12 +130,12 @@ body {
  }
 /* Contact pagina */
 div.container_2{
-    background-image: url(../backend/image/checkImage/bg.png/1024/700);
+    background-image: url(../backend/image/checkImage/bg.png/1024/600);
     margin-bottom: 40px;
     margin-top: 5%;
     padding: 20px;
     height: 100%;
-    width: 1200px;
+    width: 75%;
     text-align: center;
     margin-right: auto !important;
     margin-left: auto !important;
