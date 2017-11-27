@@ -38,8 +38,8 @@
             echo '</ul></div>'; }?>
         <br>
     <div class="col-xs-12">
-        <div class="box">
-            <div class="box-header">
+        <div class="box box-info">
+                <div class="box-header with-border">
                 <h3 class="box-title">Beheer Podia</h3>
             </div>
             <!-- /.box-header -->
@@ -51,21 +51,21 @@
                                 <thead>
                                 <tr role="row">
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        style="width: 120px;"><i class="fa fa-text-height" aria-hidden="true"></i>
+                                        style="width: 120px;"><i class="fa fa-music" aria-hidden="true"></i>
                                         podianaam
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        style="width: 120px;"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                                        style="width: 120px;"><i class="fa fa-road" aria-hidden="true"></i>
                                         straat
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        style="width: 120px;"><i class="fa fa-user" aria-hidden="true"></i> huisnummer
+                                        style="width: 120px;"><i class="fa fa-home" aria-hidden="true"></i> huisnummer
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        style="width: 120px;"><i class="fa fa-clock-o" aria-hidden="true"></i> postcode
+                                        style="width: 120px;"><i class="fa fa-home" aria-hidden="true"></i> postcode
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        style="width: 120px;"><i class="fa fa-clock-o" aria-hidden="true"></i> stad
+                                        style="width: 120px;"><i class="fa fa-building" aria-hidden="true"></i> stad
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                         style="width: 120px;"><i class="fa fa-check-square-o" aria-hidden="true"></i>

@@ -33,13 +33,13 @@
         <input type="text" name="podianame" value="<?= $podia_data['podianame']?>"/><br/>
         <label for="name"><i class="fa fa-road" aria-hidden="true"></i> straat</label><br/>
         <input type="text" name="street" value="<?= $podia_data['street']?>"/><br/>
-        <label for="name"><i class="fa fa-user" aria-hidden="true"></i> huisnummer</label><br/>
+        <label for="name"><i class="fa fa-home" aria-hidden="true"></i> huisnummer</label><br/>
         <input type="text" name="housenumber" value="<?= $podia_data['housenumber']?>"/><br/>
-        <label for="name"><i class="fa fa-user" aria-hidden="true"></i> postcode</label><br/>
+        <label for="name"><i class="fa fa-home" aria-hidden="true"></i> postcode</label><br/>
         <input type="text" name="zip" value="<?= $podia_data['zip']?>"/><br/>
-        <label for="name"><i class="fa fa-user" aria-hidden="true"></i> stad</label><br/>
+        <label for="name"><i class="fa fa-building" aria-hidden="true"></i> stad</label><br/>
         <input type="text" name="city" value="<?= $podia_data['city']?>"/><br/>
-        <label for="name"><i class="fa fa-user" aria-hidden="true"></i> status</label><br/>
+        <label for="name"><i class="fa fa-check-square-o" aria-hidden="true"></i> status</label><br/>
         <select name="status">
             <option value="actief">actief</option>
             <option value="nonactief">non-actief</option>
