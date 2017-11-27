@@ -12,6 +12,7 @@ class widget extends CI_BackendController
         $this->output->enable_profiler(FALSE);
         $this->load->model('../models/widget_model');
         $this->load->library('form_validation');
+        $this->load->library('upload');
     }
 
     public function index()
@@ -74,7 +75,17 @@ class widget extends CI_BackendController
                 }
                 elseif($linktype == "file")
                 {
-                    $link = $_POST['LinkView_File'];
+                    $config = array(
+                        'upload_path'   => './uploads/',
+                        'max_size'      => '100',
+                        'max_width'     => '1024',
+                        'max_height'    => '768',
+                        'encrypt_name'  => true
+                    );
+
+                    $this->load->library('upload', $config);
+
+                    $link = $this->upload->data();
                 }
                 elseif($linktype == "internal")
                 {
