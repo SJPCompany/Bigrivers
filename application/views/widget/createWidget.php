@@ -61,7 +61,6 @@
                             <option value="News">Nieuwsberichten</option>
                         </select>
                     </div>
-                    <span style="font-size: 22px; font-weight: bold;">></span>
                     <div class="col-sm-10">
                         <select class="InternalType" id="Events" name="LinkView.InternalEventId[]" style="display:none;">
                             <option value=""></option>
