@@ -96,13 +96,13 @@ class Image extends CI_Controller
         if ($image_sizes_record == FALSE) {
             // do resize
             $resized_image_fullpath = $this->do_resize($original_imageid, $original_imagepath, $requested_imagename, $requested_imagewidth, $requested_imageheight, $sizeid);
-            if ($resized_image_fullpath == null) {    // TODO: remove duplicate code by rewriting if statements
+            if ($resized_image_fullpath == null) {
                 header("X-error: kan image niet resizen");
                 header("HTTP/1.0 404 Not Found");
                 exit();
             }
             $insertImageInfo = $this->image_model->insetImageSizeInfo($original_imageid, $sizeid, $resized_image_fullpath);
-            if ($insertImageInfo == FALSE) {    // TODO: remove duplicate code by rewriting if statements
+            if ($insertImageInfo == FALSE) {
                     header("X-error: kan geen record toevoegen aan tabel image_sizes");
                     header("HTTP/1.0 404 Not Found");
                     exit();

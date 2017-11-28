@@ -172,15 +172,22 @@ class user extends CI_BackendController
             } else {
                 $role = $_POST['role'];
             }
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $email = $_POST['email'];
-            $status = $_POST['status'];
-            $id = $_SESSION['user_id'];
-            $options = [
-                'cost' => 8,
-            ];
-            $passwordhash = password_hash($password, PASSWORD_BCRYPT, $options);
+            if ($_POST['username'] == '' || $_POST['password'] == '' || $_POST['email'] == '' || $_POST['status'] == '') {
+                $_SESSION['error'] = [];
+                $error = "Formulier is in sommige velden niet ingevuld";
+                $this->session->set_flashdata('error', $error);
+                return redirect('backend/user/viewUsers');
+            } else {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $email = $_POST['email'];
+                $status = $_POST['status'];
+                $id = $_SESSION['user_id'];
+                $options = [
+                    'cost' => 8,
+                ];
+                $passwordhash = password_hash($password, PASSWORD_BCRYPT, $options);
+            }
             $update = $this->user_model->updateUserById($username, $passwordhash, $email, $role, $status, $id);
             if ($update == FALSE) {
                 $_SESSION['error'] = [];

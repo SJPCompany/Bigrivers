@@ -27,12 +27,13 @@
                         color: #f2f2f2;
                     }
                 </style> <?php } ?>
+            <!-- $userinfo->password -->
             <form action="<?= base_url("backend/user/checkEditUserData"); ?>" method="post">
                 <?php foreach ($checkUserInfo as $userinfo) { ?>
                 <label>Gebruikersnaam:</label>
                 <input type="text" name="username" value='<?= $userinfo->username ?>'><br>
                 <label>Wachtwoord:</label>
-                <input type="text" name="password" value="<?= $userinfo->password ?>"><br>
+                <input type="text" name="password" value=""><br>
                 <label>Emailadres:</label>
                 <input type="text" name="email" value='<?= $userinfo->email ?>'><br>
                 <label>Selecteer rol:</label>

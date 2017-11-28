@@ -30,6 +30,12 @@
         <?php } ?>
         <section class="content container-fluid">
             <?php
+            if(isset($_SESSION['error'])) {
+                echo '<div class="alert alert-danger alert-dismissable">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Fout!</strong> <ul>';
+                echo '<li>' . $_SESSION['error'] . '</li>';
+                echo '</ul></div>';
+            }
             if (isset($_SESSION['message']) ) {
                 echo '<div class="alert alert-success alert-dismissable" id="alert-success-1"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Gelukt!</strong> <ul>';
                 if ($_SESSION['message'] > 1 ) {
