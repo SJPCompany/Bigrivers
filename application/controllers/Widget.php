@@ -12,6 +12,7 @@ class widget extends CI_BackendController
         $this->output->enable_profiler(FALSE);
         $this->load->model('../models/widget_model');
         $this->load->library('form_validation');
+        $this->load->library('upload');
     }
 
     public function index()
@@ -53,9 +54,7 @@ class widget extends CI_BackendController
         } else {
             $title = $_POST['title'];
             $active = $_POST['active'];
-            $intern_URL = $_POST['intern_URL'];
-            $extern_URL = $_POST['extern_URL'];
-            $document_URL = $_POST['document_URL'];
+            $linktype = $_POST['LinkView_LinkType'];
 
             $this->form_validation->set_rules('title', 'title', 'required');
             $this->form_validation->set_rules('active', 'active', 'required');
@@ -70,6 +69,79 @@ class widget extends CI_BackendController
             }
             else 
             {
+                if($linktype == "external")
+                {
+                    $link = $_POST['LinkView_ExternalUrl'];
+                }
+                elseif($linktype == "file")
+                {
+                    $config = array(
+                        'upload_path'   => './uploads/',
+                        'max_size'      => '100',
+                        'max_width'     => '1024',
+                        'max_height'    => '768',
+                        'encrypt_name'  => true
+                    );
+
+                    $this->load->library('upload', $config);
+
+                    $link = $this->upload->data();
+                }
+                elseif($linktype == "internal")
+                {
+                    $internal_type = $_POST['LinkView_InternalType'];
+
+                    if($internal_type == "Index")
+                    {
+                        $link = $this->config->base_url();
+                    }
+                    elseif($internal_type == "Events")
+                    {
+                        $event_id = $_POST['LinkView_InternalEventId'];
+
+                        $url = $internal_type . '/' . $event_id;
+
+                        $link = $this->config->base_url($url);
+
+                    }
+                    elseif($internal_type == "Performances")
+                    {
+                        $performance_id = $_POST['LinkView_InternalPerformanceId'];
+
+                        $url = $internal_type . '/' . $performance_id;
+
+                        $link = $this->config->base_url($url);
+
+                    }
+                    elseif($internal_type == "Artists")
+                    {
+                        $artist_id = $_POST['LinkView_InternalArtistId'];
+
+                        $url = $internal_type . '/' . $artist_id;
+
+                        $link = $this->config->base_url($url);
+
+                    }
+                    elseif($internal_type == "Page")
+                    {
+                        $page_id = $_POST['LinkView_InternalPageId'];
+
+                        $url = $internal_type . '/' . $page_id;
+
+                        $link = $this->config->base_url($url);
+
+                    }
+                    elseif($internal_type == "News")
+                    {
+                        $news_id = $_POST['LinkView_InternalNewsId'];
+
+                        $url = $internal_type . '/' . $news_id;
+
+                        $link = $this->config->base_url($url);
+
+                    }
+                }
+
                 $insert = $this->widget_model->createwidget($title, $active, $link);
                 if ($insert == FALSE) {
                     $_SESSION['error'] = [];
@@ -110,11 +182,10 @@ class widget extends CI_BackendController
     {
             $this->lang->load('form_validation_lang', 'dutch');
 
+            $id = $_POST['id'];
             $title = $_POST['title'];
             $active = $_POST['active'];
-            $intern_URL = $_POST['intern_URL'];
-            $extern_URL = $_POST['extern_URL'];
-            $document_URL = $_POST['document_URL'];
+            $linktype = $_POST['LinkView_LinkType'];
 
             $this->form_validation->set_rules('title', 'title', 'required');
             $this->form_validation->set_rules('active', 'active', 'required');
@@ -130,18 +201,81 @@ class widget extends CI_BackendController
             }
             else
             {
-                $update = $this->widget_model->editWidget($id, $title, $active, $link);
-                if ($update == FALSE) {
-                    $_SESSION['error'] = [];
-                    $error = "Er gaat iets fout in de query";
-                    $this->session->set_flashdata('error', $error);
-                    return redirect('Backend/error');
-                } else {
-                    $_SESSION['message'] = [];
-                    $message = "Widget is bewerkt en opgeslagen";
-                    $this->session->set_flashdata('message', $message);
-                    return redirect('backend/widget/index');
+                if($linktype == "external")
+                {
+                    $link = $_POST['LinkView_ExternalUrl'];
                 }
+                elseif($linktype == "file")
+                {
+                    $link = $_POST['LinkView_File'];
+                }
+                elseif($linktype == "internal")
+                {
+                    $internal_type = $_POST['LinkView_InternalType'];
+
+                    if($internal_type == "Index")
+                    {
+                        $link = $this->config->base_url();
+                    }
+                    elseif($internal_type == "Events")
+                    {
+                        $event_id = $_POST['LinkView_InternalEventId'];
+
+                        $url = $internal_type . '/' . $event_id;
+
+                        $link = $this->config->base_url($url);
+
+                    }
+                    elseif($internal_type == "Performances")
+                    {
+                        $performance_id = $_POST['LinkView_InternalPerformanceId'];
+
+                        $url = $internal_type . '/' . $performance_id;
+
+                        $link = $this->config->base_url($url);
+
+                    }
+                    elseif($internal_type == "Artists")
+                    {
+                        $artist_id = $_POST['LinkView_InternalArtistId'];
+
+                        $url = $internal_type . '/' . $artist_id;
+
+                        $link = $this->config->base_url($url);
+
+                    }
+                    elseif($internal_type == "Page")
+                    {
+                        $page_id = $_POST['LinkView_InternalPageId'];
+
+                        $url = $internal_type . '/' . $page_id;
+
+                        $link = $this->config->base_url($url);
+
+                    }
+                    elseif($internal_type == "News")
+                    {
+                        $news_id = $_POST['LinkView_InternalNewsId'];
+
+                        $url = $internal_type . '/' . $news_id;
+
+                        $link = $this->config->base_url($url);
+
+                    }
+                }
+
+                $update = $this->widget_model->editWidget($id, $title, $active, $link);
+                        if ($update == FALSE) {
+                            $_SESSION['error'] = [];
+                            $error = "Er gaat iets fout in de query";
+                            $this->session->set_flashdata('error', $error);
+                            return redirect('Backend/error');
+                        } else {
+                            $_SESSION['message'] = [];
+                            $message = "Widget is bewerkt en opgeslagen";
+                            $this->session->set_flashdata('message', $message);
+                            return redirect('backend/widget/index');
+                        }
             }
     }
 

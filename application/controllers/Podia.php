@@ -87,7 +87,7 @@ class podia extends CI_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $this->form_validatio7n->set_rules('podianame', 'podiumnaam', 'required');
+        $this->form_validation->set_rules('podianame', 'podiumnaam', 'required');
         $this->form_validation->set_rules('street', 'straat', 'required');
         $this->form_validation->set_rules('housenumber', 'huisnummer', 'required');
         $this->form_validation->set_rules('zip', 'postcode', 'required');

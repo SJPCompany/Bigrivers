@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label for="LinkView_LinkType" class="col-sm-2 control-label">Naar...</label>
                     <div class="col-sm-10">
-                        <select id="SelectLinkType" name="LinkView.LinkType">
+                        <select id="SelectLinkType" name="LinkView.LinkType[]">
                             <option value=""></option>
                             <option value="internal">Sitepagina</option>
                             <option value="external">Andere website</option>
@@ -51,7 +51,7 @@
                 <div class="form-group" id="internal" style="display: none;">
                     <label for="LinkView_InternalType" class="col-sm-2 control-label">Naar een...</label>
                     <div class="col-sm-10">
-                        <select id="SelectInternalType" name="LinkView.InternalType">
+                        <select id="SelectInternalType" name="LinkView.InternalType[]">
                             <option value=""></option>
                             <option value="Index">Homepage</option>
                             <option value="Events">Evenementen</option>
@@ -61,9 +61,8 @@
                             <option value="News">Nieuwsberichten</option>
                         </select>
                     </div>
-                    <span style="font-size: 22px; font-weight: bold;">></span>
                     <div class="col-sm-10">
-                        <select class="InternalType" id="Events" name="LinkView.InternalEventId" style="display:none;">
+                        <select class="InternalType" id="Events" name="LinkView.InternalEventId[]" style="display:none;">
                             <option value=""></option>
                             <option value="1">De Aftrap </option>
                             <option value="2">Big Rivers Muziek 2016 was geweldig</option>
@@ -83,7 +82,7 @@
                         </select>
                     </div>
                     <div class="col-sm-10">
-                        <select class="InternalType" id="Performances" name="LinkView.InternalPerformanceId" style="display:none;">
+                        <select class="InternalType" id="Performances" name="LinkView.InternalPerformanceId[]" style="display:none;">
                             <option value=""></option>
                             <option value="1">De Aftrap </option>
                             <option value="2">Big Rivers Muziek 2016 was geweldig</option>
@@ -103,7 +102,7 @@
                         </select>
                     </div>
                     <div class="col-sm-10">
-                        <select class="InternalType" id="Artists" name="LinkView.InternalArtistId" style="display:none;">
+                        <select class="InternalType" id="Artists" name="LinkView.InternalArtistId[]" style="display:none;">
                             <option value=""></option>
                             <?php if(isset($artists)): ?>
                                 <?php foreach ($artists as $row): ?>
@@ -113,7 +112,7 @@
                         </select>
                     </div>
                     <div class="col-sm-10">
-                        <select class="InternalType" id="Page" name="LinkView.InternalPageId" style="display:none;">
+                        <select class="InternalType" id="Page" name="LinkView.InternalPageId[]" style="display:none;">
                             <option value=""></option>
                             <option value="1">Vrijwilligersfuncties</option>
                             <option value="2">Stageplaatsen</option>
@@ -156,7 +155,7 @@
                         </select>
                     </div>
                     <div class="col-sm-10">
-                        <select class="InternalType" id="News" name="LinkView.InternalNewsId" style="display:none;">
+                        <select class="InternalType" id="News" name="LinkView.InternalNewsId[]" style="display:none;">
                             <option value=""></option>
                             <?php 
                             if(isset($news)):
@@ -175,7 +174,7 @@
                     <div id="link-file-select-container">
                         <label for="LinkView_File" class="col-sm-2 control-label">Selecteer bestand</label>
                         <div class="col-sm-10">
-                            <input id="filebutton" name="filebutton" class="input-file" type="file">
+                            <input id="filebutton" name="LinkView_File" class="input-file" type="file">
                         </div>
                     </div>
                 </div>
