@@ -43,6 +43,7 @@ class Widget_model extends CI_Model
     public function editWidget($id, $title, $active, $link)
     {
         $data = array('id' => $id, 'title' => $title, 'active' => $active, 'link' => $link);
+        $this->db->where('id', $id);
         $this->db->update('widget', $data);
         if ($this->db->affected_rows() > 0) {
             return true;
