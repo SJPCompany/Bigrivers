@@ -81,10 +81,12 @@
                                             if (strlen($news_data['text']) > 0) echo $str = substr($news_data['text'], 0, 50) . "..."; ?></td>
                                         <td><?php echo $news_data['creator'] ?></td>
                                         <td><?php echo $news_data['creation_date'] ?></td>
-                                        <td><?php echo $news_data['status'] ?></td>
-                                        <td><a class="mid"
-                                               href="<?php echo site_url('news/newseditpage/' . $news_data['id']); ?>"><i
-                                                        class="fa fa-pencil"></i></a></td>
+                                        <?php if ($news_data['status'] == 'actief') { ?>
+                                            <td><span class="label label-success">Actief</span></td>
+                                        <?php } else { ?>
+                                            <td><span class="label label-danger">inactief</span></td>
+                                        <?php } ?>
+                                        <td><a class="mid" href="<?php echo site_url('news/newseditpage/' . $news_data['id']); ?>"><i class="fa fa-pencil"></i></a></td>
                                         <td><a class="mid" href="<?php echo site_url('news/delete/' . $news_data['id']); ?>"
                                                onClick="return confirm('weet je zeker dat je dit arikel wilt verwijderen?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                         </td>

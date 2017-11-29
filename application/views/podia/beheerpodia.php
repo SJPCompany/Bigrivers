@@ -86,7 +86,11 @@
                                         <td><?php echo $podia['housenumber'] ?></td>
                                         <td><?php echo $podia['zip'] ?></td>
                                         <td><?php echo $podia['city'] ?></td>
-                                        <td><?php echo $podia['status'] ?></td>
+                                        <?php if ($podia['status'] == 'actief') { ?>
+                                            <td><span class="label label-success">Actief</span></td>
+                                        <?php } else { ?>
+                                            <td><span class="label label-danger">inactief</span></td>
+                                        <?php } ?>
                                         <td><a class="mid"
                                                href="<?php echo site_url('podia/podiaeditpage/' . $podia['id']); ?>"><i
                                                         class="fa fa-pencil"></i></a></td>
