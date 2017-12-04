@@ -12,7 +12,6 @@ class widget extends CI_BackendController
         $this->output->enable_profiler(FALSE);
         $this->load->model('../models/widget_model');
         $this->load->library('form_validation');
-        $this->load->library('upload');
     }
 
     public function index()
@@ -75,7 +74,13 @@ class widget extends CI_BackendController
                 }
                 elseif($linktype == "file")
                 {
-                    $link = $_POST['LinkView_File'];
+                    $this->load->library('upload', $config);
+
+                    if ( $this->upload->do_upload('LinkView_File'))
+                    {
+                          $link = array('upload_data' => $this->upload->data());
+                          // $data will contain your file information
+                    }
                 }
                 elseif($linktype == "internal")
                 {
@@ -197,7 +202,31 @@ class widget extends CI_BackendController
                 }
                 elseif($linktype == "file")
                 {
-                    $link = $_POST['LinkView_File'];
+
+                    if ($_POST && empty($_FILES['LinkView_File']['name'])) {
+                        $link = $_POST['LinkView_File'];
+                    }
+
+                    if ($_POST && !empty($_FILES['LinkView_File']['name'])) {
+
+                        var_dump($_FILES);
+
+                        $file_name = $this->do_upload('LinkView_File');
+
+                         if ( ! $this->upload->do_upload('LinkView_File'))
+                        {
+                           $error = array('error' => $this->upload->display_errors());
+                           $this->session->set_flashdata('error', $error);
+                            return redirect('Backend/error');
+                        }
+                        else
+                        {
+                            $file_name = array($file_name);
+
+                            $blog = $_POST['LinkView_File'];
+                            $link = array_merge($blog, $file_name);
+                        }
+                    }
                 }
                 elseif($linktype == "internal")
                 {
@@ -275,27 +304,18 @@ class widget extends CI_BackendController
         return redirect('backend/widget/index');
     }
 
-    /*function do_upload()
+    function do_upload()
     {
-        $config['upload_path'] = './uploads/';
+
+        $config['upload_path'] = $_SERVER['DOCUMENT_ROOT']. 'bigrivers2017/application/uploads/';
         $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = '100';
+        $config['max_size'] = '1000';
         $config['max_width']  = '1024';
         $config['max_height']  = '768';
 
+        var_dump($config['upload_path']);
+        die();
+
         $this->load->library('upload', $config);
-
-        if ( ! $this->upload->do_upload())
-        {
-            $error = array('error' => $this->upload->display_errors());
-
-            $this->load->view('upload_form', $error);
-        }
-        else
-        {
-            $data = array('upload_data' => $this->upload->data());
-
-            $this->load->view('upload_success', $data);
-        }
-    }*/
+    }
 }
