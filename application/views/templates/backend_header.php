@@ -208,7 +208,7 @@ desired effect
                 <li><a href="<?= base_url("artist/beheerartist")?>"><i class="fa fa-user-circle-o"></i> <span>Artiesten/bands</span></a></li>
 
                 <!-- Evenementen en sponsors -->
-                <li><a href="#"><i class="fa fa-calendar"></i> <span>evenementen</span></a></li>
+                <li><a href="<?= base_url("event/eventbeheerpage")?>"><i class="fa fa-calendar"></i> <span>evenementen</span></a></li>
 
                 <li><a href="#"><i class="fa fa-money"></i> <span>sponsoren</span></a></li>
 
