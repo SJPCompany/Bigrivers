@@ -15,7 +15,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-    <?php echo form_open('widget/editWidgetData/'. (isset($widget) ? $widget["id"] : "")); ?>
+    <?php echo form_open_multipart('widget/editWidgetData/'. (isset($widget) ? $widget["id"] : "")); ?>
         <?php echo validation_errors(); ?>
             <div class="box-body">
                 <div class="form-group">
