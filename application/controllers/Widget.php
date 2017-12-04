@@ -205,15 +205,15 @@ class widget extends CI_BackendController
 
                     if($internal_type == "Index")
                     {
-                        $link = $this->config->base_url();
+                        $link = $this->config->base_url('home');
                     }
                     elseif($internal_type == "Events")
                     {
                         $event_id = $_POST['LinkView_InternalEventId'];
 
-                        $url = $internal_type . '/' . $event_id;
+                        $url = $this->config->base_url('home') . '/' . $internal_type . '/' . $event_id;
 
-                        $link = $this->config->base_url($url);
+                        $link = $url;
 
                     }
                     elseif($internal_type == "Performances")
