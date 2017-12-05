@@ -13,7 +13,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-    <?php echo form_open('widget/checkWidgetData'); ?>
+    <?php echo form_open_multipart('widget/checkWidgetData'); ?>
         <?php echo validation_errors(); ?>
             <div class="box-body">
                 <div class="form-group">
