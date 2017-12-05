@@ -28,7 +28,7 @@
 
         <?php echo form_open('event/createevent'); ?>
 
-        <label for="title"><i class="fa fa-newspaper-o" aria-hidden="true"></i> naam</label><br/>
+        <label for="title"><i class="fa fa-calendar" aria-hidden="true"></i> naam</label><br/>
         <input type="text" name="name" value="<?php echo set_value('name'); ?>"/><br/>
         <label for="description"><i class="fa fa-comments" aria-hidden="true"></i> Beschrijving</label><br/>
         <textarea name="description" id="textbox" rows="10" cols="40"><?php echo set_value('description'); ?></textarea><br>
@@ -44,16 +44,17 @@
             <input name="twitter" class="form-check-input" type="checkbox" value="1">
             geef link naar Twitterpagina weer
         </label><br>
-        <label for="title"><i class="fa fa-check" aria-hidden="true"></i> starttijd</label><br/>
+        <label for="title"><i class="fa fa-clock-o" aria-hidden="true"></i> starttijd</label><br/>
         <input type="datetime-local" name="starttime" value="<?php echo set_value('starttime'); ?>"/><br/>
-        <label for="title"><i class="fa fa-check" aria-hidden="true"></i> eindtijd</label><br/>
+        <label for="title"><i class="fa fa-clock-o" aria-hidden="true"></i> eindtijd</label><br/>
         <input type="datetime-local" name="endtime" value="<?php echo set_value('endtime'); ?>"/><br/>
         <label class="form-check-label">
             <input class="form-check-input" type="checkbox" value="1" name="ticket">
             ticket verplicht
         </label><br>
-        <label for="title"><i class="fa fa-newspaper-o" aria-hidden="true"></i> entreeprijs</label><br/>
-        <input type="number" name="name" value="<?php echo set_value('price'); ?>"/><br/>
+        <label for="title"><i class="fa fa-eur" aria-hidden="true"></i> entreeprijs</label><br/>
+        <input type="number" min="1" step="any" name="name" autocomplete="false"
+               value="<?php echo set_value('price'); ?>"/><br/>
         <label for="title"><i class="fa fa-check" aria-hidden="true"></i> status</label><br/>
         <select name="status">
             <option value="actief">actief</option>
