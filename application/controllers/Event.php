@@ -36,7 +36,7 @@ class Event extends CI_Controller
 
         $this->form_validation->set_rules('name', 'Naam', 'required');
         $this->form_validation->set_rules('description', 'Beschrijving', 'required');
-        $this->form_validation->set_rules('starttime', 'Starttijd', 'required')
+        $this->form_validation->set_rules('starttime', 'Starttijd', 'required');
         $this->form_validation->set_rules('endtime', 'Eindtijd', 'required');
         $this->form_validation->set_rules('ticket', 'Ticket', 'required');
         $this->form_validation->set_rules('price', 'Prijs', 'required');
