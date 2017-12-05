@@ -102,7 +102,8 @@ $route['backend/podia/editpodia'] = 'podia/podiaeditpage';
 $route['backend/event/createevent'] = 'event/eventcreatepage';
 $route['backend/event/beheerevent'] = 'event/eventbeheerpage';
 $route['backend/event/editevent'] = 'event/eventeditpage';
-
+/* Performance  routes*/
+$route['performance/index'] = 'performance/index';
 
 
 

@@ -35,6 +35,7 @@ class widget extends CI_BackendController
     {
         $data['news'] = $this->widget_model->getAllNews();
         $data['artists'] = $this->widget_model->getAllArtists();
+        $data['events'] = $this->widget_model->getAllEvents();
 
         $this->load->view('templates/backend_header');
         $this->load->view('widget/createWidget', $data);
@@ -74,12 +75,32 @@ class widget extends CI_BackendController
                 }
                 elseif($linktype == "file")
                 {
-                    $this->load->library('upload', $config);
+                    if ($_POST && empty($_FILES['LinkView_File']['name'])) {
+                        $link = $_FILES['LinkView_File']['name'];
+                    }
 
-                    if ( $this->upload->do_upload('LinkView_File'))
-                    {
-                          $link = array('upload_data' => $this->upload->data());
-                          // $data will contain your file information
+                    if ($_POST && !empty($_FILES['LinkView_File']['name'])) {
+
+                        //var_dump($_FILES);
+                        //$tempfile_fullpath = $_FILES['LinkView_File']['tmp_name'];
+                        //$newfile_name = strtolower($_FILES['LinkView_File']['name']);
+
+                        $newfile_fullpath = $this->do_upload('LinkView_File');
+
+                         if ( ! $newfile_fullpath)
+                        {
+                           $error = array('error' => $this->upload->display_errors());
+                           $this->session->set_flashdata('error', $error);
+                            return redirect('Backend/error');
+                        }
+                        else
+                        {
+                            $file_name = $_FILES['LinkView_File']['name'];
+
+                            $url = $this->config->base_url('application/uploads') . '/' . $file_name;
+
+                            $link = $url;
+                        }
                     }
                 }
                 elseif($linktype == "internal")
@@ -88,15 +109,15 @@ class widget extends CI_BackendController
 
                     if($internal_type == "Index")
                     {
-                        $link = $this->config->base_url();
+                        $link = $this->config->base_url('home');
                     }
                     elseif($internal_type == "Events")
                     {
                         $event_id = $_POST['LinkView_InternalEventId'];
 
-                        $url = $internal_type . '/' . $event_id;
+                        $url = $this->config->base_url('home') . '/' . $internal_type . '/' . $event_id;
 
-                        $link = $this->config->base_url($url);
+                        $link = $url;
 
                     }
                     elseif($internal_type == "Performances")
@@ -158,6 +179,7 @@ class widget extends CI_BackendController
         $data['widget'] = $this->widget_model->getWidget($id);
         $data['news'] = $this->widget_model->getAllNews();
         $data['artists'] = $this->widget_model->getAllArtists();
+        $data['events'] = $this->widget_model->getAllEvents();
 
         // Als er niks terug komt geef een error
         if ($data == FALSE) {
@@ -204,16 +226,18 @@ class widget extends CI_BackendController
                 {
 
                     if ($_POST && empty($_FILES['LinkView_File']['name'])) {
-                        $link = $_POST['LinkView_File'];
+                        $link = $_FILES['LinkView_File']['name'];
                     }
 
                     if ($_POST && !empty($_FILES['LinkView_File']['name'])) {
 
-                        var_dump($_FILES);
+                        //var_dump($_FILES);
+                        //$tempfile_fullpath = $_FILES['LinkView_File']['tmp_name'];
+                        //$newfile_name = strtolower($_FILES['LinkView_File']['name']);
 
-                        $file_name = $this->do_upload('LinkView_File');
+                        $newfile_fullpath = $this->do_upload('LinkView_File');
 
-                         if ( ! $this->upload->do_upload('LinkView_File'))
+                         if ( ! $newfile_fullpath)
                         {
                            $error = array('error' => $this->upload->display_errors());
                            $this->session->set_flashdata('error', $error);
@@ -221,10 +245,11 @@ class widget extends CI_BackendController
                         }
                         else
                         {
-                            $file_name = array($file_name);
+                            $file_name = $_FILES['LinkView_File']['name'];
 
-                            $blog = $_POST['LinkView_File'];
-                            $link = array_merge($blog, $file_name);
+                            $url = $this->config->base_url('application/uploads') . '/' . $file_name;
+
+                            $link = $url;
                         }
                     }
                 }
@@ -304,18 +329,25 @@ class widget extends CI_BackendController
         return redirect('backend/widget/index');
     }
 
-    function do_upload()
+    function do_upload($file_fieldname)
     {
-
-        $config['upload_path'] = $_SERVER['DOCUMENT_ROOT']. 'bigrivers2017/application/uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['upload_path'] = FCPATH . '/application/uploads/';
+        //$config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'gif|jpg|png|pdf|txt';
         $config['max_size'] = '1000';
-        $config['max_width']  = '1024';
-        $config['max_height']  = '768';
-
-        var_dump($config['upload_path']);
-        die();
-
+        
         $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload($file_fieldname))
+                {
+                return false;
+                }
+                else
+                {
+                  return true;
+                }
+
+
+
     }
 }
