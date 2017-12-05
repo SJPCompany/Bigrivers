@@ -35,6 +35,7 @@ class widget extends CI_BackendController
     {
         $data['news'] = $this->widget_model->getAllNews();
         $data['artists'] = $this->widget_model->getAllArtists();
+        $data['events'] = $this->widget_model->getAllEvents();
 
         $this->load->view('templates/backend_header');
         $this->load->view('widget/createWidget', $data);
@@ -178,6 +179,7 @@ class widget extends CI_BackendController
         $data['widget'] = $this->widget_model->getWidget($id);
         $data['news'] = $this->widget_model->getAllNews();
         $data['artists'] = $this->widget_model->getAllArtists();
+        $data['events'] = $this->widget_model->getAllEvents();
 
         // Als er niks terug komt geef een error
         if ($data == FALSE) {

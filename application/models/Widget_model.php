@@ -70,4 +70,11 @@ class Widget_model extends CI_Model
 
         return $query->result_array();
     }
+
+    public function getAllEvents()
+    {
+        $query = $this->db->get('event');
+
+        return $query->result_array();
+    }
 }
