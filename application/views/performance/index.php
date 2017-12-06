@@ -11,32 +11,34 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                <?php
-                if(isset($locaties)) {
+                    <?php
+                    // Maak een lege variable aan om een event naam te onthouden
+                    $eventname = '';
+                    if (isset($locaties)) {
+                    // Als de var $locaties bestaat loop er over heen
                     foreach ($locaties as $locatie) {
-                        if($locatie['status'] == 'actief') { ?>
-                                <th scope="row"><?=$locatie['podianame'] ?></th>
-                        <?php }
-                    }
-                }
-                ?>
+                    // Kijk of de event naam al een keer geprint is
+                    if ($locatie['name'] != $eventname) {
+                        $eventname = $locatie['name']; ?>
+                        <th style="color: white!important; background-color: black;" scope="row"><?= $locatie['name'] ?></th>
+                        <?php
+                    } else {}
+                    ?>
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                    if(isset($locaties)) {
-                       foreach ($locaties as $locatie) {
-                           if($locatie['status'] == 'actief') { ?>
-                               <tr>
-                                   <th scope="row">Donderdag</th>
-                                   <th scope="row">Vrijdag</th>
-                                   <th scope="row">Zaterdag</th>
-                               </tr>
-                           <?php }
-                       }
-                    }
-                ?>
+                <tr>
+                    <?php if ($locatie['title'] == NULL || empty($locatie['title'])) { ?>
+                        <th scope="row">Geen datum beschikbaar</th>
+                   <?php } else { ?>
+                    <th scope="row"><?= $locatie['title'] ?></th>
+                    <?php } ?>
+                </tr>
                 </tbody>
+                <?php
+                }
+                }
+                ?>
             </table>
         </div>
     </div>

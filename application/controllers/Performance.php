@@ -5,13 +5,13 @@ class Performance extends CI_Controller
     public function __construct(){
         parent::__construct();
         $this->load->library('session');
-        $this->load->model('Podia_model');
+        $this->load->model('Performance_model');
     }
 
     public function index()
     {
-        $data['locaties'] = $this->Podia_model->get_podia();
-        if ($data == FALSE || empty($data['locaties'])) {
+        $data['locaties'] = $this->Performance_model->getAllEvents();
+        if ($data == FALSE) {
             $error = "Er zijn geen locaties gevonden";
             $this->session->set_flashdata('error', $error);
             $this->load->view('templates/header');
