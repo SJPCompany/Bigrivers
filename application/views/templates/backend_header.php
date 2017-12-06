@@ -25,6 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>application/views/backend/dist/css/style.css">
     <!-- Favicon -->
     <link rel="icon" href="<?=base_url()?>favicon.ico" type="image/x-icon">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
