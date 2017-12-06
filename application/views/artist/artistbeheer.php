@@ -73,7 +73,7 @@
                                             <td><a class="mid"
                                                    href="<?php echo site_url('artist/artisteditdata/' . $artist_data['id']); ?>"><i class="fa fa-pencil"></i></a></td>
                                             <td><a class="mid" href="<?php echo site_url('artist/delete/' . $artist_data['id']); ?>"
-                                                   onClick="return confirm('weet je zeker dat je deze artist wilt verwijderen?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                   onClick="return confirm('weet je zeker dat je deze artiest wilt verwijderen?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     <?php } ?>

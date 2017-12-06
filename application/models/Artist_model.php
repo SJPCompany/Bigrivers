@@ -16,6 +16,10 @@ class Artist_model extends CI_Model
             'youtube' => $this->input->post('youtube'),
             'facebook' => $this->input->post('facebook'),
             'twitter' => $this->input->post('twitter'),
+            'podia_id' => $this->input->post('podia'),
+            'day' => $this->input->post('day'),
+            'start_performance' => $this->input->post('start_performance'),
+            'end_performance' => $this->input->post('end_performance')
         );
 
         return $this->db->insert('artists', $data);
@@ -51,6 +55,13 @@ class Artist_model extends CI_Model
     public function geteditdata($artist_data){
         $query = $this->db->get_where('artists', array('id' => $artist_data));
         return $query->row_array();
+    }
+
+    public function getAllPodia()
+    {
+        $query = $this->db->get('podia');
+
+        return $query->result_array();
     }
 
 }

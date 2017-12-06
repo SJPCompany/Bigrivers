@@ -40,6 +40,32 @@
         <input type="text" name="twitter" value="<?php echo set_value('twitter'); ?>"/><br/>
         <label for="description"><i class="fa fa-comments" aria-hidden="true"></i> Beschrijving</label><br/>
         <textarea name="description" id="textbox" rows="10" cols="40"><?php echo set_value('description'); ?></textarea><br>
+        
+
+        <input type="button" onclick="ShowandDuplicate()" value="Voeg optreden toe"><br/>
+
+        <div id="performance" style="display: none;">
+            <label for="podia">Podium</label><br/>
+            <select id="podia" name="podia">
+                <option value=""></option>
+                <?php if(isset($podia)): ?>
+                    <?php foreach ($podia as $row): ?>
+                        <option value="<?= $row['id']?>"><?= $row['podianame']?></option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </select>
+            <label for="day">Dag</label><br/>
+            <select id="day" name="day">
+                <option value="donderdag">donderdag</option>
+                <option value="vrijdag">vrijdag</option>
+                <option value="zaterdag">zaterdag</option>
+            </select>
+            <label for="start_performance">Start optreden</label><br/>
+            <input type="time" name="start_performance" value="<?php echo set_value('start_performance'); ?>">
+            <label for="end_performance">Eind optreden</label><br/>
+            <input type="time" name="end_performance" value="<?php echo set_value('end_performance'); ?>">
+        </div>
+
         <input class="btn primary #3c8dbc" type="submit" name="submit" value="maak aan"/><br>
         </form>
 
@@ -53,7 +79,7 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        All rights reserved.
+        Alle rechten voorbehouden.
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
