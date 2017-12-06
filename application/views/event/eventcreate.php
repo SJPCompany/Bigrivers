@@ -53,7 +53,7 @@
             ticket verplicht
         </label><br>
         <label for="title"><i class="fa fa-eur" aria-hidden="true"></i> entreeprijs</label><br/>
-        <input type="number" min="1" step="any" name="name" autocomplete="false"
+        <input type="number" step="any" name="price" autocomplete="false"
                value="<?php echo set_value('price'); ?>"/><br/>
         <label for="title"><i class="fa fa-check" aria-hidden="true"></i> status</label><br/>
         <select name="status">

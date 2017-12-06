@@ -23,8 +23,10 @@ class Artist extends CI_BackendController {
 
     public function createartist()
     {
+        $data['podia'] = $this->Artist_model->getAllPodia();
+
         $this->load->view('templates/backend_header');
-        $this->load->view('artist/artistcreate');
+        $this->load->view('artist/artistcreate', $data);
         $this->load->view('templates/backend_footer');
     }
 

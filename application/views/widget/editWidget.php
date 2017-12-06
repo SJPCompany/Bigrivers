@@ -66,21 +66,11 @@
                     <div class="col-sm-10">
                         <select class="InternalType" id="Events" name="LinkView.InternalEventId" style="display:none;">
                             <option value=""></option>
-                            <option value="1">De Aftrap </option>
-                            <option value="2">Big Rivers Muziek 2016 was geweldig</option>
-                            <option value="5">aMeeZing </option>
-                            <option value="6">Big Rivers Blues Cruise </option>
-                            <option value="7">Finale Aafje Silver Talent Show </option>
-                            <option value="8">De Aftrap was groot succes!</option>
-                            <option value="9">Big Rivers Blues Cruise was top!</option>
-                            <option value="10">aMeeZing wordt een knaller!</option>
-                            <option value="11">Big Rivers Indoor 11 Maart</option>
-                            <option value="12">Big Rivers 2016: De Aftrap @ Bibelot</option>
-                            <option value="13">Workshop mondharmonica 16 juli</option>
-                            <option value="14">Korenavond @ Merz</option>
-                            <option value="15">Pre Party @ Merz</option>
-                            <option value="16">Pre Party @ Bibelot</option>
-                            <option value="17">Big Rivers 2017 was weer geweldig!</option>
+                            <?php if (isset($events)): ?>
+                                <?php foreach ($events as $row): ?>
+                                    <option value="<?= $row['id'] ?>"><?= $row['name'] ?></option>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </select>
                     </div>
                     <div class="col-sm-10">

@@ -40,6 +40,7 @@
         <input type="text" name="twitter" value="<?php echo set_value('twitter'); ?>"/><br/>
         <label for="description"><i class="fa fa-comments" aria-hidden="true"></i> Beschrijving</label><br/>
         <textarea name="description" id="textbox" rows="10" cols="40"><?php echo set_value('description'); ?></textarea><br>
+
         <input class="btn primary #3c8dbc" type="submit" name="submit" value="maak aan"/><br>
         </form>
 
@@ -53,7 +54,7 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        All rights reserved.
+        Alle rechten voorbehouden.
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">BigRivers</a>.</strong>
