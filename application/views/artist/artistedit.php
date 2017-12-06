@@ -40,7 +40,9 @@
         <label for="description"><i class="fa fa-comments" aria-hidden="true"></i> Beschrijving</label><br/>
         <textarea name="description" id="textbox" rows="10" cols="40"><?php echo $artist_data['description']?></textarea><br>
 
-        <div>
+        <input type="button" onclick="ShowandDuplicate()" value="Voeg optreden toe"><br/>
+
+        <div id="performance" style="display: none;">
             <label for="podia">Podium</label><br/>
             <select id="podia" name="podia">
                 <option value=""></option>
