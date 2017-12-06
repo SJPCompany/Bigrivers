@@ -30,6 +30,13 @@ class Event extends CI_Controller
         $this->load->view('templates/backend_footer');
     }
 
+    public function eventeditpage($event_data){
+        $data['event'] = $this->Event_model->get_eventeditdata($event_data);
+        $this->load->view('templates/backend_header');
+        $this->load->view('event/eventedit',$data);
+        $this->load->view('templates/backend_footer');
+    }
+
     public function createevent(){
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -53,8 +60,6 @@ class Event extends CI_Controller
             $this->session->set_flashdata('message', $message);
             return redirect('event/eventbeheerpage');
         }
-
-
     }
 
     public function eventdelete($event_data){
@@ -63,5 +68,31 @@ class Event extends CI_Controller
         $message = "Evenement is verwijdert";
         $this->session->set_flashdata('message', $message);
         $this->eventbeheerpage();
+    }
+
+    public function eventedit(){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('name', 'Naam', 'required');
+        $this->form_validation->set_rules('description', 'Beschrijving', 'required');
+        if ($this->form_validation->run() === FALSE)
+        {
+            $_SESSION['error'] = [];
+            $error = "vul alles goed in";
+            $this->session->set_flashdata('error', $error);
+            $event_data = $this->input->post('id');
+
+            $this->eventeditpage($event_data);
+
+        }
+        else
+        {
+            $this->Event_model->edit_event();
+            $_SESSION['message'] = [];
+            $message = "evenement is bewerkt en opgeslagen";
+            $this->session->set_flashdata('message', $message);
+            $this->eventbeheerpage();
+        }
     }
 }
