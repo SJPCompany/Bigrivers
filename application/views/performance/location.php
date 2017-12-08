@@ -21,8 +21,9 @@
                     // Maak een lege variable aan om een event naam te onthouden
                     $eventname = '';
                     if (isset($info)) {
+                        asort($info);
                         // Als de var $locaties bestaat loop er over heen
-                        foreach ($info as $locatie) {
+                        foreach ($info as  $locatie) {
                             // Kijk of de event naam al een keer geprint is
                             if ($locatie['location'] != $eventname) {
                                 $eventname = $locatie['location']; ?>
@@ -38,6 +39,11 @@
                     foreach ($info as $time) { ?>
                 <tr>
                     <td><?= $time['start_time'] ?>/<?= $time['end_time'] ?>
+                    <?php if($time['artiest_id'] == 0 or $time['artiest_id'] == '0') { ?>
+                        <td>Geen artiest beschikbaar</td>
+                    <?php }  else {?>
+                            <td><?= $time['artiest_id'] ?></td>
+                    <?php } ?>
                 </tr>
                         <?php
                         }
