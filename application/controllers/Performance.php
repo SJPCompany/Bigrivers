@@ -23,4 +23,20 @@ class Performance extends CI_Controller
             $this->load->view('templates/footer');
         }
     }
+
+    public function locationCheck($id = null)
+    {
+        $data['info'] = $this->Performance_model->getPerformanceById($id);
+        if ($data == FALSE) {
+            $error = "Geen tijden gevonden op deze dag";
+            $this->session->set_flashdata('error', $error);
+            $this->load->view('templates/header');
+            $this->load->view('performance/location');
+            $this->load->view('templates/footer');
+        } else {
+            $this->load->view('templates/header');
+            $this->load->view('performance/location', $data);
+            $this->load->view('templates/footer');
+        }
+    }
 }

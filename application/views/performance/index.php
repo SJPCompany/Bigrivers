@@ -3,8 +3,14 @@
         <div class="container_2">
             <?php if (isset($_SESSION['error'])) {
                 echo '<div class="alert alert-danger alert-dismissable">
-             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Fout!</strong> <ul>';
-                echo '<li>' . $_SESSION['error'] . '</li>';
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Fout!</strong> <ul>';
+                if ($_SESSION['error'] > 1) {
+                    foreach ($_SESSION['error'] as $error) {
+                        echo '<li>' . $error . '</li>';
+                    }
+                } else {
+                    echo '<li>' . $_SESSION['error'] . '</li>';
+                }
                 echo '</ul></div>';
             }
             ?>
@@ -22,7 +28,7 @@
                         $eventname = $locatie['name']; ?>
                         <th style="color: white!important; background-color: black;" scope="row"><?= $locatie['name'] ?></th>
                         <?php
-                    } else {}
+                    }
                     ?>
                 </tr>
                 </thead>
@@ -31,7 +37,7 @@
                     <?php if ($locatie['title'] == NULL || empty($locatie['title'])) { ?>
                         <th scope="row">Geen datum beschikbaar</th>
                    <?php } else { ?>
-                    <th scope="row"><?= $locatie['title'] ?></th>
+                        <th scope="row"><a href="<?= base_url('performance/locationCheck/' . $locatie['id'])?>"><?= $locatie['title'] ?></a></th>
                     <?php } ?>
                 </tr>
                 </tbody>

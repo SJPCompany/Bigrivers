@@ -104,6 +104,7 @@ $route['backend/event/beheerevent'] = 'event/eventbeheerpage';
 $route['backend/event/editevent'] = 'event/eventeditpage';
 /* Performance  routes*/
 $route['performance/index'] = 'performance/index';
+$route['performance/locationCheck/(:any)'] = 'performance/locationCheck/$1';
 
 
 

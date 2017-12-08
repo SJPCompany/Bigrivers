@@ -141,6 +141,18 @@ div.container_2{
     margin-left: auto !important;
 }
 
+div.container_3{
+    background-image: url(../backend/image/checkImage/bg.png/1024/600);
+    margin-bottom: 40px;
+    margin-top: 5%;
+    padding: 20px;
+    height: 100%;
+    width: 86%;
+    text-align: center;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
 .h1 {
     font-size: 36px;
 }
