@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 06 dec 2017 om 09:22
+-- Gegenereerd op: 11 dec 2017 om 11:20
 -- Serverversie: 5.6.17
 -- PHP-versie: 5.5.12
 
@@ -34,22 +34,19 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `youtube` varchar(300) DEFAULT NULL,
   `facebook` varchar(300) DEFAULT NULL,
   `twitter` varchar(300) DEFAULT NULL,
-  `podia_id` int(11) DEFAULT NULL,
-  `day` varchar(10) DEFAULT NULL,
-  `start_performance` time(6) DEFAULT NULL,
-  `end_performance` time(6) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `artists`
 --
 
-INSERT INTO `artists` (`id`, `name`, `description`, `website`, `youtube`, `facebook`, `twitter`, `podia_id`, `day`, `start_performance`, `end_performance`) VALUES
-(2, '1', '1', '1', '1', '1', '1', NULL, NULL, NULL, NULL),
-(3, '4', '4', '4', '4', '4', '4', NULL, NULL, NULL, NULL),
-(4, '4', '4', '4', '4', '4', '4', NULL, NULL, NULL, NULL),
-(5, '10', '<p>54321</p>', '9', '8', '7', '6', NULL, 'friday', '20:00:00.000000', '22:00:00.000000');
+INSERT INTO `artists` (`id`, `name`, `description`, `website`, `youtube`, `facebook`, `twitter`) VALUES
+(2, '1', '1', '1', '1', '1', '1'),
+(3, '4', '4', '4', '4', '4', '4'),
+(4, '4', '4', '4', '4', '4', '4'),
+(30, '5', '<p>bruh</p>', '4', '3', '2', '1'),
+(31, '6', '<p>bro!</p>', '7', '8', '9', '0');
 
 -- --------------------------------------------------------
 
@@ -208,6 +205,32 @@ CREATE TABLE IF NOT EXISTS `news` (
   UNIQUE KEY `title` (`title`),
   KEY `slug` (`slug`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `performances`
+--
+
+CREATE TABLE IF NOT EXISTS `performances` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `artist_id` int(11) DEFAULT NULL,
+  `podia_id` int(11) DEFAULT NULL,
+  `event_id` int(11) DEFAULT NULL,
+  `day` varchar(10) DEFAULT NULL,
+  `start_performance` time(6) DEFAULT NULL,
+  `end_performance` time(6) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `performances`
+--
+
+INSERT INTO `performances` (`id`, `artist_id`, `podia_id`, `event_id`, `day`, `start_performance`, `end_performance`) VALUES
+(26, 31, 0, 2, 'vrijdag', '12:00:00.000000', '13:00:00.000000'),
+(27, 31, 0, 0, 'vrijdag', '20:30:00.000000', '21:00:00.000000'),
+(28, 31, 0, 0, 'zaterdag', '12:00:00.000000', '12:30:00.000000');
 
 -- --------------------------------------------------------
 

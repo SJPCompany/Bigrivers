@@ -15,14 +15,45 @@ class Artist_model extends CI_Model
             'website' => $this->input->post('website'),
             'youtube' => $this->input->post('youtube'),
             'facebook' => $this->input->post('facebook'),
-            'twitter' => $this->input->post('twitter'),
-            'podia_id' => $this->input->post('podia'),
-            'day' => $this->input->post('day'),
-            'start_performance' => $this->input->post('start_performance'),
-            'end_performance' => $this->input->post('end_performance')
+            'twitter' => $this->input->post('twitter')
         );
 
-        return $this->db->insert('artists', $data);
+        $query = $this->db->insert('artists', $data);
+
+
+        if($query)
+        {
+            $artist_id = $this->db->insert_id();
+
+            $data = array(
+               array(
+                  'artist_id' => $artist_id,
+                  'podia_id' => $this->input->post('podia_1'),
+                  'event_id' => $this->input->post('event_1'),
+                  'day' => $this->input->post('day_1'),
+                  'start_performance' => $this->input->post('start_performance_1'),
+                  'end_performance' => $this->input->post('end_performance_1')
+               ),
+               array(
+                  'artist_id' => $artist_id,
+                  'podia_id' => $this->input->post('podia_2'),
+                  'event_id' => $this->input->post('event_2'),
+                  'day' => $this->input->post('day_2'),
+                  'start_performance' => $this->input->post('start_performance_2'),
+                  'end_performance' => $this->input->post('end_performance_2')
+               ),
+               array(
+                  'artist_id' => $artist_id,
+                  'podia_id' => $this->input->post('podia_3'),
+                  'event_id' => $this->input->post('event_3'),
+                  'day' => $this->input->post('day_3'),
+                  'start_performance' => $this->input->post('start_performance_3'),
+                  'end_performance' => $this->input->post('end_performance_3')
+                )
+            );
+            return $this->db->insert_batch('performances', $data); 
+        }
+        
     }
 
     public function get_artists()
@@ -49,13 +80,56 @@ class Artist_model extends CI_Model
             'description' => $this->input->post('description'),
         );
 
-        return $this->db->replace('artists', $data);
+        $query = $this->db->replace('artists', $data);
+
+        if($query)
+        {
+            $data = array(
+               array(
+                  'artist_id' => $this->input->post('id'),
+                  'podia_id' => $this->input->post('podia_1'),
+                  'event_id' => $this->input->post('event_1'),
+                  'day' => $this->input->post('day_1'),
+                  'start_performance' => $this->input->post('start_performance_1'),
+                  'end_performance' => $this->input->post('end_performance_1')
+               ),
+               array(
+                  'artist_id' => $this->input->post('id'),
+                  'podia_id' => $this->input->post('podia_2'),
+                  'event_id' => $this->input->post('event_2'),
+                  'day' => $this->input->post('day_2'),
+                  'start_performance' => $this->input->post('start_performance_2'),
+                  'end_performance' => $this->input->post('end_performance_2')
+               ),
+               array(
+                  'artist_id' => $this->input->post('id'),
+                  'podia_id' => $this->input->post('podia_3'),
+                  'event_id' => $this->input->post('event_3'),
+                  'day' => $this->input->post('day_3'),
+                  'start_performance' => $this->input->post('start_performance_3'),
+                  'end_performance' => $this->input->post('end_performance_3')
+                )
+            );
+            return $this->db->update_batch('performances', $data); 
+        }
     }
 
     public function geteditdata($artist_data){
-        $query = $this->db->get_where('artists', array('id' => $artist_data));
+        $this->db->select()
+                 ->from('artists')
+                 ->join('performances', 'performances.artist_id = artists.id')
+                 ->where('artist_id', $artist_data);
+                 
+        $query = $this->db->get();
+        /*$query = $this->db->get_where('artists', array('id' => $artist_data));*/
         return $query->row_array();
     }
+
+    /*public function getPerfomancesByArtist($artist_id)
+    {
+        $query = $this->db->get_where('performances', array('artist_id' => $artist_id));
+        return $query->row_array();
+    }*/
 
     public function getAllPodia()
     {
@@ -64,4 +138,10 @@ class Artist_model extends CI_Model
         return $query->result_array();
     }
 
+    public function getAllEvents()
+    {
+       $query = $this->db->get('event');
+
+        return $query->result_array(); 
+    }
 }

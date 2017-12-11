@@ -24,6 +24,7 @@ class Artist extends CI_BackendController {
     public function createartist()
     {
         $data['podia'] = $this->Artist_model->getAllPodia();
+        $data['events'] = $this->Artist_model->getAllEvents();
 
         $this->load->view('templates/backend_header');
         $this->load->view('artist/artistcreate', $data);
@@ -72,6 +73,8 @@ class Artist extends CI_BackendController {
 
     public function artisteditdata($artist_data){
         $data['artist_data'] = $this->Artist_model->geteditdata($artist_data);
+        $data['podia'] = $this->Artist_model->getAllPodia();
+        $data['events'] = $this->Artist_model->getAllEvents();
 
         if (empty($data['artist_data']))
         {
