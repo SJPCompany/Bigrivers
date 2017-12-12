@@ -40,7 +40,47 @@
         <label for="description"><i class="fa fa-comments" aria-hidden="true"></i> Beschrijving</label><br/>
         <textarea name="description" id="textbox" rows="10" cols="40"><?php echo $artist_data['description']?></textarea><br>
 
-       
+       <div class="box-body">
+<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+    <div class="row">
+        <div class="col-sm-12">
+        <table>
+            <thead>
+                <tr role="row">
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Podia</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Evenement</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Dag</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Start optreden</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Eind optreden</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Acties</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <?php if(isset($performances)): ?>
+                            <?php foreach ($performances as $performance): ?>
+                                <tr>
+                                    <td>
+                                        <?= $podia['podianame']?>
+                                    </td>
+                                    <td>
+                                        <?= $event['name']?>
+                                    </td>
+                                    <td>
+                                        <?= $performance['day']?>
+                                    </td>
+                                    <td><?php echo date('H:i', strtotime($performance['start_performance'])); ?></td>
+                                    <td><?php echo date('H:i', strtotime($performance['end_performance'])); ?></td>
+                                    <td>
+                                        <a class="mid"
+                                        href="<?php echo site_url('artist/edit_performance/' . $performance['id']); ?>"><i class="fa fa-pencil"></i></a>
+                                        <a class="mid" href="<?php echo site_url('artist/delete_performance/' . $performance['id']); ?>"
+                                                   onClick="return confirm('weet je zeker dat je deze optreden van artiest wilt verwijderen?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+            </tbody>
+        </table>
 
         
         <input type="submit" name="submit" value="pas aan"/><br>

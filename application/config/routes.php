@@ -78,8 +78,8 @@ $route['backend/image'] = 'Image/index';
 $route['backend/uploadimage'] = 'Image/uploadimage';
 /* News routes */
 $route['(:any)'] = 'page/view/$1';
-$route['newsview/(:any)'] = 'news/view/$1';
-$route['page/news'] = 'news/newslist';
+$route['newsview/(:any)'] = 'News_frontend/view/$1';
+$route['page/news'] = 'News_frontend/newslist';
 $route['backend/newscreate'] = 'news/newscreate';
 $route['backend/newsbeheer'] = 'news/newsbeheer';
 /* Widgets routes */

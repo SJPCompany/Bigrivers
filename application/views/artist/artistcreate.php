@@ -48,8 +48,8 @@
         <table>
             <thead>
                 <tr role="row">
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Artiest</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Podia</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Evenement</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Dag</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Start optreden</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Eind optreden</th>
@@ -57,9 +57,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="text" name="name" class="input-cell"></td>
                     <td>
-                        <select id="podia" name="podia" class="input-cell">
+                        <select id="podia" name="podia_1" class="input-cell">
                             <option value=""></option>
                             <?php if (isset($podia)): ?>
                                 <?php foreach($podia as $row): ?>
@@ -69,19 +68,28 @@
                         </select>
                     </td>
                     <td>
-                        <select id="day" name="day" class="input-cell">
+                        <select id="podia" name="event_1" class="input-cell">
+                            <option value=""></option>
+                            <?php if (isset($events)): ?>
+                                <?php foreach($events as $row): ?>
+                                    <option value="<?= $row['id']?>"><?= $row['name']?></option>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="day" name="day_1" class="input-cell">
                             <option value="donderdag">donderdag</option>
                             <option value="vrijdag">vrijdag</option>
                             <option value="zaterdag">zaterdag</option>
                         </select>
                     </td>
-                    <td><input type="time" name="start_performance" class="input-cell"></td>
-                    <td><input type="time" name="end_performance" class="input-cell"></td>
+                    <td><input type="time" name="start_performance_1" class="input-cell"></td>
+                    <td><input type="time" name="end_performance_1" class="input-cell"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="name" class="input-cell"></td>
                     <td>
-                        <select id="podia" name="podia" class="input-cell">
+                        <select id="podia" name="podia_2" class="input-cell">
                             <option value=""></option>
                             <?php if (isset($podia)): ?>
                                 <?php foreach($podia as $row): ?>
@@ -91,19 +99,28 @@
                         </select>
                     </td>
                     <td>
-                        <select id="day" name="day" class="input-cell">
+                        <select id="podia" name="event_2" class="input-cell">
+                            <option value=""></option>
+                            <?php if (isset($events)): ?>
+                                <?php foreach($events as $row): ?>
+                                    <option value="<?= $row['id']?>"><?= $row['name']?></option>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="day" name="day_2" class="input-cell">
                             <option value="donderdag">donderdag</option>
                             <option value="vrijdag">vrijdag</option>
                             <option value="zaterdag">zaterdag</option>
                         </select>
                     </td>
-                    <td><input type="time" name="start_performance" class="input-cell"></td>
-                    <td><input type="time" name="end_performance" class="input-cell"></td>
+                    <td><input type="time" name="start_performance_2" class="input-cell"></td>
+                    <td><input type="time" name="end_performance_2" class="input-cell"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="name" class="input-cell"></td>
                     <td>
-                        <select id="podia" name="podia" class="input-cell">
+                        <select id="podia" name="podia_3" class="input-cell">
                             <option value=""></option>
                             <?php if (isset($podia)): ?>
                                 <?php foreach($podia as $row): ?>
@@ -113,14 +130,24 @@
                         </select>
                     </td>
                     <td>
-                        <select id="day" name="day" class="input-cell">
+                        <select id="podia" name="event_3" class="input-cell">
+                            <option value=""></option>
+                            <?php if (isset($events)): ?>
+                                <?php foreach($events as $row): ?>
+                                    <option value="<?= $row['id']?>"><?= $row['name']?></option>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="day" name="day_3" class="input-cell">
                             <option value="donderdag">donderdag</option>
                             <option value="vrijdag">vrijdag</option>
                             <option value="zaterdag">zaterdag</option>
                         </select>
                     </td>
-                    <td><input type="time" name="start_performance" class="input-cell"></td>
-                    <td><input type="time" name="end_performance" class="input-cell"></td>
+                    <td><input type="time" name="start_performance_3" class="input-cell"></td>
+                    <td><input type="time" name="end_performance_3" class="input-cell"></td>
                 </tr>
             </tbody>
         </table>

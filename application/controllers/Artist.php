@@ -24,6 +24,7 @@ class Artist extends CI_BackendController {
     public function createartist()
     {
         $data['podia'] = $this->Artist_model->getAllPodia();
+        $data['events'] = $this->Artist_model->getAllEvents();
 
         $this->load->view('templates/backend_header');
         $this->load->view('artist/artistcreate', $data);
@@ -72,8 +73,12 @@ class Artist extends CI_BackendController {
 
     public function artisteditdata($artist_data){
         $data['artist_data'] = $this->Artist_model->geteditdata($artist_data);
+        $data['performances'] = $this->Artist_model->getPerformancesByArtist($artist_data);
+        $data['podia'] = $this->Artist_model->getPodiabyPerformance($artist_data);
+        $data['event'] = $this->Artist_model->getEventbyPerformance($artist_data);
 
-        if (empty($data['artist_data']))
+
+        if (empty($data))
         {
             echo 'error';
         }
@@ -82,6 +87,55 @@ class Artist extends CI_BackendController {
         $this->load->view('artist/artistedit',$data);
         $this->load->view('templates/backend_footer');
 
+    }
+
+    public function edit_performance($performance_id)
+    {
+        $data['performance'] = $this->Artist_model->getPerformance($performance_id);
+        $data['podia'] = $this->Artist_model->getPodiabyPerformance($performance_id);
+        $data['event'] = $this->Artist_model->getEventbyPerformance($performance_id);
+        $data['podiums'] = $this->Artist_model->getAllPodia();
+        $data['events'] = $this->Artist_model->getAllEvents();
+
+        if (empty($data))
+        {
+            echo 'error';
+        }
+
+        $this->load->view('templates/backend_header');
+        $this->load->view('artist/edit_performance',$data);
+        $this->load->view('templates/backend_footer');
+
+    }
+
+    public function edit_performance_data()
+    {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('podia_id', 'podia', 'required');
+        $this->form_validation->set_rules('event_id', 'event', 'required');
+        $this->form_validation->set_rules('day', 'day', 'required');
+        $this->form_validation->set_rules('start_performance', 'start_performance', 'required');
+        $this->form_validation->set_rules('end_performance', 'end_performance', 'required');
+
+        if($this->form_validation->run() === FALSE)
+        {
+            die('faal');
+            $_SESSION['error'] = [];
+            $error = "vul alles goed in";
+            $this->session->set_flashdata('error', $error);
+            redirect('edit_performance', 'Refresh');
+        }
+        else
+        {
+            die('gelukt!');
+            $this->Artist_model->update_performance();
+            $_SESSION['message'] = [];
+            $message = "Optreden van artiest is bewerkt en opgeslagen";
+            $this->session->set_flashdata('message', $message);
+            redirect('artistedit', 'Refresh');
+        }
     }
 
     public function edit(){

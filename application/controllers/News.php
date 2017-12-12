@@ -21,31 +21,7 @@ class news extends CI_BackendController {
         $this->load->view('news/newscreate');
         $this->load->view('templates/backend_footer');
     }
-// slug zorgt ervoor dat het id niet in de url gezien wordt maar de titel van het nieuws bericht
-    public function view($slug = NULL)
-    {
-        $data['news_item'] = $this->News_model->get_news($slug);
 
-        if (empty($data['news_item']))
-        {
-            echo 'error';
-        }
-
-        $data['title'] = $data['news_item']['title'];
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('page/newsview', $data);
-        $this->load->view('templates/footer');
-    }
-// laad view voor de niewslijst op de frontend en geef de data mee
-    public function newslist()
-    {
-        $data['news'] = $this->News_model->get_news();
-
-        $this->load->view('templates/header');
-        $this->load->view('page/news',$data);
-        $this->load->view('templates/footer');
-    }
 // laad view voor de nieuwsbeheerlijst op de backend en geef de data mee
     public function newsbeheer()
     {
@@ -55,7 +31,7 @@ class news extends CI_BackendController {
         $this->load->view('news/newsbeheer',$data);
         $this->load->view('templates/backend_footer');
     }
-
+//laad pagina newsedit en geef data mee uit de database met het meegegeven id
     public function newseditpage ($news_data){
         $data['news_item'] = $this->News_model->geteditdata($news_data);
 

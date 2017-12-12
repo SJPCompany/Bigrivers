@@ -100,7 +100,7 @@ desired effect
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">Navigatie omschakelen</span>
             </a>
             <?php if ($_SESSION['userinfo']->name == 'programmeur') {?>
                 <span class="Role"><b class="roletext">Programmeur</b></span>
@@ -114,7 +114,7 @@ desired effect
                     <li class="dropdown messages-menu">
                         <!-- Menu toggle button -->
                         <ul class="dropdown-menu">
-                            <li class="header">You have 4 messages</li>
+                            <li class="header">U hebt 4 berichten</li>
                             <li>
                                 <!-- inner menu: contains the messages -->
                                 <ul class="menu">
@@ -127,17 +127,17 @@ desired effect
                                             <!-- Message title and timestamp -->
                                             <h4>
                                                 Support Team
-                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                <small><i class="fa fa-clock-o"></i> 5 minuten</small>
                                             </h4>
                                             <!-- The message -->
-                                            <p>Why not buy a new awesome theme?</p>
+                                            <p>Waarom geen nieuw geweldig thema kopen?</p>
                                         </a>
                                     </li>
                                     <!-- end message -->
                                 </ul>
                                 <!-- /.menu -->
                             </li>
-                            <li class="footer"><a href="#">See All Messages</a></li>
+                            <li class="footer"><a href="#">Zie alle berichten</a></li>
                         </ul>
                     </li>
 
