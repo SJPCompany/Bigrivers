@@ -52,6 +52,7 @@
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Dag</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Start optreden</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Eind optreden</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Acties</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,34 +60,22 @@
                             <?php foreach ($performances as $performance): ?>
                                 <tr>
                                     <td>
-                                        <select id="podia" name="podia" class="input-cell">
-                                            <option value=""></option>
-                                            <?php if (isset($podia)): ?>
-                                                <?php foreach($podia as $row): ?>
-                                                    <option value="<?= $row['id']?>"><?= $row['podianame']?></option>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
-                                        </select>
+                                        <?= $podia['podianame']?>
                                     </td>
                                     <td>
-                                        <select id="podia" name="event" class="input-cell">
-                                            <option value=""></option>
-                                            <?php if (isset($events)): ?>
-                                                <?php foreach($events as $row): ?>
-                                                    <option value="<?= $row['id']?>"><?= $row['name']?></option>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
-                                        </select>
+                                        <?= $event['name']?>
                                     </td>
                                     <td>
-                                        <select id="day" name="day" class="input-cell">
-                                            <option value="donderdag">donderdag</option>
-                                            <option value="vrijdag">vrijdag</option>
-                                            <option value="zaterdag">zaterdag</option>
-                                        </select>
+                                        <?= $performance['day']?>
                                     </td>
-                                    <td><input type="time" name="start_performance" class="input-cell" value="<?php echo date('H:i', strtotime($performance['start_performance'])); ?>"></td>
-                                    <td><input type="time" name="end_performance" class="input-cell" value="<?php echo date('H:i', strtotime($performance['end_performance'])); ?>"></td>
+                                    <td><?php echo date('H:i', strtotime($performance['start_performance'])); ?></td>
+                                    <td><?php echo date('H:i', strtotime($performance['end_performance'])); ?></td>
+                                    <td>
+                                        <a class="mid"
+                                        href="<?php echo site_url('artist/edit_performance/' . $performance['id']); ?>"><i class="fa fa-pencil"></i></a>
+                                        <a class="mid" href="<?php echo site_url('artist/delete_performance/' . $performance['id']); ?>"
+                                                   onClick="return confirm('weet je zeker dat je deze optreden van artiest wilt verwijderen?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php endif; ?>
