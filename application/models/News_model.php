@@ -11,10 +11,10 @@ class News_model extends CI_Model
     {
         $this->load->helper('url');
 
-        $slug = url_title($this->input->post('title'), 'dash', TRUE);
+        $slug = url_title($this->input->post('title',true), 'dash', TRUE);
 
         $data = array(
-            'title' => $this->input->post('title'),
+            'title' => $this->input->post('title',true),
             'slug' => $slug,
             'text' => $this->input->post('inhoud'),
             'creator' => $_SESSION['userinfo']->username,
@@ -44,11 +44,11 @@ class News_model extends CI_Model
     {
         $this->load->helper('url');
 
-        $slug = url_title($this->input->post('title'), 'dash', TRUE);
+        $slug = url_title($this->input->post('title',true), 'dash', TRUE);
 
         $data = array(
             'id' => $this->input->post('id'),
-            'title' => $this->input->post('title'),
+            'title' => $this->input->post('title',true),
             'slug' => $slug,
             'text' => $this->input->post('inhoud'),
             'creator' => $_SESSION['userinfo']->username,

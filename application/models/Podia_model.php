@@ -16,11 +16,11 @@ class Podia_model extends CI_Model
     public function set_podia()
     {
         $data = array(
-            'podianame' => $this->input->post('podianame'),
-            'street' => $this->input->post('street'),
-            'housenumber' => $this->input->post('housenumber'),
-            'zip' => $this->input->post('zip'),
-            'city' => $this->input->post('city'),
+            'podianame' => $this->input->post('podianame',true),
+            'street' => $this->input->post('street',true),
+            'housenumber' => $this->input->post('housenumber',true),
+            'zip' => $this->input->post('zip',true),
+            'city' => $this->input->post('city',true),
             'status' => $this->input->post('status')
         );
 
@@ -39,11 +39,11 @@ class Podia_model extends CI_Model
     public function edit_podia(){
         $data = array(
             'id' => $this->input->post('id'),
-            'podianame' => $this->input->post('podianame'),
-            'street' => $this->input->post('street'),
-            'housenumber' => $this->input->post('housenumber'),
-            'zip' => $this->input->post('zip'),
-            'city' => $this->input->post('city'),
+            'podianame' => $this->input->post('podianame',true),
+            'street' => $this->input->post('street',true),
+            'housenumber' => $this->input->post('housenumber',true),
+            'zip' => $this->input->post('zip',true),
+            'city' => $this->input->post('city',true),
             'status' => $this->input->post('status')
         );
         return $this->db->replace('podia', $data);

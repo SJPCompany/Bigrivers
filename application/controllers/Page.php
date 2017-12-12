@@ -1,6 +1,6 @@
 <?php
 include 'CI_BackendController.php';
-class page extends CI_BackendController {
+class page {
 
     public function view($page = 'contact')
     {

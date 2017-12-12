@@ -45,9 +45,11 @@
             geef link naar Twitterpagina weer
         </label><br>
         <label for="title"><i class="fa fa-clock-o" aria-hidden="true"></i> starttijd</label><br/>
-        <input type="datetime-local" name="starttime" value="<?=$event['starttime']?>"/><br/>
+        <?php $starttime = date("Y-m-d\TH:i:s", strtotime($event['starttime']))?>
+        <input type="datetime-local" name="starttime" value="<?php echo $starttime ?>"/><br/>
         <label for="title"><i class="fa fa-clock-o" aria-hidden="true"></i> eindtijd</label><br/>
-        <input type="datetime-local" name="endtime" value="<?=$event['endtime']?>"/><br/>
+        <?php $endtime = date("Y-m-d\TH:i:s", strtotime($event['endtime']))?>
+        <input type="datetime-local" name="endtime" value="<?php echo $endtime?>"/><br/>
         <label class="form-check-label">
             <input class="form-check-input" type="checkbox" value="1" name="ticket">
             ticket verplicht

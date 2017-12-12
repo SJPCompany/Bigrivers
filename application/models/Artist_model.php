@@ -10,12 +10,16 @@ class Artist_model extends CI_Model
     public function set_artist()
     {
         $data = array(
-            'name' => $this->input->post('name'),
+            'name' => $this->input->post('name',true),
             'description' => $this->input->post('description'),
-            'website' => $this->input->post('website'),
-            'youtube' => $this->input->post('youtube'),
-            'facebook' => $this->input->post('facebook'),
-            'twitter' => $this->input->post('twitter')
+            'website' => $this->input->post('website',true),
+            'youtube' => $this->input->post('youtube',true),
+            'facebook' => $this->input->post('facebook',true),
+            'twitter' => $this->input->post('twitter',true),
+            'podia_id' => $this->input->post('podia'),
+            'day' => $this->input->post('day'),
+            'start_performance' => $this->input->post('start_performance'),
+            'end_performance' => $this->input->post('end_performance')
         );
 
         $query = $this->db->insert('artists', $data);
@@ -72,11 +76,11 @@ class Artist_model extends CI_Model
     {
         $data = array(
             'id' => $this->input->post('id'),
-            'name' => $this->input->post('name'),
-            'website' => $this->input->post('website'),
-            'youtube' => $this->input->post('youtube'),
-            'facebook' => $this->input->post('facebook'),
-            'twitter' => $this->input->post('twitter'),
+            'name' => $this->input->post('name',true),
+            'website' => $this->input->post('website',true),
+            'youtube' => $this->input->post('youtube',true),
+            'facebook' => $this->input->post('facebook',true),
+            'twitter' => $this->input->post('twitter',true),
             'description' => $this->input->post('description'),
         );
 
