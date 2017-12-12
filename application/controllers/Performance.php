@@ -6,6 +6,7 @@ class Performance extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->model('Performance_model');
+        $this->output->enable_profiler(FALSE);
     }
 
     public function index()
@@ -27,6 +28,19 @@ class Performance extends CI_Controller
     public function locationCheck($id = null)
     {
         $data['info'] = $this->Performance_model->getPerformanceById($id);
+        $data['times'] = $this->Performance_model->getPerformanceTime();
+        $data['performances'] = $this->Performance_model->getPerformanceInfo();
+
+        foreach($data['times'] as $key => $value) {
+            $time_id = $value['id'];
+            foreach ($data['performances'] as $p_key => $p_value) {
+                if ($p_value['time_id'] == $time_id) {
+                    $data['times'][$key]['performances'][] = ['podium_id'=>$p_value['podium_id'], 'artist_name' => $p_value['name']];
+                }
+            }
+
+        }
+
         if ($data == FALSE) {
             $error = "Geen tijden gevonden op deze dag";
             $this->session->set_flashdata('error', $error);

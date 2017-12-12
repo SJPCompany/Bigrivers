@@ -36,4 +36,32 @@ class Performance_model  extends CI_Model
             return FALSE;
         }
     }
+
+    public function getPerformanceTime()
+    {
+        $query = $this->db->get('time');
+        if($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
+
+    public function getPerformanceInfo()
+    {
+        $this->db->select('*');
+        $this->db->from('performance_time pt');
+        $this->db->join('performance p', 'pt.performance_id = p.id', 'left');
+        $this->db->join('artists a', 'p.artist_id = a.id', 'left');
+        $this->db->join('podia po', 'p.podium_id = po.id', 'left');
+        $this->db->order_by('p.podium_id', 'ASC');
+
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
 }
