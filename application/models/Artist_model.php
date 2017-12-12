@@ -115,21 +115,15 @@ class Artist_model extends CI_Model
     }
 
     public function geteditdata($artist_data){
-        $this->db->select()
-                 ->from('artists')
-                 ->join('performances', 'performances.artist_id = artists.id')
-                 ->where('artist_id', $artist_data);
-                 
-        $query = $this->db->get();
-        /*$query = $this->db->get_where('artists', array('id' => $artist_data));*/
+        $query = $this->db->get_where('artists', array('id' => $artist_data));
         return $query->row_array();
     }
 
-    /*public function getPerfomancesByArtist($artist_id)
+    public function getPerfomancesByArtist($artist_data)
     {
-        $query = $this->db->get_where('performances', array('artist_id' => $artist_id));
-        return $query->row_array();
-    }*/
+        $query = $this->db->get_where('performances', array('artist_id' => $artist_data));
+        return $query->result_array();
+    }
 
     public function getAllPodia()
     {

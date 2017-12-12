@@ -55,99 +55,41 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <select id="podia" name="podia_1" class="input-cell">
-                            <option value=""></option>
-                            <?php if (isset($podia)): ?>
-                                <?php foreach($podia as $row): ?>
-                                    <option value="<?= $row['id']?>"><?= $row['podianame']?></option>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="podia" name="event_1" class="input-cell">
-                            <option value=""></option>
-                            <?php if (isset($events)): ?>
-                                <?php foreach($events as $row): ?>
-                                    <option value="<?= $row['id']?>"><?= $row['name']?></option>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="day" name="day_1" class="input-cell">
-                            <option value="donderdag">donderdag</option>
-                            <option value="vrijdag">vrijdag</option>
-                            <option value="zaterdag">zaterdag</option>
-                        </select>
-                    </td>
-                    <td><input type="time" name="start_performance_1" class="input-cell" value="<?= $artist_data['start_performance']?>"></td>
-                    <td><input type="time" name="end_performance_1" class="input-cell" value="<?= $artist_data['end_performance']?>"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <select id="podia" name="podia_2" class="input-cell">
-                            <option value=""></option>
-                            <?php if (isset($podia)): ?>
-                                <?php foreach($podia as $row): ?>
-                                    <option value="<?= $row['id']?>"><?= $row['podianame']?></option>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="podia" name="event_2" class="input-cell">
-                            <option value=""></option>
-                            <?php if (isset($events)): ?>
-                                <?php foreach($events as $row): ?>
-                                    <option value="<?= $row['id']?>"><?= $row['name']?></option>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="day" name="day_2" class="input-cell">
-                            <option value="donderdag">donderdag</option>
-                            <option value="vrijdag">vrijdag</option>
-                            <option value="zaterdag">zaterdag</option>
-                        </select>
-                    </td>
-                    <td><input type="time" name="start_performance_2" class="input-cell" value="<?= $artist_data['start_performance']?>"></td>
-                    <td><input type="time" name="end_performance_2" class="input-cell" value="<?= $artist_data['end_performance']?>"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <select id="podia" name="podia_3" class="input-cell">
-                            <option value=""></option>
-                            <?php if (isset($podia)): ?>
-                                <?php foreach($podia as $row): ?>
-                                    <option value="<?= $row['id']?>"><?= $row['podianame']?></option>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="podia" name="event_3" class="input-cell">
-                            <option value=""></option>
-                            <?php if (isset($events)): ?>
-                                <?php foreach($events as $row): ?>
-                                    <option value="<?= $row['id']?>"><?= $row['name']?></option>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="day" name="day_3" class="input-cell">
-                            <option value="donderdag">donderdag</option>
-                            <option value="vrijdag">vrijdag</option>
-                            <option value="zaterdag">zaterdag</option>
-                        </select>
-                    </td>
-                    <td><input type="time" name="start_performance_3" class="input-cell" value="<?= $artist_data['start_performance']?>"></td>
-                    <td><input type="time" name="end_performance_3" class="input-cell" value="<?= $artist_data['end_performance']?>"></td>
-                </tr>
+                    <?php if(isset($performances)): ?>
+                            <?php foreach ($performances as $performance): ?>
+                                <tr>
+                                    <td>
+                                        <select id="podia" name="podia" class="input-cell">
+                                            <option value=""></option>
+                                            <?php if (isset($podia)): ?>
+                                                <?php foreach($podia as $row): ?>
+                                                    <option value="<?= $row['id']?>"><?= $row['podianame']?></option>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="podia" name="event" class="input-cell">
+                                            <option value=""></option>
+                                            <?php if (isset($events)): ?>
+                                                <?php foreach($events as $row): ?>
+                                                    <option value="<?= $row['id']?>"><?= $row['name']?></option>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="day" name="day" class="input-cell">
+                                            <option value="donderdag">donderdag</option>
+                                            <option value="vrijdag">vrijdag</option>
+                                            <option value="zaterdag">zaterdag</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="time" name="start_performance" class="input-cell" value="<?php echo date('H:i', strtotime($performance['start_performance'])); ?>"></td>
+                                    <td><input type="time" name="end_performance" class="input-cell" value="<?php echo date('H:i', strtotime($performance['end_performance'])); ?>"></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
             </tbody>
         </table>
 
