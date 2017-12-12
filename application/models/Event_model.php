@@ -24,7 +24,7 @@ class Event_model extends CI_Model
     public function set_event()
     {
         $data = array(
-            'name' => $this->input->post('name'),
+            'name' => $this->input->post('name',true),
             'description' => $this->input->post('description'),
             'youtube' => $this->input->post('youtube'),
             'facebook' => $this->input->post('facebook'),
@@ -43,7 +43,7 @@ class Event_model extends CI_Model
     public function edit_event(){
         $data = array(
             'id' => $this->input->post('id'),
-            'name' => $this->input->post('name'),
+            'name' => $this->input->post('name',true),
             'description' => $this->input->post('description'),
             'youtube' => $this->input->post('youtube'),
             'facebook' => $this->input->post('facebook'),
