@@ -106,7 +106,9 @@ $route['backend/event/editevent'] = 'event/eventeditpage';
 $route['performance/index'] = 'performance/index';
 $route['performance/locationCheck/(:any)'] = 'performance/locationCheck/$1';
 
-$route['performances/edit_performance'] = 'performances/edit_performance';
+$route['performances/create_performance/(:any)'] = 'performances/create_performance/$1';
+$route['performances/edit_performance/(:any)'] = 'performances/edit_performance/$1';
+$route['performances/delete_performance/(:any)'] = 'performances/delete_performance/$1';
 
 
 
