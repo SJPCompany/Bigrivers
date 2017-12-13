@@ -44,7 +44,7 @@ class Performance extends CI_Controller
                 }
             }
         }
-
+        
         if ($data == FALSE) {
             $error = "Geen tijden gevonden op deze dag";
             $this->session->set_flashdata('error', $error);
