@@ -29,16 +29,20 @@ class Performance extends CI_Controller
     {
         $data['info'] = $this->Performance_model->getPerformanceById($id);
         $data['times'] = $this->Performance_model->getPerformanceTime();
-        $data['performances'] = $this->Performance_model->getPerformanceInfo();
+        $data['performances'] = $this->Performance_model->getPerformanceInfo($id);
 
-        foreach($data['times'] as $key => $value) {
-            $time_id = $value['id'];
-            foreach ($data['performances'] as $p_key => $p_value) {
-                if ($p_value['time_id'] == $time_id) {
-                    $data['times'][$key]['performances'][] = ['podium_id'=>$p_value['podium_id'], 'artist_name' => $p_value['name']];
+        if($data['performances'] == FALSE) {
+            $error = "Geen optredens gevonden";
+            $this->session->set_flashdata('error', $error);
+        } else {
+            foreach ($data['times'] as $key => $value) {
+                $time_id = $value['id'];
+                foreach ($data['performances'] as $p_key => $p_value) {
+                    if ($p_value['time_id'] == $time_id) {
+                        $data['times'][$key]['performances'][] = ['podium_id' => $p_value['podium_id'], 'artist_name' => $p_value['name']];
+                    }
                 }
             }
-
         }
 
         if ($data == FALSE) {

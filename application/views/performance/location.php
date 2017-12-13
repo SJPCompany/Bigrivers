@@ -26,10 +26,10 @@
                         // Als de var $locaties bestaat loop er over heen
                         foreach ($info as  $locatie) {
                             // Kijk of de event naam al een keer geprint is
-                            if ($locatie['podium_id'] != $eventname) {
-                                $eventname = $locatie['podium_id']; ?>
+                            if ($locatie['podianame'] != $eventname) {
+                                $eventname = $locatie['podianame'];?>
                                 <th style="color: white!important; background-color: black;"
-                                    scope="row"><?= $locatie['podium_id'] ?></th>
+                                    scope="row"><?= $locatie['podianame'] ?></th>
                                 <?php
                                 $headerCounter++;
                             }
@@ -42,7 +42,6 @@
                 <?php
                 $count = 1;
                 if (isset($info)) {
-                    $length = count($times);
                         foreach ($times as $blok) { ?>
                             <tr>
                                 <?php if ($count % 4 == 1) {?>
@@ -50,14 +49,19 @@
                                 <?php    }
                                 for ($i = 0; $i < $headerCounter; $i++) { ?>
                                         <td style="height: 20px;">
-                                            <?php if(isset($blok['performances'])) {
+                                            <?php
+                                            if(isset($blok['performances']) && $blok['performances'][0]['podium_id'] == $performances[$i]['podium_id']) {
                                                 echo $blok['performances'][0]['artist_name'];
                                             } ?>
                                         </td>
                                         <?php
                                     }
                                 $count++;?>
-                                <!-- TODO: Check on the start_time of the performance and if it has a artist -->
+                               <!--
+                                TODO:
+                                1.Give only the performance to here of the correct day
+                                2.Make the performance_time table good
+                               -->
                             </tr>
                         <?php }
                     } ?>
