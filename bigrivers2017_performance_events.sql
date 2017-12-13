@@ -3,9 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 13 dec 2017 om 08:28
+-- Gegenereerd op: 13 dec 2017 om 08:30
 -- Serverversie: 5.7.14
 -- PHP-versie: 7.0.10
+-- De performance met [performances] table moet worden gemerged
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
