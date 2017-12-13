@@ -47,6 +47,7 @@
        <div class="box-body">
 
 <h1>Optredens</h1>
+<a type="button" class="btn btn-primary btn-lg" href="<?php echo base_url("performances/create_performance/" . $artist_data['id'])?>">Voeg optreden toe</a>
 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
     <div class="row">
         <div class="col-sm-12">
