@@ -22,7 +22,7 @@
 
     <section class="content container-fluid">
 
-    	<?php echo form_open('artist/edit_performance_data'); ?>
+    	<?php echo form_open('performances/edit_performance_data'); ?>
 
 		<?php echo validation_errors(); ?>
 

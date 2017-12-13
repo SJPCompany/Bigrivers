@@ -147,8 +147,8 @@ class Artist_model extends CI_Model
       $data = array(
         'id' => $this->input->post('id'),
         'artist_id' => $this->input->post('artist_id'),
-        'podia_id' => $this->input->post('podia_id'),
-        'event_id' => $this->input->post('event_id'),
+        'podia_id' => $this->input->post('podia'),
+        'event_id' => $this->input->post('event'),
         'day' => $this->input->post('day'),
         'start_performance' => $this->input->post('start_performance'),
         'end_performance' => $this->input->post('end_performance'),
