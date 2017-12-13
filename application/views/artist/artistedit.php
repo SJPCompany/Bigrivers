@@ -40,7 +40,13 @@
         <label for="description"><i class="fa fa-comments" aria-hidden="true"></i> Beschrijving</label><br/>
         <textarea name="description" id="textbox" rows="10" cols="40"><?php echo $artist_data['description']?></textarea><br>
 
+
+        <input type="submit" name="submit" value="pas aan"/><br>
+        </form>
+
        <div class="box-body">
+
+<h1>Optredens</h1>
 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
     <div class="row">
         <div class="col-sm-12">
@@ -72,8 +78,8 @@
                                     <td><?php echo date('H:i', strtotime($performance['end_performance'])); ?></td>
                                     <td>
                                         <a class="mid"
-                                        href="<?php echo site_url('artist/edit_performance/' . $performance['id']); ?>"><i class="fa fa-pencil"></i></a>
-                                        <a class="mid" href="<?php echo site_url('artist/delete_performance/' . $performance['id']); ?>"
+                                        href="<?php echo site_url('performances/edit_performance/' . $performance['id']); ?>"><i class="fa fa-pencil"></i></a>
+                                        <a class="mid" href="<?php echo site_url('performances/delete_performance/' . $performance['id']); ?>"
                                                    onClick="return confirm('weet je zeker dat je deze optreden van artiest wilt verwijderen?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
@@ -81,10 +87,6 @@
                         <?php endif; ?>
             </tbody>
         </table>
-
-        
-        <input type="submit" name="submit" value="pas aan"/><br>
-        </form>
     </section>
     <!-- /.content -->
 </div>
