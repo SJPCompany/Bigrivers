@@ -50,18 +50,28 @@
                                 for ($i = 0; $i < $headerCounter; $i++) { ?>
                                         <td style="height: 20px;">
                                             <?php
-                                            if(isset($blok['performances']) && $blok['performances'][0]['podium_id'] == $performances[$i]['podium_id']) {
-                                                echo $blok['performances'][0]['artist_name'];
+                                            if(isset($blok['performances']) &&
+                                                $blok['performances'][0]['podium_id'] == $performances[$i]['podium_id']) { ?>
+                                                <?php if($blok['performances'] > 1) {
+                                                    foreach ($blok['performances'] as $performance) { ?>
+                                                        <a href="#myModal" id="custId" data-toggle="modal"
+                                                        data-id="<?php echo $performances[$i]['id']; ?>">
+                                                        <?php echo $performance['artist_name']; echo '</br>'; ?>
+                                                        </a>
+                                                        <?php
+                                                    }
+                                                } else { ?>
+                                                    <a href="#myModal" id="custId" data-toggle="modal"
+                                                       data-id="<?php echo $performances[$i]['id']; ?>">
+                                                    <?php echo $blok['performances'][0]['artist_name']; ?>
+                                                    </a>
+                                                    <?php
+                                                }
                                             } ?>
                                         </td>
                                         <?php
                                     }
                                 $count++;?>
-                               <!--
-                                TODO:
-                                1.Give only the performance to here of the correct day
-                                2.Make the performance_time table good
-                               -->
                             </tr>
                         <?php }
                     } ?>
@@ -71,10 +81,21 @@
     </div>
 </div>
 
-<!-- <?php foreach ($info as $artist) {
-    if ($artist['artiest_id'] != 0 && $artist['start_time'] == $blok['time']) { ?>
-        <td></td>
-    <?php } else {?>
-        <td><?= $artist['artiest_id'] ?></td>
-    <?php }
-}  ?> -->
+<!-- The modal for artist info-->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Artiest zijn Naam</h4>
+            </div>
+            <div class="modal-body">
+                <div class="fetched-data">
+                    // Artiesten info
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
