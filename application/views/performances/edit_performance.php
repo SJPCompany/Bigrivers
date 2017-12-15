@@ -26,7 +26,7 @@
 
 		<?php echo validation_errors(); ?>
 
-	<div class="box-body">
+	<div class="box box-info">
         <div class="form-group">
 		<label for="podia">Podia</label>
 			<input type="hidden" name="id" value="<?= $performance['id'] ?>">

@@ -22,6 +22,7 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
+        <div class="box box-info">
 
         <?php echo validation_errors(); ?>
 
@@ -51,7 +52,7 @@
 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
     <div class="row">
         <div class="col-sm-12">
-        <table>
+        <table id="sort" class="sort" role="grid" aria-describedby="example1_info">
             <thead>
                 <tr role="row">
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">Podia</th>
