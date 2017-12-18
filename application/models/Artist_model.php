@@ -11,7 +11,7 @@ class Artist_model extends CI_Model
     {
         $data = array(
             'name' => $this->input->post('name',true),
-            'description' => $this->input->post('description'),
+            'description' => strip_tags($this->input->post('description')),
             'website' => $this->input->post('website',true),
             'youtube' => $this->input->post('youtube',true),
             'facebook' => $this->input->post('facebook',true),
@@ -81,7 +81,7 @@ class Artist_model extends CI_Model
             'youtube' => $this->input->post('youtube',true),
             'facebook' => $this->input->post('facebook',true),
             'twitter' => $this->input->post('twitter',true),
-            'description' => $this->input->post('description'),
+            'description' => strip_tags($this->input->post('description')),
         );
 
         return $this->db->replace('artists', $data);
