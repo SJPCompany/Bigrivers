@@ -57,4 +57,20 @@ class Performance extends CI_Controller
             $this->load->view('templates/footer');
         }
     }
+
+    public function getArtist($artist_name = null)
+    {
+        $artist_name = $_GET['artist_name'];
+        if(!isset($artist_name) || $artist_name == null) {
+            echo json_encode(array("test"=>'No artist found'));
+        } else {
+            $check = $this->Performance_model->getArtistByName($artist_name);
+            if($check == FALSE) {
+                echo json_encode(array("test" => 'No artist found'));
+            } else {
+                echo json_encode(array("name" => $check[0]['name'], "description" => $check[0]['description'], "website" => $check[0]['website'],
+                    "youtube" => $check[0]['youtube'], "facebook" => $check[0]['facebook'], 'twitter' => $check[0]['twitter']));
+            }
+        }
+    }
 }

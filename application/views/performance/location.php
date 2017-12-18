@@ -55,7 +55,7 @@
                                                 <?php if($blok['performances'] > 1) {
                                                     foreach ($blok['performances'] as $performance) { ?>
                                                         <a href="#myModal" id="custId" data-toggle="modal"
-                                                        data-id="<?php echo $performances[$i]['id']; ?>">
+                                                        data-name="<?php echo $performance['artist_name']; ?>">
                                                         <?php echo $performance['artist_name']; echo '</br>'; ?>
                                                         </a>
                                                         <?php
@@ -86,11 +86,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Artiest zijn Naam</h4>
+                <h4 class="modal-title">Artiesten info</h4>
             </div>
             <div class="modal-body">
-                <div class="fetched-data">
-                    // Artiesten info
+                <div class="artist">
                 </div>
             </div>
             <div class="modal-footer">

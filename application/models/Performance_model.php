@@ -66,4 +66,17 @@ class Performance_model  extends CI_Model
             return false;
         }
     }
+
+    public function getArtistByName($artist_name)
+    {
+        $this->db->select('*');
+        $this->db->from('artists');
+        $this->db->where(array('name' => $artist_name));
+        $query = $this->db->get();
+        if($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
 }
