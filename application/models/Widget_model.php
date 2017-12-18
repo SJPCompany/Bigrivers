@@ -77,4 +77,15 @@ class Widget_model extends CI_Model
 
         return $query->result_array();
     }
+
+    public function getAllPerformances()
+    {
+        $this->db->select()
+                 ->from('performances')
+                 ->join('event', 'event.id = performances.event_id');
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 }
