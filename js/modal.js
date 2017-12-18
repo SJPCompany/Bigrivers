@@ -9,7 +9,6 @@ $(document).ready(function(){
                 console.log(settings.url);
             },
             success: function(response) {
-                console.log(response);
                 $('.artist').html("Name: " + response.name + "<br>" +  "Description: " + response.description + "<br>" +
                     "Website: " + response.website + "<br>" + "Youtube: " +  response.youtube + "<br>" +
                 "Facebook: " + response.facebook + "<br>" + "Twitter: " + response.twitter);
