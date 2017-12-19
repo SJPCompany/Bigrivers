@@ -94,9 +94,38 @@ class Artist_model extends CI_Model
 
     public function getPerformancesByArtist($artist_data)
     {
-        $query = $this->db->get_where('performances', array('artist_id' => $artist_data));
+        $this->db->select('event.name as e_name, podia.podianame as p_name, performances.day as day, performances.start_performance as start_time, performances.end_performance as end_time, performances.id as p_id')
+                 ->from('performances')
+                 ->join('event', 'event.id = performances.event_id', 'left')
+                 ->join('podia', 'podia.id = performances.podia_id', 'left')
+                 ->where('performances.artist_id', $artist_data);
+
+        $query = $this->db->get();
+
         return $query->result_array();
+
+        /*$result = $query->result_array();
+
+        var_dump($result);
+        die();*/
     }
+
+    /*public function getEventNameByArtist($artist_data)
+    {
+      $this->db->select('event.name as e_name')
+               ->from('event')
+               ->join('performances', 'performances.event_id = event.id')
+               ->where('performances.artist_id', $artist_data);
+
+      $query = $this->db->get();
+
+      return $query->result_array();
+
+      $result = $query->result_array();
+
+      var_dump($result);
+      die();
+    }*/
 
     public function getAllPodia()
     {
@@ -117,6 +146,7 @@ class Artist_model extends CI_Model
       $query = $this->db->get_where('performances', array('id' => $performance_id));
       return $query->row_array();
     }
+
 
     public function getPodiabyPerformance($performance_id)
     {

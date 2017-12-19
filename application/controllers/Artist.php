@@ -75,7 +75,7 @@ class Artist extends CI_BackendController {
         $data['artist_data'] = $this->Artist_model->geteditdata($artist_data);
         $data['performances'] = $this->Artist_model->getPerformancesByArtist($artist_data);
         $data['podia'] = $this->Artist_model->getPodiabyPerformance($artist_data);
-        $data['event'] = $this->Artist_model->getEventbyPerformance($artist_data);
+        //$data['event'] = $this->Artist_model->getEventNameByArtist($artist_data);
 
 
         if (empty($data))
