@@ -103,29 +103,7 @@ class Artist_model extends CI_Model
         $query = $this->db->get();
 
         return $query->result_array();
-
-        /*$result = $query->result_array();
-
-        var_dump($result);
-        die();*/
     }
-
-    /*public function getEventNameByArtist($artist_data)
-    {
-      $this->db->select('event.name as e_name')
-               ->from('event')
-               ->join('performances', 'performances.event_id = event.id')
-               ->where('performances.artist_id', $artist_data);
-
-      $query = $this->db->get();
-
-      return $query->result_array();
-
-      $result = $query->result_array();
-
-      var_dump($result);
-      die();
-    }*/
 
     public function getAllPodia()
     {
