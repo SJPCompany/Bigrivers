@@ -37,10 +37,6 @@ class Artist extends CI_BackendController {
 
         $this->form_validation->set_rules('name', 'Naam', 'required');
         $this->form_validation->set_rules('description', 'Beschrijving', 'required');
-        $this->form_validation->set_rules('website', 'Website', 'required');
-        $this->form_validation->set_rules('youtube', 'Youtube', 'required');
-        $this->form_validation->set_rules('facebook', 'Facebook', 'required');
-        $this->form_validation->set_rules('twitter', 'Twitter', 'required');
 
 
         if ($this->form_validation->run() === FALSE)
@@ -96,10 +92,6 @@ class Artist extends CI_BackendController {
 
         $this->form_validation->set_rules('name', 'Naam', 'required');
         $this->form_validation->set_rules('description', 'Beschrijving', 'required');
-        $this->form_validation->set_rules('website', 'Website', 'required');
-        $this->form_validation->set_rules('youtube', 'Youtube', 'required');
-        $this->form_validation->set_rules('facebook', 'Facebook', 'required');
-        $this->form_validation->set_rules('twitter', 'Twitter', 'required');
         if ($this->form_validation->run() === FALSE)
         {
             $_SESSION['error'] = [];
