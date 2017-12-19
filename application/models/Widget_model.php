@@ -24,12 +24,25 @@ class Widget_model extends CI_Model
         $this->db->insert('mytable', $data);
         */
 
-        $data = array('title' => $title, 'active' => $active, 'link' => $link);
-        $this->db->insert('widget', $data);
-        if ($this->db->affected_rows() > 0) {
-            return true;
-        } else {
-            return false;
+        if(empty($_POST['active']))
+        {
+          $data = array('title' => $title, 'link' => $link);
+            $this->db->insert('widget', $data);
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }  
+        }
+        else
+        {
+            $data = array('title' => $title, 'active' => $active, 'link' => $link);
+            $this->db->insert('widget', $data);
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 
@@ -42,13 +55,27 @@ class Widget_model extends CI_Model
 
     public function editWidget($id, $title, $active, $link)
     {
-        $data = array('id' => $id, 'title' => $title, 'active' => $active, 'link' => $link);
-        $this->db->where('id', $id);
-        $this->db->update('widget', $data);
-        if ($this->db->affected_rows() > 0) {
-            return true;
-        } else {
-            return false;
+        if(empty($_POST['active']))
+        {
+            $data = array('id' => $id, 'title' => $title, 'link' => $link);
+            $this->db->where('id', $id);
+            $this->db->update('widget', $data);
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        else
+        {
+            $data = array('id' => $id, 'title' => $title, 'active' => $active, 'link' => $link);
+            $this->db->where('id', $id);
+            $this->db->update('widget', $data);
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 

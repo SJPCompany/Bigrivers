@@ -58,7 +58,7 @@ class widget extends CI_BackendController
             $linktype = $_POST['LinkView_LinkType'];
 
             $this->form_validation->set_rules('title', 'title', 'required');
-            $this->form_validation->set_rules('active', 'active', 'required');
+            $this->form_validation->set_rules('active', 'active');
 
             if($this->form_validation->run() == FALSE)
             {
@@ -207,7 +207,7 @@ class widget extends CI_BackendController
             $linktype = $_POST['LinkView_LinkType'];
 
             $this->form_validation->set_rules('title', 'title', 'required');
-            $this->form_validation->set_rules('active', 'active', 'required');
+            $this->form_validation->set_rules('active', 'active');
 
             if($this->form_validation->run() == FALSE)
             {
