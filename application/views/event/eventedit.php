@@ -31,7 +31,7 @@
         <label for="title"><i class="fa fa-calendar" aria-hidden="true"></i> naam</label><br/>
         <input type="text" name="name" value="<?=$event['name']?>"/><br/>
         <label for="description"><i class="fa fa-comments" aria-hidden="true"></i> Beschrijving</label><br/>
-        <textarea name="description" id="textbox" rows="10" cols="40"><?=$event['description']?></textarea><br>
+        <textarea name="description" id="textbox" rows="10"><?=$event['description']?></textarea><br>
         <label class="form-check-label">
             <input name="youtube" class="form-check-input" type="checkbox" value="1">
             geef link naar Youtube kanaal weer
