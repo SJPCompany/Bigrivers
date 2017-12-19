@@ -203,27 +203,27 @@ desired effect
                 <li><a href="#"><i class="fa fa-address-book"></i> <span>Kalender</span></a></li>
 
                 <!-- Nieuws -->
-                <li><a href="<?= base_url("backend/newsbeheer")?>"><i class="fa fa-newspaper-o"></i> <span>nieuwsberichten</span></a></li>
+                <li><a href="<?= base_url("backend/newsbeheer")?>"><i class="fa fa-newspaper-o"></i> <span>Nieuwsberichten</span></a></li>
 
                 <!-- Artiesten -->
                 <li><a href="<?= base_url("artist/beheerartist")?>"><i class="fa fa-user-circle-o"></i> <span>Artiesten/bands</span></a></li>
 
                 <!-- Evenementen en sponsors -->
-                <li><a href="<?= base_url("event/eventbeheerpage")?>"><i class="fa fa-calendar"></i> <span>evenementen</span></a></li>
+                <li><a href="<?= base_url("event/eventbeheerpage")?>"><i class="fa fa-calendar"></i> <span>Evenementen</span></a></li>
 
-                <li><a href="#"><i class="fa fa-money"></i> <span>sponsoren</span></a></li>
+                <li><a href="#"><i class="fa fa-money"></i> <span>Sponsoren</span></a></li>
 
 
                 <!-- Genre's en podia -->
-                <li><a href="<?= base_url("podia/podiabeheerpage")?>"><i class="fa fa-music"></i> <span>podiums</span></a></li>
+                <li><a href="<?= base_url("podia/podiabeheerpage")?>"><i class="fa fa-music"></i> <span>Podiums</span></a></li>
 
-                <li><a href="#"><i class="fa fa-tags"></i> <span>genres</span></a></li>
+<!--                <li><a href="#"><i class="fa fa-tags"></i> <span>genres</span></a></li>-->
 
                 <!-- Menu's -->
                 <li><a href="#"><i class="fa fa-bars"></i> <span>Menu's</span></a></li>
 
                 <!-- Frontpage knoppen -->
-                <li><a href="<?= base_url("backend/widget/index")?>"><i class="fa fa-ellipsis-h"></i> <span>widgets</span></a></li>
+                <li><a href="<?= base_url("backend/widget/index")?>"><i class="fa fa-ellipsis-h"></i> <span>Widgets</span></a></li>
 
                 <!-- Images -->
                 <li><a href="<?= base_url("backend/image")?>"><i class="fa fa-picture-o"></i> <span>Plaatjes</span></a></li>

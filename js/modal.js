@@ -6,7 +6,7 @@ $(document).ready(function(){
             url : baseurl + "/performance/getArtist/",
             data: {artist_name: name},
             success: function(response) {
-                $('.artist').html("Name: " + response.name + "<br>" +  "beschrijfing: " + response.description + "<br>" +
+                $('.artist').html("Naam: " + response.name + "<br>" +  "beschrijfing: " + response.description + "<br>" +
                     "Website: " + response.website + "<br>" + "Youtube: " +  response.youtube + "<br>" +
                 "Facebook: " + response.facebook + "<br>" + "Twitter: " + response.twitter);
             }

@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            niewsberichten
+            nieuwsberichten
         </h1>
         <br>
         <a type="button" class="btn btn-primary btn-lg" href="<?php echo base_url("news/newscreate")?>">Voeg Nieuws toe</a>
